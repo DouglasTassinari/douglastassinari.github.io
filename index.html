@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Douglas Tassinari · Analista de Dados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E14;
+    --bg2: #0F1520;
+    --bg3: #151D2B;
+    --border: rgba(255,255,255,0.07);
+    --accent: #4A9FD4;
+    --accent-bright: #6DB8E8;
+    --text: #EDF2F7;
+    --muted: #6B7A8D;
+    --card: #0D1319;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; font-size: 14px; line-height: 1.6; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; background: rgba(10,14,20,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-weight: 800; font-size: 15px; letter-spacing: .04em; color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 2.5rem 5rem; position: relative; overflow: hidden; }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(74,159,212,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(74,159,212,0.05) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 60% at 50% 100%, transparent 40%, black 100%); }
+  .hero-glow { position: absolute; top: 15%; left: -5%; width: 55%; height: 55%; background: radial-gradient(ellipse, rgba(74,159,212,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .75rem; }
+  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font-weight: 800; font-size: clamp(3rem, 8vw, 7rem); line-height: .95; letter-spacing: -.02em; color: var(--text); margin-bottom: 1.5rem; }
+  h1 .destaque { color: var(--accent); }
+  .hero-sub { max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 400; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.5rem; border-radius: 2px; font-family: 'Syne', sans-serif; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; font-weight: 600; transition: all .2s; }
+  .btn-primary { background: var(--accent); color: #0A0E14; }
+  .btn-primary:hover { background: var(--accent-bright); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { position: absolute; right: 2.5rem; bottom: 5rem; display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-end; }
+  .stat-num { font-weight: 800; font-size: 2rem; color: var(--text); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+
+  section { padding: 6rem 2.5rem; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: .75rem; }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  h2 { font-weight: 700; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 3rem; }
+  h2 em { font-style: italic; color: var(--accent); }
+  .divider { width: 100%; height: 1px; background: var(--border); }
+
+  .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .sobre-texto p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-weight: 400; font-size: 13px; }
+  .sobre-texto p strong { color: var(--text); font-weight: 600; }
+  .formacao-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: .6rem; }
+  .formacao-item { display: flex; align-items: flex-start; gap: .75rem; padding: .85rem 1rem; background: var(--card); border: 1px solid var(--border); border-radius: 2px; }
+  .formacao-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-top: 5px; flex-shrink: 0; }
+  .formacao-texto { font-size: 12px; color: var(--muted); line-height: 1.5; font-weight: 400; }
+  .formacao-texto strong { color: var(--text); font-weight: 600; display: block; }
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-year { font-size: 11px; color: var(--accent); letter-spacing: .06em; min-width: 60px; padding-top: 2px; font-weight: 600; }
+  .tl-content { font-size: 13px; color: var(--muted); font-weight: 400; }
+  .tl-content strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 2px; }
+
+  .setores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 3rem; }
+  .setor-item { background: var(--card); padding: 1.5rem 1.25rem; text-align: center; transition: background .2s; }
+  .setor-item:hover { background: var(--bg3); }
+  .setor-icon { font-size: 1.4rem; margin-bottom: .5rem; }
+  .setor-nome { font-size: 12px; font-weight: 600; color: var(--text); }
+
+  .impacto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .impacto-item { background: var(--card); padding: 2rem 1.5rem; }
+  .impacto-num { font-weight: 800; font-size: 2.5rem; color: var(--accent); line-height: 1; margin-bottom: .5rem; }
+  .impacto-label { font-size: 12px; color: var(--muted); line-height: 1.5; font-weight: 400; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .skill-item { background: var(--card); padding: 1.5rem; transition: background .2s; }
+  .skill-item:hover { background: var(--bg3); }
+  .skill-name { font-weight: 700; font-size: 14px; margin-bottom: .5rem; }
+  .skill-desc { font-size: 12px; color: var(--muted); font-weight: 400; line-height: 1.6; }
+  .skill-bar-bg { height: 2px; background: var(--border); border-radius: 1px; margin-top: .85rem; }
+  .skill-bar { height: 2px; border-radius: 1px; background: var(--accent); }
+  .skill-level { font-size: 11px; color: var(--muted); margin-top: .4rem; }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .project-card { background: var(--card); padding: 2rem; position: relative; overflow: hidden; transition: background .2s; }
+  .project-card:hover { background: var(--bg3); }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .project-tag { display: inline-block; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(74,159,212,.3); padding: 2px 8px; border-radius: 2px; }
+  .project-auto { font-size: 10px; letter-spacing: .04em; padding: 2px 8px; border-radius: 2px; }
+  .auto-full { background: rgba(74,159,212,.12); color: var(--accent); }
+  .auto-semi { background: rgba(241,196,53,.08); color: #C9A227; }
+  .auto-manual { background: rgba(255,255,255,.05); color: var(--muted); }
+  .project-title { font-weight: 700; font-size: 1.05rem; margin-bottom: .75rem; line-height: 1.3; }
+  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; font-weight: 400; }
+  .project-impact { font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 1rem; display: flex; align-items: flex-start; gap: .5rem; font-weight: 400; }
+  .project-impact::before { content: '↗'; color: var(--accent); font-size: 13px; flex-shrink: 0; }
+  .project-tools { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .tool-tag { font-size: 10px; color: var(--muted); background: var(--bg3); padding: 2px 8px; border-radius: 2px; }
+
+  .contato-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .contato-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contato-link { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; background: var(--card); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all .2s; border-radius: 2px; }
+  .contato-link:hover { border-color: var(--accent); background: var(--bg3); }
+  .contato-link-icon { font-size: 1rem; width: 24px; text-align: center; color: var(--accent); font-weight: 700; }
+  .contato-link-info { flex: 1; }
+  .contato-link-label { font-size: 10px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .contato-link-value { font-size: 13px; color: var(--text); font-weight: 400; }
+  .contato-link-arrow { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; }
+
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.25rem 4rem; }
+    .hero-stats { display: none; }
+    section { padding: 4rem 1.25rem; }
+    .sobre-grid, .contato-inner { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">DT · Dados</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div style="position:relative;z-index:1;">
+    <p class="hero-tag">Analista de Dados · Criciúma, SC</p>
+    <h1>Douglas<br><span class="destaque">Tassinari</span><br>da Silva</h1>
+    <p class="hero-sub">Transformo dados em instrumentos de decisão. Construí do zero o ecossistema analítico de uma indústria metalúrgica — cobrindo da diretoria ao chão de fábrica, do comercial ao supply chain.</p>
+    <div class="hero-ctas">
+      <a href="#projetos" class="btn btn-primary">Ver projetos ↓</a>
+      <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">34+</div><div class="stat-label">relatórios ativos</div></div>
+    <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">áreas atendidas</div></div>
+    <div class="stat-item"><div class="stat-num">92%</div><div class="stat-label">automatizado</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-label">Sobre</div>
+  <div class="sobre-grid fade-in">
+    <div class="sobre-texto">
+      <h2>Dados como<br><em>linguagem</em></h2>
+      <p>Sou analista de dados com trajetória atípica — passei por logística, financeiro, TI e operações antes de encontrar em dados a forma mais eficiente de resolver problemas. Essa bagagem me dá uma visão que vai além do número: entendo o negócio porque já estive em várias partes dele.</p>
+      <p>Na <strong>Acriflex Acoplamentos</strong>, fui o primeiro profissional de dados da empresa. Construí do zero um ecossistema analítico que hoje cobre todas as áreas, com sistemas de monitoramento, controle e relatórios que suportam decisões diárias da diretoria.</p>
+      <div class="formacao-list">
+        <div class="formacao-item"><div class="formacao-dot"></div><div class="formacao-texto"><strong>Gestão Financeira</strong>Graduação em conclusão</div></div>
+        <div class="formacao-item"><div class="formacao-dot"></div><div class="formacao-texto"><strong>Formação em Dados — DNC</strong>Em andamento</div></div>
+        <div class="formacao-item"><div class="formacao-dot"></div><div class="formacao-texto"><strong>Análise de Dados & Automação</strong>Cursos especializados</div></div>
+        <div class="formacao-item"><div class="formacao-dot"></div><div class="formacao-texto"><strong>Excel para Uso Administrativo</strong>Curso desenvolvido e aplicado internamente na Acriflex</div></div>
+        <div class="formacao-item"><div class="formacao-dot"></div><div class="formacao-texto"><strong>LinkedIn como Ferramenta Comercial</strong>Curso desenvolvido e aplicado internamente na Acriflex</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-year">2022</span><div class="tl-content"><strong>Acriflex Acoplamentos</strong>Contratado para suporte de TI. Em 1 mês reorganizou o ERP e migrou para análise de dados.</div></div>
+        <div class="tl-item"><span class="tl-year">2023</span><div class="tl-content"><strong>Portfólio de indicadores</strong>Criou indicadores comerciais, produtividade de usinagem e acompanhamento de vendas e faturamento.</div></div>
+        <div class="tl-item"><span class="tl-year">2024</span><div class="tl-content"><strong>Sistemas de monitoramento</strong>Implementou funil de vendas, risco de churn, CRM analítico e relatórios de pré-vendas por canal.</div></div>
+        <div class="tl-item"><span class="tl-year">2025</span><div class="tl-content"><strong>Plano de cargos e salários</strong>Assumiu e entregou o plano de cargos da empresa. Relatório anual para definição de metas estratégicas.</div></div>
+        <div class="tl-item"><span class="tl-year">2026</span><div class="tl-content"><strong>Hoje</strong>34+ relatórios e sistemas ativos, 92% automatizados, apresentação mensal à diretoria.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COBERTURA -->
+<section>
+  <div class="section-label">Cobertura</div>
+  <h2>Áreas <em>atendidas</em></h2>
+  <div class="setores-grid fade-in">
+    <div class="setor-item"><div class="setor-icon">🏢</div><div class="setor-nome">Diretoria</div></div>
+    <div class="setor-item"><div class="setor-icon">💰</div><div class="setor-nome">Financeiro</div></div>
+    <div class="setor-item"><div class="setor-icon">📈</div><div class="setor-nome">Comercial</div></div>
+    <div class="setor-item"><div class="setor-icon">👥</div><div class="setor-nome">RH</div></div>
+    <div class="setor-item"><div class="setor-icon">📦</div><div class="setor-nome">Supply Chain</div></div>
+    <div class="setor-item"><div class="setor-icon">⚙️</div><div class="setor-nome">PCP</div></div>
+    <div class="setor-item"><div class="setor-icon">🔧</div><div class="setor-nome">Engenharia</div></div>
+  </div>
+  <div class="impacto-grid fade-in">
+    <div class="impacto-item"><div class="impacto-num">34+</div><div class="impacto-label">relatórios e sistemas de monitoramento ativos</div></div>
+    <div class="impacto-item"><div class="impacto-num">92%</div><div class="impacto-label">dos relatórios com atualização automatizada</div></div>
+    <div class="impacto-item"><div class="impacto-num">7</div><div class="impacto-label">áreas da empresa cobertas com dados</div></div>
+    <div class="impacto-item"><div class="impacto-num">0→1</div><div class="impacto-label">primeiro profissional de dados, ecossistema criado do zero</div></div>
+    <div class="impacto-item"><div class="impacto-num">3,5a</div><div class="impacto-label">anos de construção e evolução contínua</div></div>
+    <div class="impacto-item"><div class="impacto-num">2</div><div class="impacto-label">cursos desenvolvidos e aplicados internamente</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="section-label">Habilidades</div>
+  <h2>Ferramentas &<br><em>competências</em></h2>
+  <div class="skills-grid fade-in">
+    <div class="skill-item"><div class="skill-name">Microsoft Excel</div><div class="skill-desc">Fórmulas avançadas, Power Query, formatação condicional, dashboards dinâmicos e automação</div><div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div><div class="skill-level">Avançado · uso diário</div></div>
+    <div class="skill-item"><div class="skill-name">Power BI</div><div class="skill-desc">Modelagem de dados, DAX, relatórios interativos, integração com ERP</div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div><div class="skill-level">Intermediário · em evolução</div></div>
+    <div class="skill-item"><div class="skill-name">Análise de Dados</div><div class="skill-desc">KPIs, indicadores de desempenho, SSS, funil de vendas, churn, produtividade operacional</div><div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div><div class="skill-level">Avançado</div></div>
+    <div class="skill-item"><div class="skill-name">Gestão Comercial</div><div class="skill-desc">Metas individuais, ranking de produtos, carteira, propostas, conversão e pré-vendas</div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div><div class="skill-level">Avançado</div></div>
+    <div class="skill-item"><div class="skill-name">Produção / PCP</div><div class="skill-desc">Produtividade por operador, setup, retrabalho, improdutividade e meritocracia</div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div><div class="skill-level">Intermediário-avançado</div></div>
+    <div class="skill-item"><div class="skill-name">Supply Chain</div><div class="skill-desc">Estoque por linha, meses de cobertura, criticidade, prazo de entrega e expedição</div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div><div class="skill-level">Avançado</div></div>
+    <div class="skill-item"><div class="skill-name">Suporte TI / Sistemas</div><div class="skill-desc">ERP web, gestão de chamados, parametrização e integração entre sistemas</div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div><div class="skill-level">Intermediário</div></div>
+    <div class="skill-item"><div class="skill-name">RH / Cargos e Salários</div><div class="skill-desc">Plano de cargos, trilha de carreira, critérios de avaliação e tabela salarial</div><div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div><div class="skill-level">Intermediário</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-label">Projetos</div>
+  <h2>Relatórios, sistemas<br>& <em>monitoramento</em></h2>
+  <div class="projects-grid fade-in">
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">Faturamento</span><span class="project-auto auto-semi">Semi-automático</span></div>
+      <div class="project-title">Dashboard Diário de Estoque e Faturamento</div>
+      <div class="project-desc">Painel com KPIs dinâmicos de faturamento acumulado, meta do mês, devoluções, estoque disponível e carteira em aberto. Duas informações dependem de input manual por limitação do sistema ERP.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Power Query</span><span class="tool-tag">Formatação Condicional</span></div>
+      <div class="project-impact">Substituiu relatório manual com risco de erro. Dado disponível diariamente para a diretoria.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">Comercial</span><span class="project-auto auto-full">Automatizado</span></div>
+      <div class="project-title">Acompanhamento de Vendas por Vendedor</div>
+      <div class="project-desc">Relatório diário com meta individual, acumulado, projeção de vendas, saldo e representatividade por vendedor. Inclui gráfico comparativo e painel de faturamento por categoria e segmento.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Gráficos dinâmicos</span></div>
+      <div class="project-impact">Visibilidade individual de desempenho comercial, base das reuniões semanais da equipe.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">Estratégico</span><span class="project-auto auto-full">Automatizado</span></div>
+      <div class="project-title">Comparativo SSS — Vendas e Faturamento</div>
+      <div class="project-desc">Tabela mensal comparando meta vs real 2026 × 2025, com variação percentual SSS (Same Store Sales) para vendas e faturamento separadamente. Base para definição de metas anuais.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Análise YoY</span></div>
+      <div class="project-impact">Utilizado diretamente pelo diretor para definição de metas e projeções anuais.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">CRM Analítico</span><span class="project-auto auto-full">Automatizado</span></div>
+      <div class="project-title">Sistema de Risco de Churn por Cliente</div>
+      <div class="project-desc">Monitoramento de probabilidade de churn, nível de risco, frequência de proposta, ticket médio cotado vs convertido e tempo desde a última interação comercial por cliente.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">CRM</span><span class="tool-tag">Análise de risco</span></div>
+      <div class="project-impact">Alerta proativo de clientes em risco de perda silenciosa — incomum em empresas do mesmo porte.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">Produção</span><span class="project-auto auto-semi">Semi-automático</span></div>
+      <div class="project-title">Sistema de Produtividade Diária</div>
+      <div class="project-desc">Rendimento por operador (acumulado mensal), horas de setup, retrabalho, improdutividade, paradas e meritocracia vinculada ao faturamento. Cobre 13 operadores distribuídos por turno.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Gráficos de desempenho</span></div>
+      <div class="project-impact">Equivale funcionalmente a um sistema MES dedicado, construído internamente.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">Supply Chain</span><span class="project-auto auto-full">Automatizado</span></div>
+      <div class="project-title">Ranking de Linhas por Estoque e Faturamento</div>
+      <div class="project-desc">Ranking de 33 linhas de produto com faturamento do período, média histórica, estoque disponível e meses de cobertura. Semáforo de criticidade para tomada de decisão de compras.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Formatação condicional</span></div>
+      <div class="project-impact">Identifica linhas com risco de ruptura ou excesso de estoque de forma visual e imediata.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">Comercial</span><span class="project-auto auto-full">Automatizado</span></div>
+      <div class="project-title">Relatório de Pré-vendas por Canal</div>
+      <div class="project-desc">Prospecção diária com cadastros, contatos e qualificações por canal de origem: Instagram, Google, LinkedIn, feiras, indicação e site. Cotações e pedidos por origem ativa e passiva.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Funil de marketing</span></div>
+      <div class="project-impact">Visibilidade do ROI por canal de aquisição — raramente implementado em indústrias do porte.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><span class="project-tag">RH / Gestão</span><span class="project-auto auto-manual">Manual</span></div>
+      <div class="project-title">Plano de Cargos e Salários</div>
+      <div class="project-desc">Trilha de carreira com 3 níveis, competências técnicas e comportamentais, critérios de evidência, avaliação por gestor e tabela salarial por nível para toda a empresa.</div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">RH estratégico</span></div>
+      <div class="project-impact">Entregue em substituição ao RH. Aplicado na avaliação anual de toda a equipe.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner fade-in">
+    <div>
+      <div class="section-label">Contato</div>
+      <h2>Vamos<br><em>conversar?</em></h2>
+      <p style="color:var(--muted);line-height:1.9;font-size:13px;font-weight:400;margin-top:1rem;">Estou aberto a conversas sobre oportunidades, projetos ou trocas de experiência na área de dados e inteligência de negócios.</p>
+    </div>
+    <div class="contato-links">
+      <a href="https://linkedin.com/in/SEU-LINKEDIN" target="_blank" class="contato-link">
+        <span class="contato-link-icon">in</span>
+        <div class="contato-link-info"><div class="contato-link-label">LinkedIn</div><div class="contato-link-value">linkedin.com/in/seu-linkedin</div></div>
+        <span class="contato-link-arrow">↗</span>
+      </a>
+      <a href="https://github.com/SEU-GITHUB" target="_blank" class="contato-link">
+        <span class="contato-link-icon">⌥</span>
+        <div class="contato-link-info"><div class="contato-link-label">GitHub</div><div class="contato-link-value">github.com/seu-github</div></div>
+        <span class="contato-link-arrow">↗</span>
+      </a>
+      <a href="mailto:SEU@EMAIL.COM" class="contato-link">
+        <span class="contato-link-icon">@</span>
+        <div class="contato-link-info"><div class="contato-link-label">E-mail</div><div class="contato-link-value">seu@email.com</div></div>
+        <span class="contato-link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Douglas Tassinari da Silva</span>
+  <span style="color:var(--accent)">Analista de Dados · Criciúma, SC</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
