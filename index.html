@@ -1028,7 +1028,6 @@
     }
   }
   
-  /* MOBILE (até 768px) */
   @media (max-width: 768px) {
     .menu-toggle {
       display: flex;
@@ -1076,10 +1075,13 @@
     
     .hero-destaque {
       font-size: clamp(1.5rem, 5vw, 2rem);
+      text-align: center;
     }
     
     .hero-sub {
       font-size: 0.9rem;
+      text-align: center;
+      padding: 0 1rem;
     }
     
     .hero-ctas {
@@ -1095,6 +1097,25 @@
     
     .sobre-foto-wrap {
       max-width: 80%;
+    }
+    
+    /* NOVOS AJUSTES DE TEXTO PARA MOBILE */
+    .sobre-texto-principal {
+      text-align: center;
+    }
+    
+    .sobre-texto-principal p {
+      text-align: justify;
+      padding: 0 0.5rem;
+    }
+    
+    .projeto-desc, 
+    .projeto-impacto {
+      text-align: justify;
+    }
+    
+    .skill-desc {
+      text-align: justify;
     }
     
     .projetos-secundarios { 
