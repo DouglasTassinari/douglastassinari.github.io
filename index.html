@@ -291,11 +291,6 @@
     font-family: 'Inter', sans-serif;
   }
   
-  .hero-nome strong { 
-    color: var(--accent); 
-    font-weight: 700; 
-  }
-  
   .hero-destaque { 
     font-weight: 800; 
     font-size: clamp(2rem, 4.5vw, 3.2rem); 
@@ -317,7 +312,7 @@
   }
   
   /* ==================================================================
-     BOTÕES DO HERO - 4 OPÇÕES
+     BOTÕES DO HERO
      ================================================================== */
   .hero-ctas { 
     display: flex; 
@@ -460,39 +455,34 @@
     margin: 0 auto;
   }
   
-/* ==================================================================
-     SEÇÃO SOBRE - NOVA ESTRUTURA
-     ==================================================================
-     ORDEM: 1. Imagem + Timeline | 2. Texto "Dados como linguagem" | 3. Formação lado a lado
+  /* ==================================================================
+     SEÇÃO SOBRE
+     ORDEM: 1. Imagem + Timeline | 2. Texto principal | 3. Formação
      ================================================================== */
-  
-  /* Grid principal: imagem + timeline na esquerda, texto no centro */
   .sobre-wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
   }
   
-  /* Primeira linha: imagem + timeline - TAMANHO EQUILIBRADO */
-.sobre-top {
-  display: grid;
-  grid-template-columns: 0.3fr 0.3fr;  /* AJUSTA O TAMANHO DA IMAGEM */
-  gap: 3rem;
-  align-items: start;
-  justify-content: center;    /* ← CENTRALIZA A IMAGEM */
-  margin-bottom: 4rem;
+  .sobre-top {
+    display: grid;
+    grid-template-columns: 0.3fr 0.3fr;
+    gap: 3rem;
+    align-items: start;
+    justify-content: center;
+    margin-bottom: 4rem;
   }
   
-  /* IMAGEM - AUMENTADA EM 30% */
   .sobre-foto-wrap { 
     position: relative; 
     width: 100%;
-    max-width: 100%;      /* Remove qualquer limite */
+    max-width: 100%;
     margin: 0 auto;
   }
   
   .sobre-foto { 
     width: 100%; 
-    height: auto;         /* Altura automática para não distorcer */
+    height: auto;
     aspect-ratio: 3/4; 
     object-fit: cover; 
     object-position: center top; 
@@ -510,7 +500,6 @@
     opacity: .4; 
   }
   
-  /* Timeline */
   .timeline { 
     display: flex; 
     flex-direction: column; 
@@ -547,8 +536,8 @@
     font-weight: 600; 
     display: block; 
     margin-bottom: 2px; 
-  }  
-  /* Segunda linha: "Dados como linguagem" */
+  }
+  
   .sobre-texto-principal {
     text-align: left;
     margin-bottom: 3rem;
@@ -565,6 +554,7 @@
     line-height: 1.8;
     margin-bottom: 1rem;
     max-width: 900px;
+    text-align: justify;
   }
   
   .sobre-texto-principal p strong {
@@ -572,10 +562,9 @@
     font-weight: 600;
   }
   
-  /* Terceira linha: Formação em grid lado a lado */
   .formacao-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 colunas lado a lado */
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
     margin-top: 1rem;
   }
@@ -614,12 +603,12 @@
   /* ==================================================================
      ÁREAS ATENDIDAS - 10 ÁREAS
      ==================================================================
-     GRID COM 10 COLUNAS NO DESKTOP - todas as 10 áreas na mesma linha
+     GRID COM 10 COLUNAS NO DESKTOP
      breakpoints responsivos ajustados
      ================================================================== */
   .setores-grid { 
     display: grid; 
-    grid-template-columns: repeat(10, 1fr);    /* 10 colunas iguais */
+    grid-template-columns: repeat(10, 1fr);
     gap: 1px;
     background: var(--border); 
     border: 1px solid var(--border); 
@@ -810,6 +799,7 @@
     color: var(--muted); 
     line-height: 1.7; 
     margin-bottom: 1rem; 
+    text-align: justify;
   }
   
   .projeto-impacto { 
@@ -818,6 +808,7 @@
     display: flex; 
     align-items: flex-start; 
     gap: 0.5rem; 
+    text-align: justify;
   }
   
   .projeto-impacto::before { 
@@ -854,6 +845,7 @@
     font-size: 0.75rem; 
     color: var(--muted); 
     line-height: 1.5; 
+    text-align: justify;
   }
   
   /* ==================================================================
@@ -888,6 +880,7 @@
     font-size: 0.8rem; 
     color: var(--muted); 
     line-height: 1.6; 
+    text-align: justify;
   }
   
   .skill-bar-bg { 
@@ -1028,6 +1021,7 @@
     }
   }
   
+  /* MOBILE (até 768px) */
   @media (max-width: 768px) {
     .menu-toggle {
       display: flex;
@@ -1099,7 +1093,6 @@
       max-width: 80%;
     }
     
-    /* NOVOS AJUSTES DE TEXTO PARA MOBILE */
     .sobre-texto-principal {
       text-align: center;
     }
@@ -1185,7 +1178,7 @@
 </nav>
 
 <!-- ==================================================================
-     HERO
+     HERO (SEÇÃO PRINCIPAL)
      ================================================================== -->
 <div class="hero">
   <div class="hero-grid"></div>
@@ -1205,7 +1198,7 @@
   <div class="hero-stats">
     <div class="stat-item"><div class="stat-num">34+</div><div class="stat-label">relatórios ativos</div></div>
     <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">áreas atendidas</div></div>
-    <div class="stat-item"><div class="stat-num">60%</div><div class="stat-label">automação</div></div>
+    <div class="stat-item"><div class="stat-num">>90%</div><div class="stat-label">automação do ecossistema</div></div>
   </div>
 </div>
 
@@ -1213,12 +1206,11 @@
 
 <!-- ==================================================================
      SEÇÃO SOBRE
-     ORDEM: 1. Imagem + Timeline | 2. Texto "Dados como linguagem" | 3. Formação lado a lado
      ================================================================== -->
 <section id="sobre">
   <div class="sobre-wrapper">
     
-    <!-- LINHA 1: IMAGEM (menor) + TIMELINE -->
+    <!-- LINHA 1: IMAGEM + TIMELINE -->
     <div class="sobre-top fade-in">
       <div class="sobre-foto-wrap">
         <img src="photo.png" alt="Douglas Tassinari" class="sobre-foto">
@@ -1237,7 +1229,7 @@
     <div class="sobre-texto-principal fade-in">
       <h2>Dados como <em>linguagem</em></h2>
       <p>Sou profissional de dados com trajetória atípica — passei por logística, financeiro, TI e operações antes de encontrar em dados a forma mais eficiente de resolver problemas. <strong>4 anos de experiência</strong> construindo sistemas analíticos do zero.</p>
-      <p>Em uma <strong>indústria metalúrgica</strong>, fui o primeiro profissional de dados da empresa. Construí um ecossistema que hoje cobre <strong>10 áreas</strong>, com sistemas de monitoramento, controle e relatórios que suportam decisões diárias da diretoria.</p>
+      <p>Em uma indústria metalúrgica, fui o primeiro profissional de dados da empresa. Construí um ecossistema que hoje cobre <strong>10 áreas</strong>, com sistemas de monitoramento, controle e relatórios que suportam decisões diárias da diretoria.</p>
     </div>
     
     <!-- LINHA 3: FORMAÇÃO LADO A LADO -->
@@ -1274,7 +1266,7 @@
   </div>
   <div class="impacto-grid fade-in">
     <div class="impacto-item"><div class="impacto-num">34+</div><div class="impacto-label">relatórios e sistemas ativos</div></div>
-    <div class="impacto-item"><div class="impacto-num">60%</div><div class="impacto-label">automação (gestão ativa)</div></div>
+    <div class="impacto-item"><div class="impacto-num">>90%</div><div class="impacto-label">do ecossistema automatizado</div></div>
     <div class="impacto-item"><div class="impacto-num">10</div><div class="impacto-label">áreas da empresa cobertas</div></div>
     <div class="impacto-item"><div class="impacto-num">4</div><div class="impacto-label">anos de experiência</div></div>
     <div class="impacto-item"><div class="impacto-num">0→1</div><div class="impacto-label">primeiro profissional de dados</div></div>
@@ -1288,7 +1280,7 @@
 <div class="divider"></div>
 
 <!-- ==================================================================
-     PROJETOS (10 ÁREAS)
+     PROJETOS (10 ÁREAS) - VERSÃO ATUALIZADA COM IMPACTO
      ================================================================== -->
 <section id="projetos">
   <div class="section-label">Projetos</div>
@@ -1306,13 +1298,13 @@
       <div class="projeto-destaque">
         <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
         <div class="projeto-titulo">Comparativo SSS — Vendas e Faturamento</div>
-        <div class="projeto-desc">Tabela mensal comparando meta vs real (2026 × 2025), com variação percentual SSS (Same Store Sales) para vendas e faturamento separadamente.</div>
-        <div class="projeto-impacto">Base para definição de metas anuais. Utilizado diretamente pelo diretor para projeções.</div>
+        <div class="projeto-desc">Tabela mensal comparando meta vs real do ano atual com o anterior, com variação percentual SSS (Same Store Sales) para vendas e faturamento separadamente.</div>
+        <div class="projeto-impacto">Base para definição de metas anuais. Utilizado diretamente pelo diretor para projeções e planejamento estratégico.</div>
       </div>
       <div class="projetos-secundarios">
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Planejamento de Receita Anual com base em dados</div>
-          <div class="projeto-sec-desc">Projeção anual de receita baseada em histórico, sazonalidade e metas estratégicas.</div>
+          <div class="projeto-sec-nome">Planejamento de Receita Anual com cenários projetados</div>
+          <div class="projeto-sec-desc">Projeção anual de receita baseada em histórico, sazonalidade e cenários (conservador, moderado, otimista).</div>
           <span class="badge-auto">AUTOMATIZADO</span>
         </div>
       </div>
@@ -1328,39 +1320,49 @@
       <div class="projeto-destaque">
         <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
         <div class="projeto-titulo">Sistema de Risco de Churn por Cliente</div>
-        <div class="projeto-desc">Monitoramento de probabilidade de churn, nível de risco, frequência de proposta, ticket médio cotado vs convertido e tempo desde a última interação comercial por cliente.</div>
-        <div class="projeto-impacto">Alerta proativo de clientes em risco de perda silenciosa — incomum em empresas do mesmo porte.</div>
+        <div class="projeto-desc">Monitora probabilidade de churn, nível de risco (baixo/médio/crítico), frequência de proposta, ticket médio cotado vs convertido e tempo desde a última interação comercial por cliente.</div>
+        <div class="projeto-impacto">Alerta proativo de clientes em risco de perda silenciosa — incomum em empresas de mesmo porte. Clientes recuperados representam parcela significativa do faturamento.</div>
       </div>
       <div class="projetos-secundarios">
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Acompanhamento de Vendas por Vendedor</div>
+          <div class="projeto-sec-nome">Painel de Performance Comercial por Vendedor</div>
           <div class="projeto-sec-desc">Meta individual, acumulado, projeção, saldo e representatividade por vendedor.</div>
           <span class="badge-auto">AUTOMATIZADO</span>
         </div>
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Relatório de Propostas (ganhos/perdas/pedidos - 30 dias)</div>
+          <div class="projeto-sec-nome">Funil de Conversão Comercial - Análise de Ganhos e Perdas</div>
           <div class="projeto-sec-desc">Acompanhamento do funil de vendas com visibilidade de conversão por vendedor.</div>
-          <span class="badge-semi">SEMI-AUTOMATIZADO</span>
-        </div>
-        <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Relatório de Pré-vendas por Canal</div>
-          <div class="projeto-sec-desc">Prospecção por canal: Instagram, Google, LinkedIn, feiras, indicação e site.</div>
           <span class="badge-auto">AUTOMATIZADO</span>
         </div>
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Tempo médio de reativação de clientes</div>
-          <div class="projeto-sec-desc">Métrica de retenção e reengajamento de clientes inativos.</div>
+          <div class="projeto-sec-nome">Matriz de Eficácia por Canal de Aquisição</div>
+          <div class="projeto-sec-desc">Prospecção por canal: Instagram, Google, LinkedIn, feiras, indicação e site, com análise de conversão por origem.</div>
           <span class="badge-semi">SEMI-AUTOMATIZADO</span>
         </div>
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Acompanhamento de Carteira Trimestral</div>
+          <div class="projeto-sec-nome">Health Score da Carteira - Evolução Trimestral</div>
           <div class="projeto-sec-desc">Número de leads e clientes, valores cotado, vendido e faturado, variação de clientes ativos/inativos, churn, consolidado por mês com histórico.</div>
           <span class="badge-auto">AUTOMATIZADO</span>
         </div>
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Qualidade de Venda — Margem Ponderada</div>
+          <div class="projeto-sec-nome">Margem Ponderada por Vendedor - Controle de Lucratividade</div>
           <div class="projeto-sec-desc">Análise de margem por vendedor, gap entre margem meta e praticada. Impacto direto na comissão.</div>
           <span class="badge-semi">EM DESENVOLVIMENTO</span>
+        </div>
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Captação de Novos Clientes - Ranking por Vendedor</div>
+          <div class="projeto-sec-desc">Acompanhamento de novos clientes captados por período, com valores e quantidades por vendedor.</div>
+          <span class="badge-auto">AUTOMATIZADO</span>
+        </div>
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Reativação de Clientes Inativos - Programa de Recuperação</div>
+          <div class="projeto-sec-desc">Monitoramento de clientes que voltaram a comprar após período de inatividade, com valores e quantidades por vendedor.</div>
+          <span class="badge-auto">AUTOMATIZADO</span>
+        </div>
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Mix da Carteira - Análise de Composição de Receita</div>
+          <div class="projeto-sec-desc">Análise percentual do faturamento gerado por clientes ativos recorrentes, novos captados e recuperados.</div>
+          <span class="badge-auto">AUTOMATIZADO</span>
         </div>
       </div>
     </div>
@@ -1376,7 +1378,7 @@
         <div class="projeto-badge">PROJETO EM DESTAQUE · MANUAL</div>
         <div class="projeto-titulo">Plano de Cargos, Salários e Remuneração</div>
         <div class="projeto-desc">Trilha de carreira com níveis, competências técnicas e comportamentais, critérios de evidência, avaliação por gestor e tabela salarial para toda a empresa.</div>
-        <div class="projeto-impacto">Entregue em parceria com o RH. Aplicado na avaliação anual de toda a equipe.</div>
+        <div class="projeto-impacto">Entregue em parceria com o RH. Aplicado na avaliação anual de toda a equipe. Reconhecimento por tempo de casa padronizado.</div>
       </div>
     </div>
 
@@ -1388,16 +1390,16 @@
         <span class="area-sub">meritocracia · benefícios</span>
       </div>
       <div class="projeto-destaque">
-        <div class="projeto-badge">PROJETO EM DESTAQUE · SEMI-AUTOMATIZADO</div>
+        <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
         <div class="projeto-titulo">Sistema de Gestão de Meritocracia com base em indicadores</div>
-        <div class="projeto-desc">Vinculação de bonificações e reconhecimento a KPIs individuais e coletivos.</div>
-        <div class="projeto-impacto">Criação de cultura de meritocracia baseada em dados.</div>
+        <div class="projeto-desc">Vinculação de bonificações e reconhecimento a KPIs individuais e coletivos (faturamento, produtividade, rendimento, setup, assiduidade, prazo de entrega, margem de venda).</div>
+        <div class="projeto-impacto">Criação de cultura de meritocracia baseada em dados. Cálculo automatizado de bonificações mensais com base em metas batidas por degraus.</div>
       </div>
       <div class="projetos-secundarios">
         <div class="projeto-secundario">
-          <div class="projeto-sec-nome">Sistema de Controle de Pedidos de Almoço por colaborador</div>
-          <div class="projeto-sec-desc">Gestão de benefícios com controle individual e validação.</div>
-          <span class="badge-semi">SEMI-AUTOMATIZADO</span>
+          <div class="projeto-sec-nome">Controle de Pedidos de Almoço por colaborador</div>
+          <div class="projeto-sec-desc">Gestão de benefício com controle individual diário, totalização mensal e valor consolidado para desconto em folha ou cobrança.</div>
+          <span class="badge-auto">AUTOMATIZADO</span>
         </div>
       </div>
     </div>
@@ -1410,10 +1412,10 @@
         <span class="area-sub">controle · estoque · faturamento</span>
       </div>
       <div class="projeto-destaque">
-        <div class="projeto-badge">PROJETO EM DESTAQUE · SEMI-AUTOMATIZADO</div>
-        <div class="projeto-titulo">Dashboard Diário de Estoque e Faturamento</div>
+        <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
+        <div class="projeto-titulo">Painel de Controle de Estoque e Faturamento</div>
         <div class="projeto-desc">Painel com KPIs dinâmicos de faturamento acumulado, meta do mês, devoluções, estoque disponível e carteira em aberto.</div>
-        <div class="projeto-impacto">Substituiu relatório manual com risco de erro. Dado disponível diariamente para a diretoria.</div>
+        <div class="projeto-impacto">Substituiu relatório manual com risco de erro. Dado disponível diariamente para a diretoria. Automação: 90%.</div>
       </div>
     </div>
 
@@ -1428,7 +1430,7 @@
         <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
         <div class="projeto-titulo">Ranking de Linhas por Estoque e Faturamento</div>
         <div class="projeto-desc">Ranking de linhas de produto com faturamento do período, média histórica, estoque disponível e meses de cobertura. Semáforo de criticidade.</div>
-        <div class="projeto-impacto">Identifica linhas com risco de ruptura ou excesso de estoque de forma visual e imediata.</div>
+        <div class="projeto-impacto">Identifica linhas com risco de ruptura ou excesso de estoque de forma visual e imediata. Automação: 100%.</div>
       </div>
     </div>
 
@@ -1440,10 +1442,17 @@
         <span class="area-sub">entregas · metas · PCP</span>
       </div>
       <div class="projeto-destaque">
-        <div class="projeto-badge">PROJETO EM DESTAQUE · SEMI-AUTOMATIZADO</div>
-        <div class="projeto-titulo">Indicador de Meta e Acompanhamento de Pedidos</div>
-        <div class="projeto-desc">Acompanhamento da produção vs meta estabelecida, com visibilidade de entregas realizadas e pendentes.</div>
-        <div class="projeto-impacto">Visibilidade do desempenho produtivo para gestão da fábrica.</div>
+        <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
+        <div class="projeto-titulo">Painel de Performance de Pedidos e Prazo de Entrega</div>
+        <div class="projeto-desc">Acompanhamento da produção vs meta estabelecida, com visibilidade de entregas realizadas, pendentes, atrasadas e percentual de pedidos no prazo.</div>
+        <div class="projeto-impacto">Visibilidade do desempenho produtivo para gestão da fábrica. Automação: 100%.</div>
+      </div>
+      <div class="projetos-secundarios">
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Controle de Expedição por Colaborador</div>
+          <div class="projeto-sec-desc">Gestão de recebimento de bonificação por desempenho na expedição, com controle de elegibilidade mensal.</div>
+          <span class="badge-manual">MANUAL</span>
+        </div>
       </div>
     </div>
 
@@ -1452,13 +1461,30 @@
       <div class="area-header">
         <span class="area-icon">🔧</span>
         <span class="area-title">Engenharia</span>
-        <span class="area-sub">produtividade · setup · retrabalho</span>
+        <span class="area-sub">produtividade · qualidade · processos</span>
       </div>
       <div class="projeto-destaque">
         <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO</div>
-        <div class="projeto-titulo">Sistema de Produtividade Diária</div>
-        <div class="projeto-desc">Rendimento por operador (acumulado mensal), horas de setup, retrabalho, improdutividade e paradas. Cobre 13 operadores distribuídos por turno.</div>
-        <div class="projeto-impacto">Equivale funcionalmente a um sistema MES dedicado, construído internamente.</div>
+        <div class="projeto-titulo">Painel de Controle de Produtividade e Eficiência Operacional</div>
+        <div class="projeto-desc">Rendimento por operador, horas de setup, retrabalho, improdutividade e paradas de máquina. Cobre dezenas de operadores distribuídos por turno.</div>
+        <div class="projeto-impacto">Equivale funcionalmente a um sistema MES dedicado, construído internamente. Automação: 100%.</div>
+      </div>
+      <div class="projetos-secundarios">
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Matriz de Performance - Acabamento</div>
+          <div class="projeto-sec-desc">Metas por degraus de produtividade com bonificação atrelada. Acompanhamento de performance individual.</div>
+          <span class="badge-manual">MANUAL</span>
+        </div>
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Matriz de Performance - Pintura</div>
+          <div class="projeto-sec-desc">Metas por degraus de produtividade com bonificação atrelada. Controle de peças produzidas por operador.</div>
+          <span class="badge-manual">MANUAL</span>
+        </div>
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Gestão de Não Conformidades (NC)</div>
+          <div class="projeto-sec-desc">Acompanhamento de abertura, fechamento e eficácia de ações corretivas. Controle de saldo e meta de eficácia.</div>
+          <span class="badge-manual">MANUAL</span>
+        </div>
       </div>
     </div>
 
@@ -1472,8 +1498,20 @@
       <div class="projeto-destaque">
         <div class="projeto-badge">PROJETO EM DESTAQUE · GESTÃO ATIVA</div>
         <div class="projeto-titulo">Gestão de Tráfego Google e Meta Ads</div>
-        <div class="projeto-desc">Assumi a gestão direta das campanhas em agosto/2025. <strong>CTR subiu de 7,3% para 9,5% (+30%)</strong>. Leads: média anterior 28/mês → média atual 32/mês em crescente constante, com picos recentes de 41-43 leads/mês.</div>
-        <div class="projeto-impacto">Economia direta de <strong>R$16k/ano</strong> em taxas de agência externa + crescimento consistente na geração de leads.</div>
+        <div class="projeto-desc">Gestão direta de campanhas com acompanhamento de CTR, volume de leads, taxa de conversão lead → compra e investimento por contato.</div>
+        <div class="projeto-impacto">Aumento expressivo de CTR e leads. Economia direta com eliminação de agência externa. Automação: 100%.</div>
+      </div>
+      <div class="projetos-secundarios">
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Matriz de Performance por Canal de Origem</div>
+          <div class="projeto-sec-desc">Análise de desempenho de cada canal (site, Instagram, Google, LinkedIn, indicação, feiras) em cadastros, qualificações, cotações e pedidos.</div>
+          <span class="badge-manual">MANUAL</span>
+        </div>
+        <div class="projeto-secundario">
+          <div class="projeto-sec-nome">Painel de Comportamento do Site</div>
+          <div class="projeto-sec-desc">Acompanhamento de acessos, usuários engajados, páginas mais visitadas e conversões por formulário.</div>
+          <span class="badge-manual">MANUAL</span>
+        </div>
       </div>
     </div>
 
@@ -1487,13 +1525,13 @@
       <div class="projeto-destaque">
         <div class="projeto-badge">PROJETO EM DESTAQUE · AUTOMATIZADO COM IA</div>
         <div class="projeto-titulo">Portfólio Profissional + IA Generativa</div>
-        <div class="projeto-desc">Desenvolvimento completo deste portfólio utilizando engenharia de prompt e IA generativa. Criação de um site responsivo, profissional e independente, com 10 áreas funcionais mapeadas, relatórios documentados, design system completo e deploy autônomo. Todo o código foi estruturado, revisado e otimizado em colaboração com IA, demonstrando capacidade de orquestrar tecnologia de ponta para entregar valor real.</div>
-        <div class="projeto-impacto"><strong>💡 Diferencial estratégico:</strong> Portfólio profissional desenvolvido em aproximadamente 6 horas de trabalho colaborativo, com padrão corporativo, responsivo, acessível e pronto para produção. Demonstra habilidade de gestão de projetos com IA, engenharia de prompt, desenvolvimento front-end e arquitetura de informação.</div>
+        <div class="projeto-desc">Desenvolvimento completo deste portfólio utilizando engenharia de prompt e IA generativa. Criação de site responsivo, profissional e independente, com 10 áreas mapeadas e projetos documentados.</div>
+        <div class="projeto-impacto">Portfólio profissional desenvolvido em tempo recorde, com padrão corporativo, responsivo, acessível e pronto para produção. Demonstra habilidade de gestão de projetos com IA, engenharia de prompt, desenvolvimento front-end e arquitetura de informação.</div>
       </div>
       <div class="projetos-secundarios">
         <div class="projeto-secundario">
           <div class="projeto-sec-nome">Orquestração de Projetos com IA</div>
-          <div class="projeto-sec-desc">Utilização de IA generativa para acelerar entregas: desde prototipagem de dashboards até documentação técnica e automação de relatórios. Redução de tempo de desenvolvimento em até 80% em projetos repetitivos.</div>
+          <div class="projeto-sec-desc">Utilização de IA generativa para acelerar entregas: desde prototipagem de dashboards até documentação técnica e automação de relatórios.</div>
           <span class="badge-auto">AUTOMATIZADO COM IA</span>
         </div>
         <div class="projeto-secundario">
@@ -1503,7 +1541,7 @@
         </div>
         <div class="projeto-secundario">
           <div class="projeto-sec-nome">Metodologia IA-first para Analistas</div>
-          <div class="projeto-sec-desc">Criação de framework próprio para integração de IA no dia a dia de BI: desde limpeza de dados até storytelling executivo. Aplicado internamente na indústria metalúrgica.</div>
+          <div class="projeto-sec-desc">Framework próprio para integração de IA no dia a dia de BI: desde limpeza de dados até storytelling executivo.</div>
           <span class="badge-auto">AUTOMATIZADO</span>
         </div>
       </div>
