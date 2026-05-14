@@ -990,15 +990,21 @@
      ANIMAÇÕES FADE-IN
      ================================================================== */
   .fade-in { 
-    opacity: 0; 
-    transform: translateY(24px); 
-    transition: opacity .6s ease, transform .6s ease; 
-  }
-  
-  .fade-in.visible { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  opacity: 1; 
+  transform: translateY(0); 
+  transition: opacity .6s ease, transform .6s ease; 
+}
+
+/* Só esconde se JavaScript estiver disponível */
+.js .fade-in { 
+  opacity: 0; 
+  transform: translateY(24px); 
+}
+
+.js .fade-in.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
   
   /* ==================================================================
      RESPONSIVIDADE
@@ -1177,7 +1183,7 @@
 </style>
 </head>
 <body>
-
+<script>document.documentElement.classList.add('js');</script>
 <!-- ==================================================================
      NAVEGAÇÃO PRINCIPAL
      ================================================================== -->
