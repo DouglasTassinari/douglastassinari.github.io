@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Douglas Tassinari · BI & Strategy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1229,6 +1229,29 @@
       text-align: center; 
       padding: 1.5rem;
     }
+
+    /* ============================================================== */
+    /* CORREÇÃO MOBILE: FORÇA VISIBILIDADE DOS PROJETOS               */
+    /* ============================================================== */
+    /* Este bloco resolve o bug onde os projetos não apareciam no celular */
+    /* Ele força fundo, display e cores mesmo em situações de fallback */
+    .projeto-destaque,
+    .projeto-secundario {
+      background: var(--card) !important;
+      display: block !important;
+    }
+    
+    .projetos-secundarios {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+    
+    .projeto-desc,
+    .projeto-impacto,
+    .projeto-sec-desc {
+      color: var(--muted) !important;
+    }
   }
   
   /* MOBILE PEQUENO (até 480px) */
@@ -1715,22 +1738,55 @@
 <div class="divider"></div>
 
 <!-- ==================================================================
-     19. SEÇÃO HABILIDADES
+     19. SEÇÃO HABILIDADES (CORRIGIDA)
      ==================================================================
      Grid de competências técnicas com barras de proficiência
+     VERSÃO CORRIGIDA: Adicionadas habilidades estratégicas e de AI Orchestration
      ================================================================== -->
 <section id="habilidades">
   <div class="section-label">Habilidades</div>
-  <h2>Ferramentas &<br><em>competências</em></h2>
+  <h2>O que me trouxe até aqui<br><em>e o que estou construindo</em></h2>
   <div class="skills-grid fade-in">
-    <div class="skill-item"><div class="skill-name">Microsoft Excel</div><div class="skill-desc">Fórmulas avançadas, Power Query, dashboards dinâmicos e automação</div><div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">Power BI</div><div class="skill-desc">Modelagem de dados, DAX, relatórios interativos, integração com ERP</div><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">Análise de Dados</div><div class="skill-desc">KPIs, SSS, funil de vendas, churn, produtividade operacional</div><div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">Gestão Comercial</div><div class="skill-desc">Metas individuais, carteira, propostas, conversão e pré-vendas</div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">Produção / PCP</div><div class="skill-desc">Produtividade por operador, setup, retrabalho e meritocracia</div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">Supply Chain</div><div class="skill-desc">Estoque por linha, meses de cobertura, criticidade e expedição</div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">Gestão de Tráfego</div><div class="skill-desc">Google Ads, Meta Ads, CTR, leads, otimização de campanhas</div><div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div></div>
-    <div class="skill-item"><div class="skill-name">RH / Cargos</div><div class="skill-desc">Plano de cargos, trilha de carreira, avaliação e tabela salarial</div><div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div></div>
+    <div class="skill-item">
+      <div class="skill-name">🎯 Estratégia & Gestão de Dados</div>
+      <div class="skill-desc">Construção de ecossistemas analíticos do zero — da diretoria ao chão de fábrica. Atendimento a 10 áreas simultâneas com visão de produto e governança.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">🤖 AI Orchestration & Prompt Engineering</div>
+      <div class="skill-desc">Orquestração de IA generativa para desenvolvimento de código, documentação, automação de relatórios e prototipagem rápida de dashboards e portfólios.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:88%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">📊 Business Intelligence</div>
+      <div class="skill-desc">KPIs estratégicos (SSS, churn, conversão), modelagem de dados, dashboards executivos, integração com ERP e automação de entregas.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">⚙️ Automação de Processos</div>
+      <div class="skill-desc">Mais de 90% do ecossistema automatizado. Substituição de relatórios manuais por sistemas com atualização diária automática.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:95%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">🏭 Visão de Negócio (Indústria)</div>
+      <div class="skill-desc">Logística, comercial, financeiro, supply chain, produção, RH, marketing. Falo a língua de cada área e traduzo necessidades em sistemas.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">📱 Gestão de Tráfego (Google/Meta Ads)</div>
+      <div class="skill-desc">CTR, leads, conversão, investimento. Gestão direta sem agência — R$16k/ano economizados.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">📈 Microsoft Excel & Power BI</div>
+      <div class="skill-desc">Fórmulas avançadas, Power Query, DAX, dashboards dinâmicos, modelagem de dados e automação de reports.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">🏭 Supply Chain & Produção (PCP)</div>
+      <div class="skill-desc">Estoque por linha, meses de cobertura, produtividade por operador, setup, retrabalho e meritocracia operacional.</div>
+      <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
+    </div>
   </div>
 </section>
 
@@ -1801,6 +1857,10 @@
      - Controla a abertura/fechamento do menu hambúrguer
      - Adiciona/remove a classe 'active' ao clicar no botão
      - Fecha automaticamente quando um link é clicado
+
+     CORREÇÃO MOBILE (adicional):
+     - Força a visibilidade dos projetos em dispositivos móveis
+     - Garante que mesmo com falha do observer, o conteúdo apareça
      ================================================================== -->
 <script>
   // INTERSECTION OBSERVER - ANIMAÇÃO FADE-IN (VERSÃO SEGURA)
@@ -1822,6 +1882,17 @@
   
   // Passo 3: Aplica o observer a todos os elementos com classe .fade-in
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  
+  // ==============================================================
+  // CORREÇÃO MOBILE: FORÇA VISIBILIDADE DOS PROJETOS
+  // ==============================================================
+  // Em dispositivos móveis, adicionamos a classe 'visible' imediatamente
+  // para garantir que nenhum conteúdo fique invisível por falha do observer
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.add('visible');
+    });
+  }
   
   // MENU MOBILE - Controle do menu hambúrguer
   // Seleciona o botão de toggle e o container dos links
