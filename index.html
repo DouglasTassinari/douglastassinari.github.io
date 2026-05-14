@@ -569,12 +569,12 @@
     margin-top: 1rem;
   }
   
-  .formacao-item { 
+    .formacao-item { 
     display: flex; 
     align-items: flex-start; 
     gap: .75rem; 
     padding: 0.9rem 1.2rem; 
-    background: var(--card); 
+    background: transparent;      /* Fundo transparente */
     border: 1px solid var(--border); 
     border-radius: 4px; 
   }
@@ -655,8 +655,8 @@
     border: 1px solid var(--border); 
   }
   
-  .impacto-item { 
-    background: var(--card); 
+    .impacto-item { 
+    background: transparent;      /* Fundo transparente */
     padding: 1.8rem 1.2rem; 
   }
   
@@ -819,9 +819,21 @@
   .projetos-secundarios { 
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 1px; 
-    background: var(--border); 
-    border: 1px solid var(--border); 
+    gap: 1rem;                    /* Remove o fundo de borda, usa gap normal */
+    background: transparent;      /* Fundo transparente */
+    border: none;                 /* Remove a borda */
+  }
+  
+  .projeto-secundario { 
+    background: transparent;      /* Fundo transparente - sem quadrado branco */
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: background .2s;
+  }
+  
+  .projeto-secundario:hover { 
+    background: var(--bg3); 
   }
   
   .projeto-secundario { 
@@ -859,8 +871,8 @@
     border: 1px solid var(--border); 
   }
   
-  .skill-item { 
-    background: var(--card); 
+    .skill-item { 
+    background: transparent;      /* Fundo transparente */
     padding: 1.5rem; 
     transition: background .2s; 
   }
@@ -994,9 +1006,16 @@
   
   /* TABLET (até 1200px) */
   @media (max-width: 1200px) {
-    .setores-grid { 
-      grid-template-columns: repeat(5, 1fr);
-    }
+      .setor-item { 
+    background: transparent;      /* Fundo transparente */
+    padding: 1.2rem 0.5rem; 
+    text-align: center; 
+    transition: background .2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
     
     .hero-stats { 
       display: none;
