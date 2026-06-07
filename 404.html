@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página não encontrada · Douglas Tassinari</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0A0E16">
+<!-- 404 autossuficiente: estilos embutidos para nunca depender de caminho relativo -->
+<style>
+  :root{ --bg:#0A0E16; --accent:#4F8DF5; --indigo:#7C5CFF; --text:#EAF0F8; --muted:#8593A6; --border:rgba(255,255,255,.12); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);min-height:100vh;display:grid;place-items:center;
+    font-family:'Inter',system-ui,sans-serif;text-align:center;padding:24px;overflow:hidden;position:relative}
+  .grid{position:absolute;inset:0;background-image:
+    linear-gradient(rgba(79,141,245,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(79,141,245,.05) 1px,transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 40%,#000 20%,transparent 75%);
+    mask-image:radial-gradient(ellipse 60% 60% at 50% 40%,#000 20%,transparent 75%)}
+  .wrap{position:relative;z-index:1;max-width:520px}
+  .code{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(4rem,16vw,8rem);
+    line-height:1;letter-spacing:-.04em;
+    background:linear-gradient(120deg,var(--accent),var(--indigo));-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1{font-family:'Space Grotesk',system-ui,sans-serif;font-size:1.5rem;margin:14px 0 10px;letter-spacing:-.02em}
+  p{color:var(--muted);margin-bottom:28px}
+  a.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#06090F;
+    font-weight:600;text-decoration:none;padding:13px 22px;border-radius:10px;transition:transform .2s}
+  a.btn:hover{transform:translateY(-2px)}
+  .mono{font-family:ui-monospace,monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="wrap">
+    <p class="mono">Erro 404</p>
+    <div class="code">404</div>
+    <h1>Esta página não existe.</h1>
+    <p>O endereço que você procurou não foi encontrado — mas o sistema continua de pé.</p>
+    <a class="btn" href="index.html">← Voltar ao início</a>
+  </div>
+</body>
+</html>

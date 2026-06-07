@@ -48,6 +48,8 @@
 
     /* 4. ANIMAÇÕES DE ENTRADA ---------------------------------------------- */
     var reveals = document.querySelectorAll('.reveal');
+    // JS principal carregou: cancela o failsafe definido no <head>
+    if (window.__revealFailsafe) { clearTimeout(window.__revealFailsafe); }
     if ('IntersectionObserver' in window && reveals.length) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {

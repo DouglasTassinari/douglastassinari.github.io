@@ -18,10 +18,16 @@ portfolio/
 ├── case-meritocracia.html          → Case 03 (Pessoas & Indicadores)
 ├── competencias.html               → Competências
 ├── contato.html                    → Contato
+├── 404.html                        → Página de erro (mesma identidade)
+├── favicon.svg                     → Ícone da aba do navegador
+├── robots.txt                      → Indexação por buscadores
 ├── assets/
 │   ├── styles.css                  → Design system (todo o visual)
 │   ├── main.js                     → Menu mobile, estado ativo, animações
-│   └── img/                        → (coloque suas imagens aqui)
+│   └── img/
+│       └── og-cover.png            → Imagem de compartilhamento (LinkedIn/WhatsApp)
+├── tests/
+│   └── test_site.py                → Testes automatizados (link/estrutura/marca)
 └── README.md
 ```
 
@@ -73,6 +79,24 @@ O site funciona sem nada disso, mas estes itens deixam tudo completo:
 - **Textos:** direto em cada `.html` — o conteúdo está em português, com comentários `<!-- -->` indicando cada seção.
 - **Cores e fontes:** em `assets/styles.css`, bloco `:root` (lá no topo) — muda tudo de uma vez.
 - **Links de contato (WhatsApp, LinkedIn, e-mail, GitHub):** aparecem no rodapé de todas as páginas e na página `contato.html`.
+
+---
+
+## ✅ Testes automatizados
+
+Tem uma suíte de testes (Python puro, sem instalar nada) que garante que o site não quebre — verifica links, estrutura, acessibilidade, SEO e a regra de **não usar a marca da empresa**. Rode a partir da pasta do projeto:
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+Se tudo estiver certo, termina com **OK**. Rode isso sempre que mexer no site.
+
+---
+
+## 🔁 Quando publicar no domínio final
+
+Hoje a imagem de compartilhamento social (`og:image`) aponta para a URL atual de testes (`.../DouglasTassinariv2.github.io/...`). Quando você mover o site para o domínio definitivo, é só me avisar que eu atualizo esse endereço em um lugar só — ou troque você mesmo o valor de `og:image` no `<head>` das páginas.
 
 ---
 
