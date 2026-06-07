@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inteligência de Carteira &amp; Churn · Case · Douglas Tassinari</title>
+<meta name="description" content="A perda silenciosa de cliente vira alerta proativo — antes de o cliente sumir. Um módulo de inteligência de carteira com score de risco por cliente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ===================== NAVEGAÇÃO ===================== -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span class="brand-name">Douglas Tassinari<small>Arquiteto de Sistemas de Gestão</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sistema.html">O Sistema</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="competencias.html">Competências</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="page">
+
+  <!-- ===================== CABEÇALHO DO CASE ===================== -->
+  <header class="hero case-hero">
+    <div class="bg-fx">
+      <div class="bg-grid"></div>
+      <div class="bg-glow g1"></div>
+      <div class="bg-glow g2"></div>
+    </div>
+    <div class="container relative">
+      <a class="link-more reveal" href="cases.html" style="margin-bottom:24px"><span class="arrow" style="transform:rotate(180deg)">→</span> Todos os cases</a>
+      <p class="eyebrow">Case 02 · Comercial</p>
+      <h1 class="display reveal" style="max-width:20ch">Inteligência de Carteira &amp; Churn</h1>
+      <div class="case-meta reveal d1">
+        <span class="m">Comercial B2B</span>
+        <span class="m">Score de risco por cliente</span>
+        <span class="m">SQL · regras de negócio</span>
+      </div>
+      <p class="case-outcome reveal d1">A perda silenciosa de cliente vira alerta proativo — antes de o cliente sumir.</p>
+    </div>
+  </header>
+
+  <!-- ===================== CORPO DO CASE ===================== -->
+  <section class="band">
+    <div class="container">
+      <div class="case-body">
+
+        <div class="case-block reveal">
+          <div class="case-k">Contexto</div>
+          <div class="case-v"><p>Uma operação comercial B2B com carteira de clientes recorrentes, mas sem nenhum sistema que acompanhasse a saúde do relacionamento. As vendas olhavam para a frente — propostas e fechamentos — e quase nunca para trás, para quem estava esfriando.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Problema</div>
+          <div class="case-v"><p>Clientes deixavam de comprar em silêncio. Não havia um alarme: quando alguém percebia a ausência, o cliente já tinha ido embora. Faltava um critério objetivo de risco — e faltava enxergar o problema antes que ele virasse perda.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Solução</div>
+          <div class="case-v"><p>Projetei um módulo de inteligência de carteira que calcula um nível de risco de churn por cliente, cruzando frequência de proposta, ticket médio cotado <em>versus</em> convertido e tempo desde a última interação comercial. Cada cliente recebe um nível — baixo, médio ou crítico — com semáforo visual.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Implementação</div>
+          <div class="case-v"><p>As regras rodam sobre o histórico comercial no banco, gerando o score automaticamente a cada atualização. O resultado aparece num painel de risco integrado ao sistema, ordenando a carteira do mais crítico ao mais saudável — pronto para virar ação.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Resultado</div>
+          <div class="case-v"><p>Os clientes em risco passaram a aparecer <em>antes</em> de sumir. A reativação deixou de depender de memória ou sorte e virou um processo guiado por dado: a lista de quem contatar já vem priorizada.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Impacto</div>
+          <div class="case-v"><p>A perda silenciosa virou alerta proativo — algo incomum em empresas de mesmo porte. Os clientes recuperados a partir desses alertas representam uma parcela significativa do faturamento que, antes, simplesmente escorria sem ninguém ver.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Aprendizados</div>
+          <div class="case-v"><p>O dado mais valioso nem sempre é o da venda fechada — muitas vezes é o do silêncio que antecede a perda. Medir ausência é tão estratégico quanto medir resultado.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NAVEGAÇÃO ENTRE CASES ===================== -->
+  <section class="section--tight">
+    <div class="container">
+      <div class="case-nav">
+        <a class="btn btn-ghost" href="case-sistema-industrial.html"><span class="arrow" style="transform:rotate(180deg)">→</span> Case anterior</a>
+        <a class="btn btn-primary" href="case-meritocracia.html">Próximo case: Meritocracia <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"></span>
+          <span class="brand-name">Douglas Tassinari<small>Arquiteto de Sistemas de Gestão</small></span>
+        </a>
+        <p>Projeto e construo sistemas corporativos de gestão sob medida — da fonte do dado à decisão da diretoria.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sistema.html">O Sistema</a></li>
+          <li><a href="cases.html">Cases</a></li>
+          <li><a href="competencias.html">Competências</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/douglastassinari/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/DouglasTassinari" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="mailto:douglastassinarii@gmail.com">E-mail ↗</a></li>
+          <li><a href="https://wa.me/5551981687088" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>© 2026 Douglas Tassinari da Silva</small>
+      <small class="accent">Business Systems &amp; Analytics · Criciúma, SC</small>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

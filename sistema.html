@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Sistema · Douglas Tassinari</title>
+<meta name="description" content="O conceito de um sistema corporativo integrado de gestão: arquitetura de referência, módulos por área, camada técnica e o método de construção.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ===================== NAVEGAÇÃO ===================== -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span class="brand-name">Douglas Tassinari<small>Arquiteto de Sistemas de Gestão</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sistema.html">O Sistema</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="competencias.html">Competências</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="page">
+
+  <!-- ===================== MANIFESTO ===================== -->
+  <header class="hero">
+    <div class="bg-fx">
+      <div class="bg-grid"></div>
+      <div class="bg-glow g1"></div>
+      <div class="bg-glow g2"></div>
+    </div>
+    <div class="container relative">
+      <p class="eyebrow">O Sistema</p>
+      <h1 class="display reveal">Não são relatórios isolados.<br><span class="grad">É um sistema.</span></h1>
+      <p class="lead reveal d1">Cada planilha avulsa resolve um pedaço. Um sistema resolve o todo: integra as áreas, unifica a fonte de verdade e entrega à diretoria o controle da operação inteira — em tempo real, na palma da mão.</p>
+    </div>
+  </header>
+
+  <!-- ===================== ARQUITETURA DE REFERÊNCIA ===================== -->
+  <section class="band">
+    <div class="container container--wide">
+      <div class="section-head reveal">
+        <p class="eyebrow">Arquitetura de referência</p>
+        <h2 class="title">Uma cabine de comando, oito módulos conectados.</h2>
+        <p class="lead">Cada módulo resolve um problema, suporta decisões e se conecta ao todo. A diretoria não pilota dashboards soltos — pilota um sistema.</p>
+      </div>
+      <div class="arch reveal d1">
+        <div class="arch-top">
+          <div class="label">Diretoria</div>
+          <div class="sub">cabine de comando · visão única</div>
+        </div>
+        <div class="arch-stem"></div>
+        <div class="arch-modules">
+          <div class="arch-mod"><div class="mod-ic">01</div><div class="mod-name">Comercial</div><div class="mod-desc">carteira · churn · conversão</div></div>
+          <div class="arch-mod"><div class="mod-ic">02</div><div class="mod-name">Produção</div><div class="mod-desc">metas · prazos · PCP</div></div>
+          <div class="arch-mod"><div class="mod-ic">03</div><div class="mod-name">Engenharia</div><div class="mod-desc">produtividade · eficiência</div></div>
+          <div class="arch-mod"><div class="mod-ic">04</div><div class="mod-name">Financeiro</div><div class="mod-desc">faturamento · estoque</div></div>
+          <div class="arch-mod"><div class="mod-ic">05</div><div class="mod-name">Supply Chain</div><div class="mod-desc">cobertura · ruptura</div></div>
+          <div class="arch-mod"><div class="mod-ic">06</div><div class="mod-name">RH &amp; DP</div><div class="mod-desc">meritocracia · cargos</div></div>
+          <div class="arch-mod"><div class="mod-ic">07</div><div class="mod-name">Marketing</div><div class="mod-desc">tráfego · leads · canais</div></div>
+          <div class="arch-mod"><div class="mod-ic">08</div><div class="mod-name">Inovação &amp; IA</div><div class="mod-desc">automação · IA aplicada</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OS MÓDULOS, UM A UM ===================== -->
+  <section>
+    <div class="container container--wide">
+      <div class="section-head reveal">
+        <p class="eyebrow">Os módulos</p>
+        <h2 class="title">O que cada parte do sistema resolve.</h2>
+        <p class="lead">Cada módulo responde quatro perguntas: que problema resolve, que decisões suporta, qual o impacto e como se conecta ao resto.</p>
+      </div>
+
+      <div class="grid grid-2">
+
+        <!-- Comercial -->
+        <article class="card module-card reveal">
+          <div class="mod-head"><span class="tag">01</span><h3>Comercial</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Vendas sem visibilidade de quem está prestes a sair.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">Quem reativar, onde focar o esforço, quais clientes salvar.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">A perda silenciosa de cliente vira alerta proativo.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Alimenta a Diretoria (receita) e cruza com o Financeiro.</span></div>
+          </div>
+        </article>
+
+        <!-- Produção -->
+        <article class="card module-card reveal d1">
+          <div class="mod-head"><span class="tag">02</span><h3>Produção</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Produção sem leitura de meta e prazo em tempo real.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">O que priorizar, onde está o gargalo, o que vai atrasar.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">O atraso deixa de ser surpresa e vira indicador acompanhado.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Puxa metas da Diretoria e abastece a Engenharia.</span></div>
+          </div>
+        </article>
+
+        <!-- Engenharia -->
+        <article class="card module-card reveal">
+          <div class="mod-head"><span class="tag">03</span><h3>Engenharia</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Eficiência operacional invisível, sem medir rendimento por operador.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">Onde investir, quem treinar, qual processo corrigir.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">Equivale a um MES interno: rendimento, setup e retrabalho medidos.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Cruza com Produção e abastece a Meritocracia (RH &amp; DP).</span></div>
+          </div>
+        </article>
+
+        <!-- Financeiro -->
+        <article class="card module-card reveal d1">
+          <div class="mod-head"><span class="tag">04</span><h3>Financeiro</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Faturamento e estoque controlados à mão, com risco de erro.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">Fôlego de caixa, exposição em estoque, carteira em aberto.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">O número certo, disponível todo dia para a diretoria.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Consolida Comercial e Supply Chain.</span></div>
+          </div>
+        </article>
+
+        <!-- Supply Chain -->
+        <article class="card module-card reveal">
+          <div class="mod-head"><span class="tag">05</span><h3>Supply Chain</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Risco de ruptura ou excesso de estoque sem aviso.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">O que comprar, o que segurar, qual linha está crítica.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">Cobertura por linha com semáforo de criticidade.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Alimenta o Financeiro e responde à Produção.</span></div>
+          </div>
+        </article>
+
+        <!-- RH & DP -->
+        <article class="card module-card reveal d1">
+          <div class="mod-head"><span class="tag">06</span><h3>RH &amp; DP</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Reconhecimento e benefícios sem critério mensurável.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">Quem bonificar, por qual meta, em que degrau.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">Cultura de meritocracia baseada em indicadores, não em achismo.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Consome indicadores de Produção, Engenharia e Comercial.</span></div>
+          </div>
+        </article>
+
+        <!-- Marketing -->
+        <article class="card module-card reveal">
+          <div class="mod-head"><span class="tag">07</span><h3>Marketing</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Investimento em tráfego sem leitura clara de retorno.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">Onde investir, qual canal cortar, qual campanha escalar.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">CTR e leads acompanhados; dependência de agência eliminada.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">Abastece o Comercial com origem e qualidade do lead.</span></div>
+          </div>
+        </article>
+
+        <!-- Inovação & IA -->
+        <article class="card module-card reveal d1">
+          <div class="mod-head"><span class="tag">08</span><h3>Inovação &amp; IA</h3></div>
+          <div class="qa">
+            <div class="qa-item"><span class="q">Problema</span><span class="a">Tarefas analíticas repetitivas consumindo tempo de decisão.</span></div>
+            <div class="qa-item"><span class="q">Decisões</span><span class="a">O que automatizar, onde a IA agrega, o que padronizar.</span></div>
+            <div class="qa-item"><span class="q">Impacto</span><span class="a">Análises e relatórios automatizados; IA aplicada ao negócio.</span></div>
+            <div class="qa-item"><span class="q">Conecta</span><span class="a">É a camada que evolui todos os outros módulos.</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAMADA TÉCNICA ===================== -->
+  <section class="band">
+    <div class="container container--wide">
+      <div class="section-head reveal">
+        <p class="eyebrow">A camada técnica</p>
+        <h2 class="title">Um pipeline de dados ponta a ponta.</h2>
+        <p class="lead">Por baixo de cada decisão, engenharia de verdade — automatizada e em produção. Sem intervenção manual, sem planilha no meio do caminho.</p>
+      </div>
+      <div class="flow reveal d1">
+        <div class="flow-step"><div class="n">01</div><div class="s">Fontes</div><div class="d">ERP · API · Excel</div></div>
+        <div class="flow-step"><div class="n">02</div><div class="s">ETL</div><div class="d">extração e tratamento em Python</div></div>
+        <div class="flow-step"><div class="n">03</div><div class="s">Banco de dados</div><div class="d">PostgreSQL como fonte de verdade</div></div>
+        <div class="flow-step"><div class="n">04</div><div class="s">Regras de negócio</div><div class="d">views SQL e camada de cálculo</div></div>
+        <div class="flow-step"><div class="n">05</div><div class="s">Aplicação</div><div class="d">web · login · Modo TV</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABORDAGEM / MÉTODO ===================== -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Abordagem</p>
+        <h2 class="title">Como eu construo, em quatro passos.</h2>
+      </div>
+      <div class="steps reveal d1">
+        <div class="step">
+          <div class="num"></div>
+          <div><h3>Diagnóstico</h3><p>Mergulho na operação real: quais decisões importam, onde o dado nasce e o que trava o dia a dia.</p></div>
+        </div>
+        <div class="step">
+          <div class="num"></div>
+          <div><h3>Arquitetura</h3><p>Desenho a estrutura do sistema: fontes, banco, regras de negócio e as telas onde a decisão acontece.</p></div>
+        </div>
+        <div class="step">
+          <div class="num"></div>
+          <div><h3>Construção</h3><p>Construo o pipeline e a aplicação, do ETL à interface. Software de verdade, não protótipo de slide.</p></div>
+        </div>
+        <div class="step">
+          <div class="num"></div>
+          <div><h3>Operação</h3><p>Coloco em produção, automatizo a atualização e acompanho o uso diário pela gestão.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="band cta-band">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="justify-content:center">Próximo passo</p>
+        <h2>Sua empresa precisa de um sistema assim?</h2>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/5551981687088" target="_blank" rel="noopener">Falar no WhatsApp <span class="arrow">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="cases.html">Ver os cases</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"></span>
+          <span class="brand-name">Douglas Tassinari<small>Arquiteto de Sistemas de Gestão</small></span>
+        </a>
+        <p>Projeto e construo sistemas corporativos de gestão sob medida — da fonte do dado à decisão da diretoria.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sistema.html">O Sistema</a></li>
+          <li><a href="cases.html">Cases</a></li>
+          <li><a href="competencias.html">Competências</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/douglastassinari/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/DouglasTassinari" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="mailto:douglastassinarii@gmail.com">E-mail ↗</a></li>
+          <li><a href="https://wa.me/5551981687088" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>© 2026 Douglas Tassinari da Silva</small>
+      <small class="accent">Business Systems &amp; Analytics · Criciúma, SC</small>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

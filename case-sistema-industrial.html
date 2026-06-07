@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Gestão Industrial · Case · Douglas Tassinari</title>
+<meta name="description" content="Um sistema web que opera uma indústria inteira — em produção, todo dia. Da API à decisão da diretoria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ===================== NAVEGAÇÃO ===================== -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span class="brand-name">Douglas Tassinari<small>Arquiteto de Sistemas de Gestão</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sistema.html">O Sistema</a></li>
+      <li><a href="cases.html">Cases</a></li>
+      <li><a href="competencias.html">Competências</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="page">
+
+  <!-- ===================== CABEÇALHO DO CASE ===================== -->
+  <header class="hero case-hero">
+    <div class="bg-fx">
+      <div class="bg-grid"></div>
+      <div class="bg-glow g1"></div>
+      <div class="bg-glow g2"></div>
+    </div>
+    <div class="container relative">
+      <a class="link-more reveal" href="cases.html" style="margin-bottom:24px"><span class="arrow" style="transform:rotate(180deg)">→</span> Todos os cases</a>
+      <p class="eyebrow">Case 01 · Sistema-referência</p>
+      <h1 class="display reveal" style="max-width:18ch">Sistema de Gestão Industrial</h1>
+      <div class="case-meta reveal d1">
+        <span class="m">Indústria metalúrgica</span>
+        <span class="m">Arquiteto &amp; desenvolvedor</span>
+        <span class="m">Python</span>
+        <span class="m">PostgreSQL</span>
+        <span class="m">Streamlit</span>
+      </div>
+      <p class="case-outcome reveal d1">Um sistema web que opera uma indústria inteira — em produção, todo dia.</p>
+    </div>
+  </header>
+
+  <!-- ===================== CORPO DO CASE ===================== -->
+  <section class="band">
+    <div class="container">
+      <div class="case-body">
+
+        <div class="case-block reveal">
+          <div class="case-k">Contexto</div>
+          <div class="case-v"><p>Uma indústria metalúrgica tocava a gestão em dezenas de planilhas e relatórios manuais. Eu fui o primeiro profissional de dados da empresa: não havia infraestrutura, cultura nem sistema. Havia operação — e dados presos nela.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Problema</div>
+          <div class="case-v"><p>As decisões dependiam de relatórios montados à mão, sujeitos a erro e sempre atrasados. Cada área enxergava só o seu pedaço. A diretoria não tinha uma visão única, confiável e em tempo real da operação.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Solução</div>
+          <div class="case-v"><p>Projetei um sistema de gestão integrado: uma arquitetura que puxa o dado direto da fonte, aplica as regras de negócio no banco e entrega dashboards por área — mais um Modo TV para o chão de fábrica. No lugar de planilhas avulsas, uma única fonte de verdade.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Implementação</div>
+          <div class="case-v"><p>Construí o pipeline ponta a ponta: extração via API com ETL em Python, armazenamento em PostgreSQL, regras de negócio em views SQL e a aplicação web em Streamlit com autenticação. Deploy em servidor, rodando de forma automática e contínua.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Resultado</div>
+          <div class="case-v"><p>O sistema entrou em produção e passou a operar diariamente, cobrindo as áreas-chave da empresa. O que era manual e atrasado virou automático e em tempo real.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Impacto</div>
+          <div class="case-v"><p>A diretoria passou a pilotar a operação por um sistema, não por planilhas. Decisões que exigiam dias de consolidação passaram a ser tomadas na hora. A gestão da empresa, literalmente, na palma da mão.</p></div>
+        </div>
+
+        <div class="case-block reveal">
+          <div class="case-k">Aprendizados</div>
+          <div class="case-v"><p>Construir do zero me ensinou que o sistema mais valioso não é o mais sofisticado — é o que a operação de fato usa todo dia. A arquitetura serve à decisão, não o contrário.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NAVEGAÇÃO ENTRE CASES ===================== -->
+  <section class="section--tight">
+    <div class="container">
+      <div class="case-nav">
+        <a class="btn btn-ghost" href="cases.html"><span class="arrow" style="transform:rotate(180deg)">→</span> Todos os cases</a>
+        <a class="btn btn-primary" href="case-churn.html">Próximo case: Churn <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"></span>
+          <span class="brand-name">Douglas Tassinari<small>Arquiteto de Sistemas de Gestão</small></span>
+        </a>
+        <p>Projeto e construo sistemas corporativos de gestão sob medida — da fonte do dado à decisão da diretoria.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sistema.html">O Sistema</a></li>
+          <li><a href="cases.html">Cases</a></li>
+          <li><a href="competencias.html">Competências</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/douglastassinari/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/DouglasTassinari" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="mailto:douglastassinarii@gmail.com">E-mail ↗</a></li>
+          <li><a href="https://wa.me/5551981687088" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>© 2026 Douglas Tassinari da Silva</small>
+      <small class="accent">Business Systems &amp; Analytics · Criciúma, SC</small>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
