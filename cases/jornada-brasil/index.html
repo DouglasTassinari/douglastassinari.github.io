@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Case: Jornada Brasil — produto público em produção · Douglas Tassinari</title>
+<meta name="description" content="Da calculadora isolada à plataforma com conta, SEO e monitoração: como três produtos-silo viraram um único produto no ar, com as decisões de arquitetura documentadas.">
+<link rel="canonical" href="https://douglastassinari.github.io/cases/jornada-brasil/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://douglastassinari.github.io/cases/jornada-brasil/">
+<meta property="og:title" content="Case: Jornada Brasil — produto público em produção">
+<meta property="og:description" content="14 ferramentas, blog, conta de usuário, LGPD e monitoração automatizada — no ar em jornadabrasil.com.br. Problema, decisões, arquitetura e aprendizados.">
+<meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://douglastassinari.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://douglastassinari.github.io/#cases" },
+    { "@type": "ListItem", "position": 3, "name": "Jornada Brasil" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <nav aria-label="Navegação principal">
+    <a href="/" class="nav-logo">DT<span> · </span>Sistemas de Gestão &amp; Dados</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/#como-trabalho">Como trabalho</a></li>
+      <li><a href="/#trajetoria">Trajetória</a></li>
+      <li><a href="/#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo" class="case-page">
+
+  <nav class="breadcrumb" aria-label="Trilha de navegação">
+    <a href="/">Início</a><span aria-hidden="true">→</span><a href="/#cases">Cases</a><span aria-hidden="true">→</span>Jornada Brasil
+  </nav>
+
+  <header class="case-header">
+    <div class="section-label">Case 02 · Produto</div>
+    <h1>Um produto no ar: da calculadora isolada à plataforma com conta, SEO e monitoração</h1>
+    <p class="case-lead">Plataforma pública que acompanha o trabalhador brasileiro na transição entre CLT e trabalho autônomo: entender direitos → calcular → precificar → controlar o lucro. Três produtos independentes consolidados em um único domínio, com identidade, conta de usuário e analytics unificados. Está no ar — a prova deste case é usá-lo.</p>
+    <ul class="fact-bar">
+      <li><strong>14</strong><span>ferramentas de cálculo</span></li>
+      <li><strong>30</strong><span>artigos no blog</span></li>
+      <li><strong>PWA + LGPD</strong><span>instalável, com consentimento</span></li>
+      <li><strong>×15 min</strong><span>verificação de uptime</span></li>
+    </ul>
+  </header>
+
+  <section class="case-section" aria-labelledby="sec-problema">
+    <h2 id="sec-problema"><span class="sec-num">01</span>Problema</h2>
+    <p>Três produtos separados atendiam etapas da mesma jornada: um portal de calculadoras trabalhistas (rescisão, férias, seguro-desemprego), um precificador para autônomos e um app de controle de lucro. Cada um com domínio, identidade visual e analytics próprios — e <strong>zero funil entre eles</strong>.</p>
+    <p>O usuário que calculava a rescisão no primeiro produto ia embora sem descobrir que os outros dois resolviam exatamente o passo seguinte da vida dele. Três silos competindo por manutenção, em vez de um produto acompanhando uma jornada.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-contexto">
+    <h2 id="sec-contexto"><span class="sec-num">02</span>Contexto</h2>
+    <ul>
+      <li><strong>Projeto solo</strong> — concepção, código, conteúdo, SEO e operação por uma pessoa, fora do horário de trabalho;</li>
+      <li><strong>Custo de infraestrutura próximo de zero</strong> — hospedagem estática (GitHub Pages) e backend como serviço, sem servidor próprio;</li>
+      <li><strong>SEO já construído que não podia ser perdido</strong> — as calculadoras tinham posicionamento orgânico acumulado; a consolidação precisava preservar cada URL indexada;</li>
+      <li><strong>Produto que lida com dado sensível</strong> — salários e finanças pessoais exigem postura explícita sobre privacidade (LGPD).</li>
+    </ul>
+    <p>Essas quatro restrições moldaram todas as decisões a seguir.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-decisoes">
+    <h2 id="sec-decisoes"><span class="sec-num">03</span>Decisões</h2>
+
+    <div class="decisao">
+      <h3>Unificar na superfície, não reescrever</h3>
+      <p>A consolidação foi feita costurando domínio, navegação e identidade visual sobre os produtos existentes — preservando 100% das URLs e do SEO construído.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Migrar tudo para um framework (Next.js ou similar). Ganharia elegância de código e perderia meses de indexação e posicionamento orgânico. O SEO era o ativo; a migração se desenhou ao redor dele.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Consolidar repositórios via <code>git subtree</code>, preservando histórico</h3>
+      <p>Os três produtos viraram um monorepo com o histórico de commits intacto. Os repositórios antigos foram convertidos em redirects com <code>canonical</code> + <code>noindex</code>, para transferir a autoridade das URLs antigas sem conteúdo duplicado.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Copiar os arquivos e arquivar os repos antigos. Mais simples, mas apagaria o histórico de evolução e deixaria as URLs antigas morrerem como 404 aos olhos dos buscadores.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Arquitetura local-first com backend trocável</h3>
+      <p>Os dados do usuário vivem primeiro no navegador, atrás de uma camada de armazenamento única (<code>JBStore</code>) com backend trocável por adapter: LocalStorage hoje, nuvem quando fizer sentido — sem tocar no código das calculadoras.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Exigir conta e guardar tudo na nuvem desde o início. Criaria atrito de cadastro antes de entregar valor e transformaria cada salário digitado em passivo de LGPD. Local-first simplificou a privacidade e a experiência ao mesmo tempo.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Monitoração via GitHub Actions, não serviço pago</h3>
+      <p>Um workflow com <code>cron</code> verifica a disponibilidade do site a cada 15 minutos e abre alerta em caso de falha. Custo zero, configuração versionada junto do código.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Contratar um serviço de uptime. Resolveria o mesmo problema por assinatura mensal — desproporcional para a escala atual, e a solução via Actions mantém a operação inteira auditável no próprio repositório.</p>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-arquitetura">
+    <h2 id="sec-arquitetura"><span class="sec-num">04</span>Arquitetura</h2>
+    <p>Site estático multipágina com módulos de aplicação acoplados e uma camada compartilhada que garante que tudo pareça — e se comporte como — um único produto:</p>
+
+    <div class="arch-flow" role="img" aria-label="Diagrama: portal estático e módulos de app consomem a camada compartilhada; a conta de usuário usa Supabase; GitHub Pages hospeda e GitHub Actions monitora.">
+      <div class="arch-node arch-node--accent">
+        <strong>Portal estático (HTML/CSS/JS)</strong>
+        <span>14 calculadoras + blog com 30 artigos — multipágina, otimizado para busca orgânica</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">＋</div>
+      <div class="arch-node">
+        <strong>Módulos de aplicação</strong>
+        <span>Precificador (React via CDN) e controle de lucro (PWA vanilla) — apps dentro do mesmo domínio</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓ consomem</div>
+      <div class="arch-node arch-node--accent">
+        <strong>Camada <code>shared/</code></strong>
+        <span>Tokens de design, navegação, analytics, consentimento LGPD e armazenamento (<code>JBStore</code>) — uma implementação, todos os módulos</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓ quando o usuário opta por conta</div>
+      <div class="arch-node">
+        <strong>Supabase (conta de usuário)</strong>
+        <span>Autenticação e sincronização — opcional, por cima do local-first</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">⟲ operação</div>
+      <div class="arch-node">
+        <strong>GitHub Pages + GitHub Actions</strong>
+        <span>Hospedagem estática e verificação de uptime a cada 15 minutos, versionadas com o código</span>
+      </div>
+    </div>
+    <p class="arch-note">O fluxo de dados do usuário: entra pelo formulário da calculadora → persiste localmente via <code>JBStore</code> → sincroniza com a nuvem apenas se (e quando) o usuário criar conta.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-tecnologias">
+    <h2 id="sec-tecnologias"><span class="sec-num">05</span>Tecnologias</h2>
+    <div class="table-wrap">
+      <table class="tech-table">
+        <thead>
+          <tr><th scope="col">Ferramenta</th><th scope="col">Para quê</th><th scope="col">Por que essa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>HTML/CSS/JS</td><td>Portal, calculadoras e blog</td><td>Estático indexa melhor, carrega mais rápido e custa zero para hospedar</td></tr>
+          <tr><td>React via CDN</td><td>Módulo de precificação</td><td>Interatividade de app sem introduzir build step num site estático</td></tr>
+          <tr><td>PWA (vanilla)</td><td>App de controle de lucro</td><td>Instalável e utilizável offline sem loja de aplicativos</td></tr>
+          <tr><td>Supabase</td><td>Conta de usuário e sincronização</td><td>Auth e banco gerenciados no plano gratuito; atrás de adapter, é substituível</td></tr>
+          <tr><td>GitHub Pages</td><td>Hospedagem</td><td>Deploy por push, HTTPS e domínio próprio, custo zero</td></tr>
+          <tr><td>GitHub Actions</td><td>Monitoração de uptime</td><td>Operação versionada no repositório, sem serviço externo</td></tr>
+          <tr><td>GA4 + Consent Mode</td><td>Analytics com consentimento</td><td>Medição do funil entre módulos respeitando a LGPD</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-resultados">
+    <h2 id="sec-resultados"><span class="sec-num">06</span>Resultados</h2>
+    <ul>
+      <li>Produto no ar com domínio próprio — <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">jornadabrasil.com.br ↗</a>;</li>
+      <li>Funil entre as etapas da jornada: quem calcula a rescisão descobre a precificação; quem precifica descobre o controle de lucro;</li>
+      <li>Migração concluída <strong>sem perda de indexação</strong> — as URLs antigas redirecionam com canonical;</li>
+      <li>Conformidade LGPD: consentimento explícito, dados locais por padrão;</li>
+      <li>Monetização configurada (AdSense) e monitoração automatizada em operação contínua.</li>
+    </ul>
+    <p><strong>A prova é verificável:</strong> o site está no ar — clique e use.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-aprendizados">
+    <h2 id="sec-aprendizados"><span class="sec-num">07</span>Aprendizados</h2>
+    <ol class="aprendizados">
+      <li><strong>SEO construído é ativo de engenharia.</strong> A decisão técnica mais importante do projeto foi a que ninguém vê: desenhar a migração ao redor das URLs indexadas, e não do código.</li>
+      <li><strong>Local-first simplifica privacidade e experiência ao mesmo tempo.</strong> O que parecia limitação (sem servidor) virou a resposta certa para LGPD e para o atrito de cadastro.</li>
+      <li><strong>Monorepo com camada compartilhada acabou com a deriva de identidade.</strong> Enquanto eram três repos, cada módulo evoluía para um lado; com <code>shared/</code>, consistência deixou de depender de disciplina.</li>
+    </ol>
+  </section>
+
+  <aside class="prova-box">
+    <h2>Prova</h2>
+    <ul>
+      <li><a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">jornadabrasil.com.br ↗</a> — o produto, no ar</li>
+      <li><a href="https://github.com/DouglasTassinari/calculadoras-clt" target="_blank" rel="noopener">github.com/DouglasTassinari/calculadoras-clt ↗</a> — o monorepo da plataforma</li>
+    </ul>
+  </aside>
+
+  <a class="case-next" href="/cases/opsvision/">
+    <span class="case-next-label">Próximo case → Arquitetura</span>
+    <span class="case-next-title">OpsVision: arquitetura de referência aberta</span>
+  </a>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Douglas Tassinari · Sistemas de Gestão &amp; Dados · Criciúma-SC</span>
+    <div class="footer-links">
+      <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">Jornada Brasil</a>
+      <a href="https://github.com/DouglasTassinari/OpsVision" target="_blank" rel="noopener">OpsVision</a>
+      <a href="https://github.com/DouglasTassinari/douglastassinari.github.io" target="_blank" rel="noopener">Código deste site</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

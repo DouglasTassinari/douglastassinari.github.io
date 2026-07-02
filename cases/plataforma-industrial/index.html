@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Case: Sistema de gestão de uma indústria (0→1) · Douglas Tassinari</title>
+<meta name="description" content="Primeiro profissional de dados de uma indústria metalúrgica: de planilhas isoladas ao ecossistema que cobre 10 áreas. Problema, decisões, arquitetura e aprendizados — descrito sem dados sensíveis.">
+<link rel="canonical" href="https://douglastassinari.github.io/cases/plataforma-industrial/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://douglastassinari.github.io/cases/plataforma-industrial/">
+<meta property="og:title" content="Case: Sistema de gestão de uma indústria (0→1)">
+<meta property="og:description" content="De planilhas isoladas ao sistema de gestão de uma indústria inteira: 10 áreas, 30+ sistemas ativos, mais de 90% automatizado. As decisões e a arquitetura, documentadas.">
+<meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://douglastassinari.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://douglastassinari.github.io/#cases" },
+    { "@type": "ListItem", "position": 3, "name": "Plataforma Industrial" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <nav aria-label="Navegação principal">
+    <a href="/" class="nav-logo">DT<span> · </span>Sistemas de Gestão &amp; Dados</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/#como-trabalho">Como trabalho</a></li>
+      <li><a href="/#trajetoria">Trajetória</a></li>
+      <li><a href="/#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo" class="case-page">
+
+  <nav class="breadcrumb" aria-label="Trilha de navegação">
+    <a href="/">Início</a><span aria-hidden="true">→</span><a href="/#cases">Cases</a><span aria-hidden="true">→</span>Plataforma Industrial
+  </nav>
+
+  <header class="case-header">
+    <div class="section-label">Case 01 · Negócio</div>
+    <h1>De planilhas isoladas ao sistema de gestão de uma indústria inteira</h1>
+    <p class="case-lead">Primeiro profissional de dados de uma indústria metalúrgica de médio porte. Em quatro anos, construí o ecossistema que cobre dez áreas — comercial, produção, supply, financeiro, RH/DP, engenharia, marketing e diretoria — com mais de 90% das entregas automatizadas. Este case é descrito sem dados sensíveis: sem nome da empresa, sem valores absolutos, com diagrama genérico.</p>
+    <ul class="fact-bar">
+      <li><strong>0→1</strong><span>primeira estrutura de dados da empresa</span></li>
+      <li><strong>10</strong><span>áreas atendidas</span></li>
+      <li><strong>30+</strong><span>sistemas ativos</span></li>
+      <li><strong>&gt;90%</strong><span>das entregas automatizadas</span></li>
+    </ul>
+  </header>
+
+  <section class="case-section" aria-labelledby="sec-problema">
+    <h2 id="sec-problema"><span class="sec-num">01</span>Problema</h2>
+    <p>A empresa decidia por memória e planilha. Cada área tinha a sua própria versão do número — o faturamento do comercial não batia com o do financeiro, e a discussão de gestão começava pela conferência do dado, não pela decisão.</p>
+    <ul>
+      <li><strong>Risco de churn invisível</strong> — clientes reduziam compras gradualmente e a perda só era percebida depois de consumada;</li>
+      <li><strong>Produtividade de fábrica sem medição</strong> — nenhuma visão de produção por operador, máquina ou turno;</li>
+      <li><strong>Bonificação sem critério objetivo</strong> — remuneração variável definida por percepção, com o desgaste que isso gera;</li>
+      <li><strong>Diretoria com dado mensal</strong> — quando o número chegava, o mês já tinha acontecido.</li>
+    </ul>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-contexto">
+    <h2 id="sec-contexto"><span class="sec-num">02</span>Contexto</h2>
+    <ul>
+      <li><strong>Nenhuma cultura de dados prévia</strong> — fui o primeiro profissional de dados da empresa; não havia processo, padrão ou expectativa formada;</li>
+      <li><strong>ERP como única fonte</strong> — todo o dado operacional nasce nele; qualquer estrutura teria que partir dali;</li>
+      <li><strong>Equipe de dados = 1 pessoa</strong> — eu. Cada decisão de arquitetura precisava caber na capacidade de uma pessoa construir <em>e</em> operar;</li>
+      <li><strong>Orçamento de ferramenta próximo de zero</strong> — a plataforma foi construída sobre o que a empresa já licenciava.</li>
+    </ul>
+    <p>As restrições moldaram a arquitetura: automação não era sofisticação, era condição de sobrevivência — um ecossistema operado por uma pessoa só se sustenta se se entregar sozinho.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-decisoes">
+    <h2 id="sec-decisoes"><span class="sec-num">03</span>Decisões</h2>
+
+    <div class="decisao">
+      <h3>Padronizar a extração do ERP antes de qualquer dashboard</h3>
+      <p>O primeiro investimento foi numa camada única de extração e tratamento — cada dado sai do ERP uma vez, de um jeito só, e alimenta tudo que existe em cima.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Começar pelos painéis, cada um puxando o próprio dado. É o caminho rápido e o mais comum; produz dez versões do mesmo número e um retrabalho permanente. A base padronizada custou semanas no início e paga dividendos há quatro anos.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Métricas com definição única e dono</h3>
+      <p>Churn, margem, SSS e as demais métricas críticas ganharam uma definição só — documentada, com dono, aceita pelas áreas. A discussão migrou de "qual número está certo" para "o que fazemos com ele".</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Cada gestor com a sua fórmula, o sistema apenas exibindo. Evitaria conflito no curto prazo e perpetuaria o problema que a plataforma existia para resolver.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Automatizar a entrega, não só o cálculo</h3>
+      <p>Relatório que exige lembrar de abrir morre. Cada sistema entrega o dado onde a decisão acontece: distribuição agendada, alertas, painéis que a rotina da área já consulta.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Publicar o painel e depender da disciplina de acesso. A adoção não pode depender de hábito alheio; a entrega automatizada é o que separa um sistema vivo de um projeto abandonado.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Sistemas que decidem remuneração exigem trilha auditável</h3>
+      <p>Quando os indicadores passaram a definir meritocracia e comissão, a regra virou explícita e o histórico, preservado: qualquer valor pago é reconstruível a partir do dado que o gerou.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Calcular a bonificação numa caixa-preta. Funciona até a primeira contestação. Sistema que mexe com o salário das pessoas nasce auditável ou não deveria existir.</p>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-arquitetura">
+    <h2 id="sec-arquitetura"><span class="sec-num">04</span>Arquitetura</h2>
+    <p>Diagrama genérico, sem detalhes internos da empresa — o desenho é o mesmo que sustenta qualquer área da plataforma:</p>
+
+    <div class="arch-flow" role="img" aria-label="Diagrama: o ERP alimenta uma camada de extração automatizada, que alimenta a camada de modelagem e regras de negócio, que distribui para painéis, relatórios agendados e sistemas de meritocracia.">
+      <div class="arch-node">
+        <strong>ERP</strong>
+        <span>Fonte única do dado operacional — vendas, produção, estoque, financeiro</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓ extração automatizada</div>
+      <div class="arch-node arch-node--accent">
+        <strong>Camada de extração e tratamento</strong>
+        <span>Cada dado sai do ERP uma vez, padronizado — SQL e Python, execução agendada</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓</div>
+      <div class="arch-node arch-node--accent">
+        <strong>Modelagem e regras de negócio</strong>
+        <span>Métricas com definição única e histórico preservado — churn, margem, produtividade, metas</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓ distribuição</div>
+      <div class="arch-node">
+        <strong>Painéis · Relatórios agendados · Sistemas de meritocracia</strong>
+        <span>O dado chega onde a decisão acontece — da diretoria ao chão de fábrica</span>
+      </div>
+    </div>
+    <p class="arch-note">A regra que organiza o desenho: <strong>nenhuma saída consome o ERP diretamente</strong>. Tudo passa pela camada de modelagem — é ela que garante que a empresa inteira fala do mesmo número.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-tecnologias">
+    <h2 id="sec-tecnologias"><span class="sec-num">05</span>Tecnologias</h2>
+    <div class="table-wrap">
+      <table class="tech-table">
+        <thead>
+          <tr><th scope="col">Ferramenta</th><th scope="col">Para quê</th><th scope="col">Por que essa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SQL</td><td>Extração e modelagem sobre o ERP</td><td>É a língua do dado onde ele nasce; toda regra crítica vive o mais perto possível da fonte</td></tr>
+          <tr><td>Python (pandas)</td><td>Automação de extração, tratamento e entrega</td><td>Cobre o que o SQL não alcança — integração com APIs, agendamento, distribuição</td></tr>
+          <tr><td>Power BI (DAX, Power Query)</td><td>Camada de visualização e distribuição</td><td>Já licenciado pela empresa; atualização agendada elimina a entrega manual</td></tr>
+          <tr><td>Excel avançado</td><td>Interface de sistemas específicos</td><td>Onde a área já trabalha; a ferramenta certa é a que a operação de fato usa</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="arch-note">A lista é curta de propósito: a plataforma foi construída com o que a empresa já tinha. A arquitetura — extração única, definição única, entrega automatizada — vale mais do que qualquer ferramenta que a implemente.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-resultados">
+    <h2 id="sec-resultados"><span class="sec-num">06</span>Resultados</h2>
+    <p>Em ordem de grandeza, sem dados confidenciais:</p>
+    <ul>
+      <li><strong>Risco de churn visível por cliente antes da perda</strong> — a redução gradual de compras dispara sinal enquanto ainda há o que fazer;</li>
+      <li><strong>Produtividade por operador, máquina e turno</strong> — o equivalente a um MES, construído internamente sobre o dado do ERP;</li>
+      <li><strong>Bonificações calculadas automaticamente por indicadores</strong> — regra explícita, trilha auditável, zero planilha de apuração manual;</li>
+      <li><strong>Diretoria com dado diário em vez de mensal</strong> — a conversa de gestão deixou de começar pela conferência do número;</li>
+      <li><strong>Dez áreas atendidas por uma pessoa</strong> — consequência direta da automação de entrega: o ecossistema roda sozinho, eu construo o próximo sistema.</li>
+    </ul>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-aprendizados">
+    <h2 id="sec-aprendizados"><span class="sec-num">07</span>Aprendizados</h2>
+    <ol class="aprendizados">
+      <li><strong>A parte difícil não é o dashboard, é a definição da métrica.</strong> Alinhar o que "churn" significa custou mais conversa do que qualquer código — e valeu mais.</li>
+      <li><strong>Sistema que mexe com remuneração nasce auditável.</strong> A confiança das pessoas no número é o ativo; a trilha de auditoria é o que a sustenta.</li>
+      <li><strong>Automação de entrega vale mais que sofisticação de análise.</strong> O modelo mais simples, entregue todo dia no lugar certo, muda mais decisões que a análise brilhante que ninguém abre.</li>
+      <li><strong>Ter vindo da operação encurtou anos de descoberta de requisito.</strong> Eu sabia onde doía porque já tinha trabalhado dentro de logística e financeiro — não precisei de tradutor entre o negócio e o sistema.</li>
+    </ol>
+  </section>
+
+  <aside class="prova-box">
+    <h2>Prova</h2>
+    <p>Este case é trabalho interno confidencial — descrito aqui sem nome da empresa, sem valores absolutos e com diagrama genérico. A contraprova pública do mesmo raciocínio existe em código aberto:</p>
+    <ul>
+      <li><a href="/cases/opsvision/">OpsVision</a> — a arquitetura deste ecossistema, destilada e publicada como referência auditável;</li>
+      <li><a href="/cases/jornada-brasil/">Jornada Brasil</a> — a capacidade de entrega ponta a ponta, verificável no ar.</li>
+    </ul>
+  </aside>
+
+  <a class="case-next" href="/cases/jornada-brasil/">
+    <span class="case-next-label">Próximo case → Produto</span>
+    <span class="case-next-title">Jornada Brasil: produto público em produção</span>
+  </a>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Douglas Tassinari · Sistemas de Gestão &amp; Dados · Criciúma-SC</span>
+    <div class="footer-links">
+      <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">Jornada Brasil</a>
+      <a href="https://github.com/DouglasTassinari/OpsVision" target="_blank" rel="noopener">OpsVision</a>
+      <a href="https://github.com/DouglasTassinari/douglastassinari.github.io" target="_blank" rel="noopener">Código deste site</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
