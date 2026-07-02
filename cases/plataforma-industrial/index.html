@@ -58,11 +58,11 @@
   <header class="case-header">
     <div class="section-label">Case 01 · Negócio</div>
     <h1>De planilhas isoladas ao sistema de gestão de uma indústria inteira</h1>
-    <p class="case-lead">Primeiro profissional de dados de uma indústria metalúrgica de médio porte. Em quatro anos, construí o ecossistema que cobre dez áreas — comercial, produção, supply, financeiro, RH/DP, engenharia, marketing e diretoria — com mais de 90% das entregas automatizadas. Este case é descrito sem dados sensíveis: sem nome da empresa, sem valores absolutos, com diagrama genérico.</p>
+    <p class="case-lead">Primeiro profissional de dados de uma indústria metalúrgica de médio porte. A evolução foi honesta: três anos dentro das planilhas absorvendo a regra de negócio, um ano de integração via APIs — e, quando o Excel chegou ao teto, um semestre reconstruindo esse aprendizado como uma plataforma de gestão que cobre dez áreas, com mais de 90% das entregas automatizadas. Este case é descrito sem dados sensíveis: sem nome da empresa, sem valores absolutos, com diagrama genérico.</p>
     <ul class="fact-bar">
       <li><strong>0→1</strong><span>primeira estrutura de dados da empresa</span></li>
       <li><strong>10</strong><span>áreas atendidas</span></li>
-      <li><strong>30+</strong><span>sistemas ativos</span></li>
+      <li><strong>30+</strong><span>módulos ativos</span></li>
       <li><strong>&gt;90%</strong><span>das entregas automatizadas</span></li>
     </ul>
   </header>
@@ -87,32 +87,39 @@
       <li><strong>Orçamento de ferramenta próximo de zero</strong> — a plataforma foi construída sobre o que a empresa já licenciava.</li>
     </ul>
     <p>As restrições moldaram a arquitetura: automação não era sofisticação, era condição de sobrevivência — um ecossistema operado por uma pessoa só se sustenta se se entregar sozinho.</p>
+    <p>E o caminho não foi linear. Foram três anos de planilha com automação mínima antes de qualquer sistema — o que parecia lentidão era acúmulo: quando a plataforma foi construída, a regra de negócio já estava toda levantada. Vivida, não entrevistada.</p>
   </section>
 
   <section class="case-section" aria-labelledby="sec-decisoes">
     <h2 id="sec-decisoes"><span class="sec-num">03</span>Decisões</h2>
 
     <div class="decisao">
-      <h3>Padronizar a extração do ERP antes de qualquer dashboard</h3>
-      <p>O primeiro investimento foi numa camada única de extração e tratamento — cada dado sai do ERP uma vez, de um jeito só, e alimenta tudo que existe em cima.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Começar pelos painéis, cada um puxando o próprio dado. É o caminho rápido e o mais comum; produz dez versões do mesmo número e um retrabalho permanente. A base padronizada custou semanas no início e paga dividendos há quatro anos.</p>
+      <h3>Reconstruir como plataforma, não seguir remendando planilhas</h3>
+      <p>Depois de três anos evoluindo planilha a planilha, a decisão de 2026 foi parar de remendar e reconstruir: um semestre de estudo e construção de uma plataforma única — banco de dados próprio, módulos por área, BI em cima.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Continuar evoluindo o Excel. Eu tinha três anos de prova vivida de que não escala: referências quebrando, versões divergindo, manutenção consumindo o ganho de cada melhoria. Reconhecer o teto da ferramenta foi a decisão de arquitetura mais importante do projeto.</p>
     </div>
 
     <div class="decisao">
-      <h3>Métricas com definição única e dono</h3>
-      <p>Churn, margem, SSS e as demais métricas críticas ganharam uma definição só — documentada, com dono, aceita pelas áreas. A discussão migrou de "qual número está certo" para "o que fazemos com ele".</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Cada gestor com a sua fórmula, o sistema apenas exibindo. Evitaria conflito no curto prazo e perpetuaria o problema que a plataforma existia para resolver.</p>
+      <h3>Padronizar a extração do ERP antes de qualquer tela</h3>
+      <p>Na reconstrução, o primeiro investimento foi a camada de extração e tratamento — cada dado sai do ERP uma vez, de um jeito só, e alimenta tudo que existe em cima.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Começar pelos painéis, cada um puxando o próprio dado. É o caminho rápido — o mesmo que eu tinha percorrido nos anos de planilha, e cujo preço eu conhecia de cor: dez versões do mesmo número e um retrabalho permanente.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Captação de dados dentro da plataforma — não só leitura</h3>
+      <p>O sistema não apenas mostra: coleta. Registros do chão de fábrica e rotinas do comercial entram pela própria plataforma, alimentam o banco e viram análise — a operação retroalimenta o sistema que a serve.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Uma plataforma somente-leitura sobre o ERP. Deixaria de fora exatamente o dado que o ERP não captura — o motivo do refugo, a interação com o cliente, a sugestão de melhoria — e manteria vivos os formulários paralelos de papel e planilha.</p>
     </div>
 
     <div class="decisao">
       <h3>Automatizar a entrega, não só o cálculo</h3>
-      <p>Relatório que exige lembrar de abrir morre. Cada sistema entrega o dado onde a decisão acontece: distribuição agendada, alertas, painéis que a rotina da área já consulta.</p>
+      <p>Relatório que exige lembrar de abrir morre. A plataforma entrega o dado onde a decisão acontece: indicadores distribuídos por e-mail para cada área, alertas de pendência, telas em modo TV com atualização contínua na fábrica e no comercial.</p>
       <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Publicar o painel e depender da disciplina de acesso. A adoção não pode depender de hábito alheio; a entrega automatizada é o que separa um sistema vivo de um projeto abandonado.</p>
     </div>
 
     <div class="decisao">
       <h3>Sistemas que decidem remuneração exigem trilha auditável</h3>
-      <p>Quando os indicadores passaram a definir meritocracia e comissão, a regra virou explícita e o histórico, preservado: qualquer valor pago é reconstruível a partir do dado que o gerou.</p>
+      <p>Quando os indicadores passaram a definir meritocracia e comissão, a regra virou explícita e o histórico, preservado: qualquer valor pago é reconstruível a partir do dado que o gerou. Hoje mais de 80% dessa apuração é automatizada, interligada aos indicadores — e a migração para dentro da plataforma está na fila, porque migrar sem quebrar a confiança vale mais que migrar rápido.</p>
       <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Calcular a bonificação numa caixa-preta. Funciona até a primeira contestação. Sistema que mexe com o salário das pessoas nasce auditável ou não deveria existir.</p>
     </div>
   </section>
@@ -121,15 +128,15 @@
     <h2 id="sec-arquitetura"><span class="sec-num">04</span>Arquitetura</h2>
     <p>Diagrama genérico, sem detalhes internos da empresa — o desenho é o mesmo que sustenta qualquer área da plataforma:</p>
 
-    <div class="arch-flow" role="img" aria-label="Diagrama: o ERP alimenta uma camada de extração automatizada, que alimenta a camada de modelagem e regras de negócio, que distribui para painéis, relatórios agendados e sistemas de meritocracia.">
+    <div class="arch-flow" role="img" aria-label="Diagrama: o ERP e a captação de dados na própria plataforma alimentam a esteira de extração e tratamento, que alimenta a modelagem e as regras de negócio, que distribui para painéis por área, ferramentas operacionais, modo TV e e-mail automático. Uma camada de observabilidade monitora a esteira, a infraestrutura e os acessos.">
       <div class="arch-node">
-        <strong>ERP</strong>
-        <span>Fonte única do dado operacional — vendas, produção, estoque, financeiro</span>
+        <strong>Fontes: ERP + captação na própria plataforma</strong>
+        <span>O dado transacional vem do ERP; o dado que o ERP não vê — motivo de refugo, interação com cliente, sugestão de melhoria — a operação registra na plataforma</span>
       </div>
       <div class="arch-arrow" aria-hidden="true">↓ extração automatizada</div>
       <div class="arch-node arch-node--accent">
-        <strong>Camada de extração e tratamento</strong>
-        <span>Cada dado sai do ERP uma vez, padronizado — SQL e Python, execução agendada</span>
+        <strong>Camada de extração e tratamento (ETL)</strong>
+        <span>Cada dado entra uma vez, padronizado — SQL e Python, execução agendada, esteira monitorada</span>
       </div>
       <div class="arch-arrow" aria-hidden="true">↓</div>
       <div class="arch-node arch-node--accent">
@@ -138,11 +145,16 @@
       </div>
       <div class="arch-arrow" aria-hidden="true">↓ distribuição</div>
       <div class="arch-node">
-        <strong>Painéis · Relatórios agendados · Sistemas de meritocracia</strong>
+        <strong>Painéis por área · Ferramentas operacionais · Modo TV · E-mail e alertas automáticos</strong>
         <span>O dado chega onde a decisão acontece — da diretoria ao chão de fábrica</span>
       </div>
+      <div class="arch-arrow" aria-hidden="true">⟷ transversal</div>
+      <div class="arch-node">
+        <strong>Observabilidade</strong>
+        <span>Monitoração da esteira de ETL, da infraestrutura e dos acessos — o sistema também se mede</span>
+      </div>
     </div>
-    <p class="arch-note">A regra que organiza o desenho: <strong>nenhuma saída consome o ERP diretamente</strong>. Tudo passa pela camada de modelagem — é ela que garante que a empresa inteira fala do mesmo número.</p>
+    <p class="arch-note">Duas regras organizam o desenho: <strong>nenhuma saída consome o ERP diretamente</strong> — tudo passa pela camada de modelagem, que garante que a empresa inteira fala do mesmo número — e <strong>o ciclo é fechado</strong>: a operação alimenta o dado, o dado devolve decisão.</p>
   </section>
 
   <section class="case-section" aria-labelledby="sec-tecnologias">
@@ -153,10 +165,10 @@
           <tr><th scope="col">Ferramenta</th><th scope="col">Para quê</th><th scope="col">Por que essa</th></tr>
         </thead>
         <tbody>
-          <tr><td>SQL</td><td>Extração e modelagem sobre o ERP</td><td>É a língua do dado onde ele nasce; toda regra crítica vive o mais perto possível da fonte</td></tr>
-          <tr><td>Python (pandas)</td><td>Automação de extração, tratamento e entrega</td><td>Cobre o que o SQL não alcança — integração com APIs, agendamento, distribuição</td></tr>
-          <tr><td>Power BI (DAX, Power Query)</td><td>Camada de visualização e distribuição</td><td>Já licenciado pela empresa; atualização agendada elimina a entrega manual</td></tr>
-          <tr><td>Excel avançado</td><td>Interface de sistemas específicos</td><td>Onde a área já trabalha; a ferramenta certa é a que a operação de fato usa</td></tr>
+          <tr><td>Python</td><td>A plataforma: módulos por área, ETL, captação e distribuição</td><td>Uma linguagem cobre da esteira de dados à interface dos módulos — essencial para um time de uma pessoa</td></tr>
+          <tr><td>SQL</td><td>Extração e modelagem sobre o ERP e o banco próprio</td><td>É a língua do dado onde ele nasce; toda regra crítica vive o mais perto possível da fonte</td></tr>
+          <tr><td>Power BI (DAX, Power Query)</td><td>Camada de visualização de parte dos indicadores</td><td>Já licenciado pela empresa; atualização agendada elimina a entrega manual</td></tr>
+          <tr><td>Excel avançado</td><td>Prototipagem e validação de ferramentas antes da migração; sistemas legados em operação (meritocracia)</td><td>Três anos de regra de negócio vivem ali — a migração para a plataforma respeita o que funciona em vez de reescrever por vaidade</td></tr>
         </tbody>
       </table>
     </div>
@@ -167,21 +179,24 @@
     <h2 id="sec-resultados"><span class="sec-num">06</span>Resultados</h2>
     <p>Em ordem de grandeza, sem dados confidenciais:</p>
     <ul>
+      <li><strong>Plataforma de gestão com mais de 30 módulos ativos</strong> entre BI, ferramentas operacionais e captação de dados — parte no sistema, parte ainda em Excel validado aguardando migração: uma plataforma viva, em construção contínua;</li>
+      <li><strong>Produção monitorada em tempo real</strong> — operadores, máquinas, filas, paradas e metas visíveis na fábrica, inclusive em telas de modo TV;</li>
+      <li><strong>O comercial trabalha dentro do sistema</strong> — follow-up organizado por radar de oportunidades, SLA de contato por carteira de clientes, acompanhamento de recuperação;</li>
       <li><strong>Risco de churn visível por cliente antes da perda</strong> — a redução gradual de compras dispara sinal enquanto ainda há o que fazer;</li>
-      <li><strong>Produtividade por operador, máquina e turno</strong> — o equivalente a um MES, construído internamente sobre o dado do ERP;</li>
-      <li><strong>Bonificações calculadas automaticamente por indicadores</strong> — regra explícita, trilha auditável, zero planilha de apuração manual;</li>
+      <li><strong>Entrega automatizada de ponta a ponta</strong> — indicadores distribuídos por e-mail para cada área e alertas de pendência para comercial e engenharia;</li>
+      <li><strong>Meritocracia com mais de 80% da apuração automatizada</strong> — regra explícita e trilha auditável, em migração para dentro da plataforma;</li>
       <li><strong>Diretoria com dado diário em vez de mensal</strong> — a conversa de gestão deixou de começar pela conferência do número;</li>
-      <li><strong>Dez áreas atendidas por uma pessoa</strong> — consequência direta da automação de entrega: o ecossistema roda sozinho, eu construo o próximo sistema.</li>
+      <li><strong>Dez áreas atendidas por uma pessoa</strong> — consequência direta da automação de entrega: o ecossistema roda sozinho, eu construo o próximo módulo.</li>
     </ul>
   </section>
 
   <section class="case-section" aria-labelledby="sec-aprendizados">
     <h2 id="sec-aprendizados"><span class="sec-num">07</span>Aprendizados</h2>
     <ol class="aprendizados">
+      <li><strong>Os três anos de planilha não foram atraso — foram o levantamento de requisitos.</strong> Quando a plataforma nasceu, cada regra já tinha sido vivida: churn, margem, meta, exceção. Software construído depois de absorver o negócio nasce certo.</li>
+      <li><strong>Reconhecer o teto da ferramenta é decisão de arquitetura.</strong> O Excel foi a ferramenta certa até deixar de ser. A coragem de parar e reconstruir valeu mais do que a inércia de seguir remendando.</li>
       <li><strong>A parte difícil não é o dashboard, é a definição da métrica.</strong> Alinhar o que "churn" significa custou mais conversa do que qualquer código — e valeu mais.</li>
-      <li><strong>Sistema que mexe com remuneração nasce auditável.</strong> A confiança das pessoas no número é o ativo; a trilha de auditoria é o que a sustenta.</li>
-      <li><strong>Automação de entrega vale mais que sofisticação de análise.</strong> O modelo mais simples, entregue todo dia no lugar certo, muda mais decisões que a análise brilhante que ninguém abre.</li>
-      <li><strong>Ter vindo da operação encurtou anos de descoberta de requisito.</strong> Eu sabia onde doía porque já tinha trabalhado dentro de logística e financeiro — não precisei de tradutor entre o negócio e o sistema.</li>
+      <li><strong>Sistema que mexe com remuneração nasce auditável.</strong> A confiança das pessoas no número é o ativo; a trilha de auditoria é o que a sustenta — e é por isso que essa migração é a que anda mais devagar, de propósito.</li>
     </ol>
   </section>
 
