@@ -84,7 +84,7 @@
       <li><strong>Nenhuma cultura de dados prévia</strong> — fui o primeiro profissional de dados da empresa; não havia processo, padrão ou expectativa formada;</li>
       <li><strong>ERP como única fonte</strong> — todo o dado operacional nasce nele; qualquer estrutura teria que partir dali;</li>
       <li><strong>Equipe de dados = 1 pessoa</strong> — eu. Cada decisão de arquitetura precisava caber na capacidade de uma pessoa construir <em>e</em> operar;</li>
-      <li><strong>Orçamento de ferramenta próximo de zero</strong> — a plataforma foi construída sobre o que a empresa já licenciava.</li>
+      <li><strong>Orçamento de ferramenta próximo de zero</strong> — resolvido com stack aberta: Python e Streamlit, sem custo de licença.</li>
     </ul>
     <p>As restrições moldaram a arquitetura: automação não era sofisticação, era condição de sobrevivência — um ecossistema operado por uma pessoa só se sustenta se se entregar sozinho.</p>
     <p>E o caminho não foi linear. Foram três anos de planilha com automação mínima antes de qualquer sistema — o que parecia lentidão era acúmulo: quando a plataforma foi construída, a regra de negócio já estava toda levantada. Vivida, não entrevistada.</p>
@@ -167,7 +167,7 @@
         <tbody>
           <tr><td>Python</td><td>A plataforma: módulos por área, ETL, captação e distribuição</td><td>Uma linguagem cobre da esteira de dados à interface dos módulos — essencial para um time de uma pessoa</td></tr>
           <tr><td>SQL</td><td>Extração e modelagem sobre o ERP e o banco próprio</td><td>É a língua do dado onde ele nasce; toda regra crítica vive o mais perto possível da fonte</td></tr>
-          <tr><td>Power BI (DAX, Power Query)</td><td>Camada de visualização de parte dos indicadores</td><td>Já licenciado pela empresa; atualização agendada elimina a entrega manual</td></tr>
+          <tr><td>Streamlit</td><td>Interface e visualização de todos os módulos</td><td>Interface funcional sem custo de licença nem front-end dedicado — o investimento fica no dado e na regra, não na tela</td></tr>
           <tr><td>Excel avançado</td><td>Prototipagem e validação de ferramentas antes da migração; sistemas legados em operação (meritocracia)</td><td>Três anos de regra de negócio vivem ali — a migração para a plataforma respeita o que funciona em vez de reescrever por vaidade</td></tr>
         </tbody>
       </table>

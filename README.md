@@ -10,7 +10,7 @@ cada um cobrindo uma natureza diferente do mesmo trabalho:
 |---|---|---|
 | [Plataforma Industrial](https://douglastassinari.github.io/cases/plataforma-industrial/) | Negócio | 0→1 numa indústria real (descrito sem dados sensíveis) |
 | [Jornada Brasil](https://douglastassinari.github.io/cases/jornada-brasil/) | Produto | [jornadabrasil.com.br](https://jornadabrasil.com.br) — no ar |
-| [OpsVision](https://douglastassinari.github.io/cases/opsvision/) | Arquitetura | [Código público no GitHub](https://github.com/DouglasTassinari/OpsVision) |
+| [OpsVision](https://douglastassinari.github.io/cases/opsvision/) | Arquitetura | [Demo no ar](https://opsvision.streamlit.app) · [código no GitHub](https://github.com/DouglasTassinari/OpsVision) |
 
 ## Estrutura
 
