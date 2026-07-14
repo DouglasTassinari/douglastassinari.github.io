@@ -10,7 +10,7 @@ cada um cobrindo uma natureza diferente do mesmo trabalho:
 |---|---|---|
 | [Plataforma Industrial](https://douglastassinari.github.io/cases/plataforma-industrial/) | Negócio | 0→1 numa indústria real (descrito sem dados sensíveis) |
 | [Jornada Brasil](https://douglastassinari.github.io/cases/jornada-brasil/) | Produto | [jornadabrasil.com.br](https://jornadabrasil.com.br) — no ar |
-| [OpsVision](https://douglastassinari.github.io/cases/opsvision/) | Arquitetura | [Demo no ar](https://opsvision.streamlit.app) · [código no GitHub](https://github.com/DouglasTassinari/OpsVision) |
+| [Sistema TAZZIN](https://douglastassinari.github.io/cases/tazzin/) | Plataforma | [Demo no ar](https://tazzin.streamlit.app) · [código no GitHub](https://github.com/DouglasTassinari/Tazzin) |
 
 ## Estrutura
 
@@ -20,7 +20,8 @@ cada um cobrindo uma natureza diferente do mesmo trabalho:
 ├── cases/
 │   ├── plataforma-industrial/      # Case 01 · Negócio
 │   ├── jornada-brasil/             # Case 02 · Produto
-│   └── opsvision/                  # Case 03 · Arquitetura
+│   ├── tazzin/                     # Case 03 · Plataforma
+│   └── opsvision/                  # redirect do nome antigo → /cases/tazzin/
 ├── assets/
 │   ├── css/style.css               # Folha única — design system com tokens em :root
 │   ├── js/main.js                  # Menu mobile + animação (progressive enhancement)

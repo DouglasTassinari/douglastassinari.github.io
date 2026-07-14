@@ -3,217 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Case: OpsVision — arquitetura de referência aberta · Douglas Tassinari</title>
-<meta name="description" content="A plataforma de gestão de uma empresa, escrita em código aberto: 10 módulos, 5 camadas com dependência unidirecional, 153 testes e observabilidade embutida. Decisões justificadas, código público.">
-<link rel="canonical" href="https://douglastassinari.github.io/cases/opsvision/">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://douglastassinari.github.io/cases/opsvision/">
-<meta property="og:title" content="Case: OpsVision — arquitetura de referência aberta">
-<meta property="og:description" content="10 módulos, 5 camadas, 153 testes em ~2s, observabilidade embutida. Como estruturar uma plataforma multi-domínio que cresce sem virar uma bola de lama — auditável no GitHub.">
-<meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
-<meta property="og:locale" content="pt_BR">
-<meta name="twitter:card" content="summary_large_image">
+<title>O case mudou de endereço: Sistema TAZZIN · Douglas Tassinari</title>
+<!-- O OpsVision foi rebatizado de Sistema TAZZIN. Esta página existe só para
+     não quebrar os links antigos: o GitHub Pages não faz redirect de servidor,
+     então o meta refresh leva o visitante e o canonical consolida o SEO na
+     URL nova. -->
+<meta http-equiv="refresh" content="0; url=/cases/tazzin/">
+<link rel="canonical" href="https://douglastassinari.github.io/cases/tazzin/">
+<meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://douglastassinari.github.io/" },
-    { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://douglastassinari.github.io/#cases" },
-    { "@type": "ListItem", "position": 3, "name": "OpsVision" }
-  ]
-}
-</script>
 </head>
 <body>
 
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
-<header class="site-header">
-  <nav aria-label="Navegação principal">
-    <a href="/" class="nav-logo">DT<span> · </span>Sistemas de Gestão &amp; Dados</a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/#cases">Cases</a></li>
-      <li><a href="/#como-trabalho">Como trabalho</a></li>
-      <li><a href="/#trajetoria">Trajetória</a></li>
-      <li><a href="/#contato">Contato</a></li>
-    </ul>
-  </nav>
-</header>
-
 <main id="conteudo" class="case-page">
-
-  <nav class="breadcrumb" aria-label="Trilha de navegação">
-    <a href="/">Início</a><span aria-hidden="true">→</span><a href="/#cases">Cases</a><span aria-hidden="true">→</span>OpsVision
-  </nav>
-
   <header class="case-header">
-    <div class="section-label">Case 03 · Arquitetura</div>
-    <h1>Arquitetura de referência: a plataforma de gestão de uma empresa, escrita em código aberto</h1>
-    <p class="case-lead">O que aprendi construindo o ecossistema real de uma indústria, destilado em uma arquitetura pública: 10 módulos de negócio, 5 camadas com dependência unidirecional, 153 testes automatizados e observabilidade embutida. Cada decisão está justificada na documentação do repositório — este case é a versão resumida; a íntegra é auditável no código.</p>
-    <ul class="fact-bar">
-      <li><strong>10</strong><span>módulos de negócio</span></li>
-      <li><strong>31</strong><span>tabelas modeladas</span></li>
-      <li><strong>153</strong><span>testes em ~2 segundos</span></li>
-      <li><strong>Log + métricas + health</strong><span>observabilidade embutida</span></li>
-    </ul>
+    <div class="section-label">Este case mudou de endereço</div>
+    <h1>O OpsVision agora se chama Sistema TAZZIN</h1>
+    <p class="case-lead">
+      O projeto passou a levar a marca TAZZIN e o case mudou de endereço.
+      Você está sendo levado para lá — se nada acontecer,
+      <a href="/cases/tazzin/">abra o case do Sistema TAZZIN</a>.
+    </p>
   </header>
-
-  <section class="case-section" aria-labelledby="sec-problema">
-    <h2 id="sec-problema"><span class="sec-num">01</span>Problema</h2>
-    <p>O problema que o projeto se propõe a demonstrar: <strong>como estruturar uma plataforma de gestão multi-domínio que cresça sem virar uma bola de lama</strong> — módulos testáveis, substituíveis e com fronteiras explícitas.</p>
-    <p>É o problema real de qualquer empresa cujo "sistema" nasceu como planilha, virou banco de dados e cresceu por acúmulo: vendas conhece estoque por dentro, financeiro consulta a tabela de produção diretamente, e qualquer mudança num módulo quebra três outros. O OpsVision existe para mostrar, em código executável, o desenho que evita esse destino — cobrindo vendas, produção, estoque, compras, financeiro, RH, qualidade, manutenção, logística e o dashboard executivo.</p>
-  </section>
-
-  <section class="case-section" aria-labelledby="sec-contexto">
-    <h2 id="sec-contexto"><span class="sec-num">02</span>Contexto</h2>
-    <ul>
-      <li><strong>É uma arquitetura de referência, não um produto</strong> — o objetivo é ser lida e auditada; as decisões são o conteúdo;</li>
-      <li><strong>Origem no trabalho real</strong> — os 10 módulos e suas regras vêm do ecossistema que construí numa indústria (o <a href="/cases/plataforma-industrial/">case industrial</a>), reescritos de forma genérica e pública;</li>
-      <li><strong>Dados 100% sintéticos e coerentes</strong> — ~44 mil linhas geradas com consistência entre módulos: a venda baixa o estoque, que dispara a compra, que movimenta o financeiro;</li>
-      <li><strong>Restrição deliberada de escopo</strong> — stack mínima (Python, SQLAlchemy, Streamlit, SQLite), para que a arquitetura fique visível em vez de soterrada por infraestrutura.</li>
-    </ul>
-  </section>
-
-  <section class="case-section" aria-labelledby="sec-decisoes">
-    <h2 id="sec-decisoes"><span class="sec-num">03</span>Decisões</h2>
-
-    <div class="decisao">
-      <h3>Regras de negócio como funções puras, separadas da orquestração</h3>
-      <p>A camada de domínio contém validações e máquinas de estado sem nenhum I/O — sem sessão de banco, sem interface, sem filesystem. O service orquestra; o domínio decide.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Regra de negócio dentro do service ou do model, como na maioria das bases CRUD. Funciona no início e degrada rápido: regra misturada com I/O só é testável com o banco inteiro de pé, e cada teste fica lento e frágil.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Fronteiras entre módulos por contrato de IDs — sem ORM cruzando domínios</h3>
-      <p>Referência entre módulos é coluna de FK simples (<code>product_id: int</code>), nunca <code>relationship()</code> do ORM atravessando a fronteira. Se Vendas precisa do nome de um produto, pergunta ao service de Estoque.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Deixar o ORM navegar livremente entre módulos. É mais cômodo e cria o acoplamento invisível que impede qualquer módulo de evoluir — ou ser extraído — sozinho. Com o contrato de IDs, o acoplamento entre módulos se reduz a números inteiros.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Testes contra banco real em memória, não mocks</h3>
-      <p>Os 153 testes rodam contra SQLite em memória com o schema completo — em ~2 segundos. Cada teste exercita a consulta de verdade, não uma imitação dela.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Mockar a camada de repositório. Testes com mock passam quando a consulta real está errada; o custo do banco em memória é baixo demais para justificar essa perda de confiança.</p>
-    </div>
-
-    <div class="decisao">
-      <h3>Observabilidade desde o dia 1</h3>
-      <p>Log JSON estruturado, métricas de latência por operação e health check fazem parte do desenho, não de uma fase futura. Toda operação de service é medida.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — "Observabilidade a gente adiciona quando precisar". Quando se precisa, é tarde: o incidente já aconteceu sem dado. Embutir custa pouco no início e define a cultura do sistema.</p>
-    </div>
-  </section>
-
-  <section class="case-section" aria-labelledby="sec-arquitetura">
-    <h2 id="sec-arquitetura"><span class="sec-num">04</span>Arquitetura</h2>
-    <p>Camadas com direção de dependência única, organizadas verticalmente por domínio de negócio — cada um dos 10 módulos atravessa todas as camadas com seus próprios arquivos:</p>
-
-    <div class="arch-flow" role="img" aria-label="Diagrama: a interface chama services, que aplicam o domínio e chamam repositories, que consultam o banco. O core é transversal a todas as camadas. Dependências fluem numa direção só.">
-      <div class="arch-node">
-        <strong>Interface (Streamlit)</strong>
-        <span>Páginas por módulo: renderizam KPIs e coletam filtros — proibidas de tocar repositório ou model</span>
-      </div>
-      <div class="arch-arrow" aria-hidden="true">↓</div>
-      <div class="arch-node">
-        <strong>Services</strong>
-        <span>Orquestração: chamam repositórios, aplicam o domínio, logam e medem latência — só falam com o próprio módulo</span>
-      </div>
-      <div class="arch-arrow" aria-hidden="true">↓</div>
-      <div class="arch-node arch-node--accent">
-        <strong>Domain</strong>
-        <span>Validações e máquinas de estado como funções puras — zero I/O</span>
-      </div>
-      <div class="arch-arrow" aria-hidden="true">↓</div>
-      <div class="arch-node">
-        <strong>Repositories</strong>
-        <span>Consultas SQLAlchemy: CRUD base + agregações de KPI — sem regra de negócio</span>
-      </div>
-      <div class="arch-arrow" aria-hidden="true">↓</div>
-      <div class="arch-node">
-        <strong>Database</strong>
-        <span>31 tabelas em models declarativos — <code>relationship()</code> nunca cruza fronteira de módulo</span>
-      </div>
-      <div class="arch-arrow" aria-hidden="true">⟷ transversal</div>
-      <div class="arch-node arch-node--accent">
-        <strong>Core</strong>
-        <span>Config, logging JSON, exceções, métricas, health check — não conhece nenhum módulo de negócio</span>
-      </div>
-    </div>
-    <p class="arch-note">A regra que sustenta tudo: <strong>Página → Service → Repository → Model, nunca pulando camadas</strong> — e um service só acessa repositórios do próprio módulo. A única exceção (o service de analytics do dashboard executivo, que compõe os demais) está documentada como exceção.</p>
-  </section>
-
-  <section class="case-section" aria-labelledby="sec-tecnologias">
-    <h2 id="sec-tecnologias"><span class="sec-num">05</span>Tecnologias</h2>
-    <div class="table-wrap">
-      <table class="tech-table">
-        <thead>
-          <tr><th scope="col">Ferramenta</th><th scope="col">Para quê</th><th scope="col">Por que essa</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Python 3 + type hints</td><td>Toda a base</td><td>Tipagem explícita torna os contratos entre camadas legíveis e verificáveis</td></tr>
-          <tr><td>SQLAlchemy 2.0</td><td>Models declarativos e consultas</td><td>ORM maduro que permite (e torna visível) a regra de não cruzar módulos</td></tr>
-          <tr><td>Streamlit</td><td>Camada de interface</td><td>Interface funcional com custo mínimo — o foco do projeto é o que está embaixo dela</td></tr>
-          <tr><td>SQLite (em memória nos testes)</td><td>Persistência</td><td>Zero infraestrutura para rodar e auditar; a arquitetura não depende do banco</td></tr>
-          <tr><td>pytest</td><td>153 testes automatizados</td><td>Fixtures compõem o banco em memória; a suíte inteira roda em ~2s</td></tr>
-          <tr><td>logging estruturado (JSON)</td><td>Observabilidade</td><td>Log pensado para ser consumido por máquina, não só lido por gente</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="case-section" aria-labelledby="sec-resultados">
-    <h2 id="sec-resultados"><span class="sec-num">06</span>Resultados</h2>
-    <ul>
-      <li><strong>Arquitetura navegável e auditável por qualquer avaliador técnico</strong> — clonar, rodar os testes e ler as decisões leva minutos;</li>
-      <li><strong>Documentação de decisões no padrão que eu exigiria de um time</strong> — cada regra da arquitetura tem o seu porquê registrado, incluindo as exceções;</li>
-      <li><strong>O padrão se replica</strong> — os 10 módulos seguem a mesma estrutura de arquivos; entender um é entender todos;</li>
-      <li><strong>153 testes em ~2 segundos</strong> — rápido o suficiente para rodar a cada mudança, real o suficiente para ser confiável.</li>
-    </ul>
-    <p><strong>A prova é pública:</strong> o código e a documentação estão no GitHub — e a demo roda no ar.</p>
-  </section>
-
-  <section class="case-section" aria-labelledby="sec-aprendizados">
-    <h2 id="sec-aprendizados"><span class="sec-num">07</span>Aprendizados</h2>
-    <ol class="aprendizados">
-      <li><strong>Honestidade técnica vale mais que aparência de perfeição.</strong> O repositório documenta os próprios limites — as métricas em memória não substituem um Prometheus, e a documentação diz isso — porque uma arquitetura de referência que esconde seus trade-offs ensina errado.</li>
-      <li><strong>Restrições declaradas são o que mantém a arquitetura de pé.</strong> O que cada camada é <em>proibida</em> de fazer importa mais do que o que ela faz — sem as proibições escritas, toda fronteira erode.</li>
-      <li><strong>Exceção documentada é diferente de regra quebrada.</strong> O módulo de analytics viola a regra de isolamento de propósito, com justificativa registrada — o que transforma uma gambiarra em decisão.</li>
-    </ol>
-  </section>
-
-  <aside class="prova-box">
-    <h2>Prova</h2>
-    <ul>
-      <li><a href="https://opsvision.streamlit.app" target="_blank" rel="noopener">opsvision.streamlit.app ↗</a> — a demo, no ar</li>
-      <li><a href="https://github.com/DouglasTassinari/OpsVision" target="_blank" rel="noopener">github.com/DouglasTassinari/OpsVision ↗</a> — código, testes e documentação de decisões</li>
-    </ul>
-  </aside>
-
-  <a class="case-next" href="/#como-trabalho">
-    <span class="case-next-label">Continuar a leitura → Método</span>
-    <span class="case-next-title">Como trabalho: o raciocínio por trás dos três cases</span>
-  </a>
-
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span>© 2026 Douglas Tassinari · Sistemas de Gestão &amp; Dados · Criciúma-SC</span>
-    <div class="footer-links">
-      <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">Jornada Brasil</a>
-      <a href="https://github.com/DouglasTassinari/OpsVision" target="_blank" rel="noopener">OpsVision</a>
-      <a href="https://github.com/DouglasTassinari/douglastassinari.github.io" target="_blank" rel="noopener">Código deste site</a>
-    </div>
-  </div>
-</footer>
-
-<script src="/assets/js/main.js" defer></script>
+<script>window.location.replace("/cases/tazzin/");</script>
 </body>
 </html>

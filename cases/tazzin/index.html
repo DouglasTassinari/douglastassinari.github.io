@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Case: Sistema TAZZIN — a plataforma que tira a indústria da planilha · Douglas Tassinari</title>
+<meta name="description" content="A plataforma de gestão da TAZZIN: 13 módulos de negócio, do chão de fábrica ao caixa, em 5 camadas com 244 testes automatizados. Demo pública no ar, código auditável no GitHub.">
+<link rel="canonical" href="https://douglastassinari.github.io/cases/tazzin/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://douglastassinari.github.io/cases/tazzin/">
+<meta property="og:title" content="Case: Sistema TAZZIN — a plataforma que tira a indústria da planilha">
+<meta property="og:description" content="Menos planilhas, mais controle: 13 módulos, do apontamento de máquina ao fluxo de caixa, num sistema só. 244 testes, observabilidade embutida, demo no ar.">
+<meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://douglastassinari.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://douglastassinari.github.io/#cases" },
+    { "@type": "ListItem", "position": 3, "name": "Sistema TAZZIN" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <nav aria-label="Navegação principal">
+    <a href="/" class="nav-logo">DT<span> · </span>Sistemas de Gestão &amp; Dados</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/#como-trabalho">Como trabalho</a></li>
+      <li><a href="/#trajetoria">Trajetória</a></li>
+      <li><a href="/#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo" class="case-page">
+
+  <nav class="breadcrumb" aria-label="Trilha de navegação">
+    <a href="/">Início</a><span aria-hidden="true">→</span><a href="/#cases">Cases</a><span aria-hidden="true">→</span>Sistema TAZZIN
+  </nav>
+
+  <header class="case-header">
+    <div class="section-label">Case 03 · Plataforma</div>
+    <h1>Sistema TAZZIN: menos planilhas, mais controle</h1>
+    <p class="case-lead">A plataforma de gestão que eu ofereço à indústria, sob a minha marca. Ela cobre num sistema só o que normalmente vive espalhado em uma planilha por departamento: do apontamento de máquina no chão de fábrica até o fluxo de caixa. São 13 módulos de negócio em 5 camadas, com 244 testes automatizados e observabilidade embutida — e você pode abrir a demo agora, sem pedir acesso a ninguém.</p>
+    <ul class="fact-bar">
+      <li><strong>13</strong><span>módulos de negócio</span></li>
+      <li><strong>38</strong><span>tabelas modeladas</span></li>
+      <li><strong>244</strong><span>testes em ~4 segundos</span></li>
+      <li><strong>Log + métricas + health</strong><span>observabilidade embutida</span></li>
+    </ul>
+  </header>
+
+  <section class="case-section" aria-labelledby="sec-problema">
+    <h2 id="sec-problema"><span class="sec-num">01</span>Problema</h2>
+    <p>Na indústria, o "sistema" quase sempre é <strong>um arquipélago de planilhas</strong>. Uma para o apontamento de produção, outra para o refugo, outra para o financeiro, outra para o RH — cada uma com um dono, uma versão e uma verdade. Ninguém está errado: cada planilha resolveu um problema real, no dia em que nasceu.</p>
+    <p>O custo aparece depois, e não é o custo de digitar. É que <strong>nenhuma pergunta que atravessa dois departamentos tem resposta</strong>. Quanto o refugo daquele fornecedor custou em caixa? O operador que rende mais é o mesmo que sucateia mais? Quando a resposta exige cruzar três planilhas na mão, ela simplesmente não é feita — e a decisão vira palpite.</p>
+    <p>O Sistema TAZZIN existe para que essa pergunta tenha resposta na tela: a venda baixa o estoque, que dispara a compra, que movimenta o financeiro, e o apontamento da máquina conversa com o refugo e com a meritocracia do operador — porque estão todos no mesmo lugar.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-contexto">
+    <h2 id="sec-contexto"><span class="sec-num">02</span>Contexto</h2>
+    <ul>
+      <li><strong>É um produto, não um exercício</strong> — a TAZZIN é a marca sob a qual eu levo esse sistema para a indústria; o repositório é a versão auditável dele;</li>
+      <li><strong>Nasceu de operação real</strong> — os módulos e suas regras vêm do ecossistema que construí dentro de uma indústria (o <a href="/cases/plataforma-industrial/">case industrial</a>), do chão de fábrica ao comercial;</li>
+      <li><strong>A demo roda com dados 100% sintéticos</strong> — ~46 mil linhas geradas com coerência entre módulos, justamente para que o sistema possa ser explorado por inteiro sem expor o dado de nenhuma empresa real;</li>
+      <li><strong>Escopo deliberadamente enxuto na infraestrutura</strong> — Python, SQLAlchemy, Streamlit, SQLite: a stack sai da frente para que o que importa (as regras de negócio e as fronteiras entre elas) fique visível.</li>
+    </ul>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-modulos">
+    <h2 id="sec-modulos"><span class="sec-num">03</span>O que o sistema cobre</h2>
+    <p>Treze módulos de negócio, distribuídos em quinze telas, seguindo o fluxo real de uma indústria:</p>
+    <ul>
+      <li><strong>Comercial</strong> — Vendas, Relacionamento com Cliente e Radar de Oportunidades (propostas esfriando, carteira sem contato);</li>
+      <li><strong>Chão de fábrica</strong> — Produção, Usinagem (apontamento de máquina: produção, setup, paradas, perdas), Refugo (com a origem do defeito classificada: fornecedor, usinagem ou indefinido) e Ajustes de tempo;</li>
+      <li><strong>Cadeia e caixa</strong> — Estoque, Compras e Financeiro, encadeados: o que sai da prateleira reaparece na fatura;</li>
+      <li><strong>Gestão</strong> — Pessoas, Projetos, Manutenção, Qualidade e Administração (com logs, métricas e health check do próprio sistema à vista).</li>
+    </ul>
+    <p>O dashboard executivo não mostra "todos os números": ele responde a duas perguntas, <em>a operação é lucrativa?</em> e <em>o caixa está saudável?</em> — e cada gráfico tem uma legenda que diz, em português, o que a cor significa.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-decisoes">
+    <h2 id="sec-decisoes"><span class="sec-num">04</span>Decisões</h2>
+
+    <div class="decisao">
+      <h3>Regras de negócio como funções puras, separadas da orquestração</h3>
+      <p>A camada de domínio contém validações e máquinas de estado sem nenhum I/O — sem sessão de banco, sem interface, sem filesystem. O service orquestra; o domínio decide.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Regra de negócio dentro do service ou do model, como na maioria das bases CRUD. Funciona no início e degrada rápido: regra misturada com I/O só é testável com o banco inteiro de pé, e cada teste fica lento e frágil.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Fronteiras entre módulos por contrato de IDs — sem ORM cruzando domínios</h3>
+      <p>Referência entre módulos é coluna de FK simples (<code>product_id: int</code>), nunca <code>relationship()</code> do ORM atravessando a fronteira. Se Vendas precisa do nome de um produto, pergunta ao service de Estoque.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Deixar o ORM navegar livremente entre módulos. É mais cômodo e cria o acoplamento invisível que impede qualquer módulo de evoluir — ou ser extraído — sozinho. Com o contrato de IDs, o acoplamento entre módulos se reduz a números inteiros.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Cor com significado, não com decoração</h3>
+      <p>O verde da marca carrega o sentido de "dentro da meta". Por isso ele não é usado como cor neutra de série: um gráfico de gastos todo verde diria ao leitor que está tudo bem. As séries sem juízo de valor usam um tom do azul da identidade — verde é bom, vermelho é ruim, azul é neutro, e a legenda diz isso em palavras.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Aplicar a paleta da marca nos gráficos só por consistência visual. Num painel de gestão, cor é informação: quando ela mente, o gráfico mente junto.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Testes contra banco real em memória, não mocks</h3>
+      <p>Os 244 testes rodam contra SQLite em memória com o schema completo — em ~4 segundos. Cada teste exercita a consulta de verdade, não uma imitação dela.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Mockar a camada de repositório. Testes com mock passam quando a consulta real está errada; o custo do banco em memória é baixo demais para justificar essa perda de confiança.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Observabilidade desde o dia 1</h3>
+      <p>Log JSON estruturado, métricas de latência por operação e health check fazem parte do desenho, não de uma fase futura. Toda operação de service é medida.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — "Observabilidade a gente adiciona quando precisar". Quando se precisa, é tarde: o incidente já aconteceu sem dado. Embutir custa pouco no início e define a cultura do sistema.</p>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-arquitetura">
+    <h2 id="sec-arquitetura"><span class="sec-num">05</span>Arquitetura</h2>
+    <p>Camadas com direção de dependência única, organizadas verticalmente por domínio de negócio — cada um dos 13 módulos atravessa todas as camadas com seus próprios arquivos. É o que permite acrescentar Usinagem, Refugo e Ajustes sem tocar em Vendas:</p>
+
+    <div class="arch-flow" role="img" aria-label="Diagrama: a interface chama services, que aplicam o domínio e chamam repositories, que consultam o banco. O core é transversal a todas as camadas. Dependências fluem numa direção só.">
+      <div class="arch-node">
+        <strong>Interface (Streamlit)</strong>
+        <span>Páginas por módulo: renderizam KPIs e coletam filtros — proibidas de tocar repositório ou model</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓</div>
+      <div class="arch-node">
+        <strong>Services</strong>
+        <span>Orquestração: chamam repositórios, aplicam o domínio, logam e medem latência — só falam com o próprio módulo</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓</div>
+      <div class="arch-node arch-node--accent">
+        <strong>Domain</strong>
+        <span>Validações e máquinas de estado como funções puras — zero I/O</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓</div>
+      <div class="arch-node">
+        <strong>Repositories</strong>
+        <span>Consultas SQLAlchemy: CRUD base + agregações de KPI — sem regra de negócio</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">↓</div>
+      <div class="arch-node">
+        <strong>Database</strong>
+        <span>38 tabelas em models declarativos — <code>relationship()</code> nunca cruza fronteira de módulo</span>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">⟷ transversal</div>
+      <div class="arch-node arch-node--accent">
+        <strong>Core</strong>
+        <span>Config, logging JSON, exceções, métricas, health check — não conhece nenhum módulo de negócio</span>
+      </div>
+    </div>
+    <p class="arch-note">A regra que sustenta tudo: <strong>Página → Service → Repository → Model, nunca pulando camadas</strong> — e um service só acessa repositórios do próprio módulo. A única exceção (o service de analytics do dashboard executivo, que compõe os demais) está documentada como exceção.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-tecnologias">
+    <h2 id="sec-tecnologias"><span class="sec-num">06</span>Tecnologias</h2>
+    <div class="table-wrap">
+      <table class="tech-table">
+        <thead>
+          <tr><th scope="col">Ferramenta</th><th scope="col">Para quê</th><th scope="col">Por que essa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Python 3 + type hints</td><td>Toda a base</td><td>Tipagem explícita torna os contratos entre camadas legíveis e verificáveis</td></tr>
+          <tr><td>SQLAlchemy 2.0</td><td>Models declarativos e consultas</td><td>ORM maduro que permite (e torna visível) a regra de não cruzar módulos</td></tr>
+          <tr><td>Streamlit</td><td>Camada de interface</td><td>Interface funcional com custo mínimo — o foco do produto é o que está embaixo dela</td></tr>
+          <tr><td>SQLite (em memória nos testes)</td><td>Persistência</td><td>Zero infraestrutura para rodar e auditar; a arquitetura não depende do banco</td></tr>
+          <tr><td>pytest</td><td>244 testes automatizados</td><td>Fixtures compõem o banco em memória; a suíte inteira roda em ~4s</td></tr>
+          <tr><td>logging estruturado (JSON)</td><td>Observabilidade</td><td>Log pensado para ser consumido por máquina, não só lido por gente</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-resultados">
+    <h2 id="sec-resultados"><span class="sec-num">07</span>Resultados</h2>
+    <ul>
+      <li><strong>A pergunta que cruza departamentos tem resposta na tela</strong> — o refugo do fornecedor, o rendimento do operador e o caixa do mês deixam de morar em planilhas separadas;</li>
+      <li><strong>O sistema é auditável por quem for avaliar</strong> — clonar, rodar os 244 testes e ler as decisões leva minutos; nada depende da minha palavra;</li>
+      <li><strong>O padrão se replica</strong> — os 13 módulos seguem a mesma estrutura de arquivos; entender um é entender todos, e é por isso que três módulos novos de chão de fábrica entraram sem quebrar nada;</li>
+      <li><strong>244 testes em ~4 segundos</strong> — rápido o suficiente para rodar a cada mudança, real o suficiente para ser confiável.</li>
+    </ul>
+    <p><strong>A prova é pública:</strong> a demo está no ar e o código, os testes e a documentação de decisões estão no GitHub.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-aprendizados">
+    <h2 id="sec-aprendizados"><span class="sec-num">08</span>Aprendizados</h2>
+    <ol class="aprendizados">
+      <li><strong>Honestidade técnica vale mais que aparência de perfeição.</strong> O repositório documenta os próprios limites — as métricas em memória não substituem um Prometheus, e a documentação diz isso — porque um sistema que esconde seus trade-offs cobra a conta depois, no cliente.</li>
+      <li><strong>Restrições declaradas são o que mantém a arquitetura de pé.</strong> O que cada camada é <em>proibida</em> de fazer importa mais do que o que ela faz — sem as proibições escritas, toda fronteira erode.</li>
+      <li><strong>Exceção documentada é diferente de regra quebrada.</strong> O módulo de analytics viola a regra de isolamento de propósito, com justificativa registrada — o que transforma uma gambiarra em decisão.</li>
+      <li><strong>Marca não é só a capa.</strong> Vestir o sistema com a identidade da TAZZIN obrigou a decidir o que cada cor <em>significa</em> num painel de gestão — e essa decisão melhorou a leitura dos gráficos, não só a aparência deles.</li>
+    </ol>
+  </section>
+
+  <aside class="prova-box">
+    <h2>Prova</h2>
+    <ul>
+      <li><a href="https://tazzin.streamlit.app" target="_blank" rel="noopener">tazzin.streamlit.app ↗</a> — a demo, no ar</li>
+      <li><a href="https://github.com/DouglasTassinari/Tazzin" target="_blank" rel="noopener">github.com/DouglasTassinari/Tazzin ↗</a> — código, testes e documentação de decisões</li>
+    </ul>
+  </aside>
+
+  <a class="case-next" href="/#como-trabalho">
+    <span class="case-next-label">Continuar a leitura → Método</span>
+    <span class="case-next-title">Como trabalho: o raciocínio por trás dos três cases</span>
+  </a>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Douglas Tassinari · Sistemas de Gestão &amp; Dados · Criciúma-SC</span>
+    <div class="footer-links">
+      <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">Jornada Brasil</a>
+      <a href="https://github.com/DouglasTassinari/Tazzin" target="_blank" rel="noopener">Sistema TAZZIN</a>
+      <a href="https://github.com/DouglasTassinari/douglastassinari.github.io" target="_blank" rel="noopener">Código deste site</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
