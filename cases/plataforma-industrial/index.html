@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Case: Sistema de gestão de uma indústria (0→1) · Douglas Tassinari</title>
-<meta name="description" content="Primeiro profissional de dados de uma indústria metalúrgica: de planilhas isoladas a uma plataforma com 68 telas, 64 rotinas automáticas e 3 bancos de dados. Problema, decisões, arquitetura e aprendizados — descrito sem dados sensíveis.">
+<meta name="description" content="Primeiro profissional de dados de uma indústria metalúrgica com mais de dez anos de ISO 9001: o trabalho manual com relatórios caiu de 15 para 3 dias por mês, a saúde da carteira de clientes subiu de 55 para 74 e os contatos comerciais quintuplicaram. Problema, decisões, arquitetura e aprendizados — descrito sem dados sensíveis.">
 <link rel="canonical" href="https://douglastassinari.github.io/cases/plataforma-industrial/">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://douglastassinari.github.io/cases/plataforma-industrial/">
 <meta property="og:title" content="Case: Sistema de gestão de uma indústria (0→1)">
-<meta property="og:description" content="De planilhas isoladas ao sistema de gestão de uma indústria inteira: 68 telas em produção, 64 rotinas automáticas por dia e 3.400 testes. As decisões e a arquitetura, documentadas.">
+<meta property="og:description" content="Trabalho manual de 15 para 3 dias por mês, saúde da carteira de 55 para 74, 5× mais contatos comerciais — e a plataforma de 68 telas por trás disso. As decisões e a arquitetura, documentadas.">
 <meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
@@ -58,69 +58,71 @@
   <header class="case-header">
     <div class="section-label">Case 01 · Negócio</div>
     <h1>De planilhas isoladas ao sistema de gestão de uma indústria inteira</h1>
-    <p class="case-lead">Primeiro profissional de dados de uma indústria metalúrgica de médio porte. A evolução foi honesta: três anos dentro das planilhas absorvendo a regra de negócio, um ano de integração via APIs — e, quando o Excel chegou ao teto, a reconstrução como plataforma. Hoje são 68 telas em produção que cobrem comercial, indústria, qualidade, RH, financeiro e TI, alimentadas por 64 rotinas automáticas por dia. Este case é descrito sem dados sensíveis: sem nome da empresa, sem valores absolutos, com diagrama genérico.</p>
+    <p class="case-lead">Primeiro profissional de dados de uma indústria metalúrgica de médio porte, com mais de dez anos de ISO 9001. A empresa já media; o que faltava era confiar no número e tê-lo a tempo. Foram três anos em planilhas — o primeiro copiando e colando relatórios, os seguintes com a extração automatizada por API — e, sem verba para uma ferramenta de BI, um protótipo feito com IA que cresceu até virar plataforma. No caminho, o trabalho manual com relatórios caiu de 15 para 3 dias por mês, a saúde da carteira de clientes foi de 55 para 74 e os contatos comerciais quintuplicaram. Descrito sem dados sensíveis: sem nome da empresa, sem valores financeiros, com diagrama genérico.</p>
     <ul class="fact-bar">
-      <li><strong>68</strong><span>telas em produção</span></li>
-      <li><strong>264</strong><span>tabelas e views em 3 bancos</span></li>
-      <li><strong>64</strong><span>rotinas automáticas por dia</span></li>
-      <li><strong>3.400</strong><span>testes automatizados</span></li>
+      <li><strong>15→3</strong><span>dias de trabalho manual por mês</span></li>
+      <li><strong>55→74</strong><span>saúde da carteira de clientes</span></li>
+      <li><strong>5×</strong><span>contatos comerciais por mês</span></li>
+      <li><strong>30→4%</strong><span>da jornada da usinagem sem registro</span></li>
     </ul>
   </header>
 
   <section class="case-section" aria-labelledby="sec-problema">
     <h2 id="sec-problema"><span class="sec-num">01</span>Problema</h2>
-    <p>A empresa decidia por memória e planilha. Cada área tinha a sua própria versão do número — o faturamento do comercial não batia com o do financeiro, e a discussão de gestão começava pela conferência do dado, não pela decisão.</p>
+    <p>A empresa já tinha o hábito de medir: mais de dez anos de ISO 9001, indicadores e acompanhamentos por área. O problema era o dado por trás deles — preenchido à mão, conferido à mão e, com frequência, errado. A discussão de gestão começava pela conferência do número, não pela decisão.</p>
     <ul>
+      <li><strong>Um ERP recém-implantado, ainda com muitos problemas de uso</strong> — a troca de sistema, um ano antes, tinha deixado para trás até o relatório de acompanhamento comercial que a diretoria usava;</li>
+      <li><strong>Planilha de vendas que não batia</strong> — montada todo dia copiando e colando do ERP, deixava de bater assim que os pedidos se movimentavam depois do preenchimento;</li>
+      <li><strong>Medição de produtividade que não media</strong> — o indicador existia e a meta sempre era atingida, porque ele não comparava o tempo produzido com o tempo disponível; e nada acusava absurdos, como produtividades de 1.500% causadas por um tempo padrão cadastrado errado. E parte da jornada simplesmente não tinha registro nenhum;</li>
+      <li><strong>Meritocracia que só uma pessoa entendia</strong> — as regras existiam, mas viviam numa planilha manual de copiar e colar no financeiro, e atualizá-la a cada folha custava tempo e mão de obra no momento mais apertado do mês;</li>
       <li><strong>Risco de churn invisível</strong> — clientes reduziam compras gradualmente e a perda só era percebida depois de consumada;</li>
-      <li><strong>Produtividade de fábrica sem medição</strong> — nenhuma visão de produção por operador, máquina ou turno;</li>
-      <li><strong>Bonificação sem critério objetivo</strong> — remuneração variável definida por percepção, com o desgaste que isso gera;</li>
-      <li><strong>Diretoria com dado mensal</strong> — quando o número chegava, o mês já tinha acontecido.</li>
+      <li><strong>Diretoria com dado mensal</strong> — o que realmente tinha acontecido só se sabia no fechamento, e nem sempre com o número certo.</li>
     </ul>
   </section>
 
   <section class="case-section" aria-labelledby="sec-contexto">
     <h2 id="sec-contexto"><span class="sec-num">02</span>Contexto</h2>
     <ul>
-      <li><strong>Nenhuma cultura de dados prévia</strong> — fui o primeiro profissional de dados da empresa; não havia processo, padrão ou expectativa formada;</li>
-      <li><strong>ERP como fonte central</strong> — todo o dado transacional nasce nele; qualquer estrutura teria que partir dali;</li>
+      <li><strong>Uma função que não existia</strong> — fui o primeiro profissional de dados da empresa. A missão inicial era estabilizar o uso do ERP, dar suporte de TI e devolver à diretoria o relatório comercial perdido; o resto do cargo eu fui construindo, indo atrás do indicador que faltava quando não havia pedido. Hoje também respondo pela infraestrutura de TI;</li>
+      <li><strong>Cultura de indicadores, sem dado confiável</strong> — a ISO trouxe processos definidos e o hábito de medir; faltava o dado chegar sozinho e certo;</li>
       <li><strong>Equipe de dados = 1 pessoa</strong> — eu. Cada decisão de arquitetura precisava caber na capacidade de uma pessoa construir <em>e</em> operar;</li>
-      <li><strong>Orçamento de ferramenta próximo de zero</strong> — resolvido com stack aberta: Python, PostgreSQL e Streamlit, sem custo de licença, num único servidor.</li>
+      <li><strong>Sem verba para ferramenta</strong> — as plataformas de BI do mercado pediam de R$ 20 a 30 mil para implantar, mais R$ 3 a 4 mil por mês. O protótipo saiu com versões gratuitas de IA; o primeiro mês de assinatura do Claude eu paguei do meu bolso; depois das primeiras entregas, a empresa assumiu a assinatura e dedicou uma máquina virtual ao sistema. Fora isso, stack aberta: Python, PostgreSQL e Streamlit, sem nenhuma licença.</li>
     </ul>
     <p>As restrições moldaram a arquitetura: automação não era sofisticação, era condição de sobrevivência — um sistema operado por uma pessoa só se sustenta se se entregar sozinho.</p>
-    <p>E o caminho não foi linear. Foram três anos de planilha com automação mínima antes de qualquer sistema — o que parecia lentidão era acúmulo: quando a plataforma foi construída, a regra de negócio já estava toda levantada. Vivida, não entrevistada.</p>
+    <p>E não foi automação de processo ruim. Nos três anos antes do sistema, os processos da ISO foram sendo refinados com as áreas justamente para facilitar a coleta de dados — enquanto eu absorvia a regra de negócio de dentro das planilhas. Quando a plataforma começou, o processo estava pronto para ela e a regra, levantada. Vivida, não entrevistada.</p>
   </section>
 
   <section class="case-section" aria-labelledby="sec-decisoes">
     <h2 id="sec-decisoes"><span class="sec-num">03</span>Decisões</h2>
 
     <div class="decisao">
-      <h3>Reconstruir como plataforma, não seguir remendando planilhas</h3>
-      <p>Depois de três anos evoluindo planilha a planilha, a decisão foi parar de remendar e reconstruir: uma plataforma única — banco de dados próprio, módulos por área, telas em cima. Hoje são 35 módulos e 68 telas no menu, das ISO 9001 ao chão de fábrica.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Continuar evoluindo o Excel. Eu tinha três anos de prova vivida de que não escala: referências quebrando, versões divergindo, manutenção consumindo o ganho de cada melhoria. Reconhecer o teto da ferramenta foi a decisão de arquitetura mais importante do projeto.</p>
+      <h3>Começar pelo menor passo útil — e deixar o sistema crescer pelo uso</h3>
+      <p>A meta que assumi para 2026 era dar à empresa o seu BI — não uma plataforma. O primeiro protótipo foi modesto: a planilha de vendas de todo dia, aberta no navegador e atualizada sozinha a partir de um banco de dados. Cada entrega usada de verdade abriu a próxima, em ritmo acelerado — e, quando percebi, eu tinha nas mãos muito mais que um BI: um sistema sob medida para o jeito de a empresa trabalhar. Hoje são 35 módulos e 68 telas no menu, dos indicadores da ISO 9001 ao chão de fábrica.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Contratar uma plataforma de BI pronta. Estudei as opções: além do custo de implantação e da mensalidade, nenhuma me convenceu de que eu teria a autonomia de personalização que o trabalho pedia. Ferramenta pronta entrega o que ela sabe fazer; a empresa precisava do seu próprio jeito de trabalhar dentro do sistema.</p>
     </div>
 
     <div class="decisao">
-      <h3>Nenhuma tela conversa com o ERP ao vivo</h3>
-      <p>Os dados entram por rotinas agendadas, que gravam no banco próprio; as telas só leem o que já está gravado. Cada dado sai da origem uma vez, de um jeito só, e alimenta tudo que existe em cima.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Consultar as APIs durante a navegação. É mais simples de escrever e elimina uma classe inteira de problemas para o usuário: limite de requisições, lentidão de rede no meio da tela e, principalmente, a origem fora do ar derrubando o painel. Quando o ERP cai, o sistema segue mostrando o último dado bom — envelhecido, mas de pé.</p>
+      <h3>O dado entra por rotina agendada; a tela lê o banco próprio</h3>
+      <p>Como regra, os dados entram por rotinas agendadas que gravam no banco próprio, e as telas leem o que já está gravado. Cada dado sai da origem uma vez, de um jeito só, e alimenta tudo que existe em cima. As poucas telas que ainda consultam o ERP ao vivo são justamente as que ficam frágeis quando ele sai do ar — a exceção confirma o motivo da regra.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Consultar as APIs durante a navegação. É mais simples de escrever, mas coloca no caminho de quem usa o limite de requisições, a lentidão de rede e, principalmente, a origem fora do ar derrubando o painel. Com o banco no meio, quando o ERP cai o sistema segue mostrando o último dado bom — envelhecido, mas de pé.</p>
     </div>
 
     <div class="decisao">
       <h3>Captação de dados dentro da plataforma — não só leitura</h3>
-      <p>O sistema não apenas mostra: coleta. Registro de refugo, não conformidades, ajustes e melhorias, calibração, recrutamento e rotinas do comercial entram pela própria plataforma, alimentam o banco e viram análise — a operação retroalimenta o sistema que a serve.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Uma plataforma somente-leitura sobre o ERP. Deixaria de fora exatamente o dado que o ERP não captura — o motivo do refugo, a interação com o cliente, a sugestão de melhoria — e manteria vivos os formulários paralelos de papel e planilha.</p>
+      <p>O sistema não apenas mostra: coleta. Registro de refugo, não conformidades, ajustes e melhorias, calibração, recrutamento e o resultado das pesquisas de pós-venda entram pela própria plataforma, alimentam o banco e viram análise — a operação retroalimenta o sistema que a serve.</p>
+      <p class="decisao-alt"><strong>Como surgiu</strong> — Não estava no plano. A ideia inicial era só ler o ERP. Conforme o sistema foi sendo usado, as próprias pessoas começaram a trazer ideias, e registrar ali o que antes ia para papel e planilha virou necessidade. A retroalimentação foi uma evolução natural, não um projeto.</p>
     </div>
 
     <div class="decisao">
       <h3>Automatizar a entrega, não só o cálculo</h3>
-      <p>Relatório que exige lembrar de abrir morre. São 64 rotinas agendadas que vão da carga de dez em dez minutos ao fechamento mensal: painéis que saem por e-mail e WhatsApp de manhã, alertas de pendência, telas em modo TV atualizadas sozinhas na fábrica e no comercial. Cada rotina tem trava para não rodar sobreposta, nova tentativa quando a origem falha e registro de sucesso ou erro que um vigia lê a cada dez minutos.</p>
+      <p>Relatório que exige lembrar de abrir morre — e foi essa a ideia que deu origem a tudo: uma planilha de vendas que se atualizasse e chegasse sozinha pelo WhatsApp. Hoje são 64 rotinas agendadas, da carga de dez em dez minutos ao fechamento mensal: painéis que saem por e-mail e WhatsApp de manhã, alertas de pendência, telas em modo TV atualizadas sozinhas na fábrica e no comercial. Cada rotina tem trava para não rodar sobreposta, nova tentativa quando a origem falha e registro de sucesso ou erro que um vigia lê a cada dez minutos.</p>
       <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Publicar o painel e depender da disciplina de acesso. A adoção não pode depender de hábito alheio; a entrega automatizada é o que separa um sistema vivo de um projeto abandonado.</p>
     </div>
 
     <div class="decisao">
       <h3>Sistemas que decidem remuneração exigem trilha auditável</h3>
-      <p>Quando os indicadores passaram a definir meritocracia e comissão, a regra virou explícita e o histórico, preservado: qualquer valor pago é reconstruível a partir do dado que o gerou. A apuração que começou em planilha hoje roda dentro da plataforma, ligada aos mesmos indicadores que as áreas enxergam.</p>
-      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Calcular a bonificação numa caixa-preta. Funciona até a primeira contestação. Sistema que mexe com o salário das pessoas nasce auditável ou não deveria existir.</p>
+      <p>Antes de automatizar a meritocracia, eu precisava entendê-la. Passei semanas aprendendo cada regra com o financeiro, liguei a apuração às planilhas de indicadores, criei os indicadores que faltavam e passei a conferir tudo antes da folha. Na plataforma, a apuração ficou ligada aos mesmos indicadores que as áreas enxergam, com o histórico preservado — qualquer valor pago é reconstruível a partir do dado que o gerou. Na usinagem, o índice passou a cruzar o relógio de ponto com os apontamentos de produção.</p>
+      <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Deixar a regra só na planilha e na memória de quem a opera. Funciona até alguém faltar ou até a primeira contestação. Sistema que mexe com o salário das pessoas precisa ser auditável por qualquer um.</p>
     </div>
 
     <div class="decisao">
@@ -141,10 +143,10 @@
     <h2 id="sec-arquitetura"><span class="sec-num">04</span>Arquitetura</h2>
     <p>Diagrama genérico, sem detalhes internos da empresa — o desenho é o mesmo que sustenta qualquer área da plataforma:</p>
 
-    <div class="arch-flow" role="img" aria-label="Diagrama: as fontes — ERP e CRM em nuvem, relógio de ponto, bases públicas de licitações e de empresas, Google Analytics e a captação feita nas próprias telas — alimentam rotinas agendadas de extração, que gravam em três bancos PostgreSQL. A aplicação lê apenas o banco e entrega 68 telas com login e permissão por área. A distribuição envia painéis por e-mail, WhatsApp e modo TV. Uma camada transversal cuida de observabilidade, backup e da consulta segura por IA.">
+    <div class="arch-flow" role="img" aria-label="Diagrama: as fontes — ERP e CRM em nuvem, relógio de ponto, bases públicas de licitações e de empresas, Google Analytics e o que a operação registra nas próprias telas — alimentam rotinas agendadas de extração, que gravam em três bancos PostgreSQL. A aplicação lê, como regra, o banco próprio e entrega 68 telas com login e permissão por área. A distribuição envia painéis por e-mail, WhatsApp e modo TV. Uma camada transversal cuida de observabilidade, backup e da consulta segura por IA.">
       <div class="arch-node">
         <strong>Fontes: sistemas externos + captação na própria plataforma</strong>
-        <span>ERP e CRM em nuvem, relógio de ponto, bases públicas (licitações, cadastro de empresas, municípios), Google Analytics — e o dado que nenhum deles vê: motivo de refugo, interação com cliente, sugestão de melhoria, registrados nas telas pela operação</span>
+        <span>ERP e CRM em nuvem, relógio de ponto, bases públicas (licitações, cadastro de empresas, municípios), Google Analytics — e o dado que nenhum deles vê: motivo de refugo, não conformidade, calibração, ajuste e melhoria, resultado da pesquisa de pós-venda, registrados nas telas</span>
       </div>
       <div class="arch-arrow" aria-hidden="true">↓ extração agendada · 64 rotinas</div>
       <div class="arch-node arch-node--accent">
@@ -154,12 +156,12 @@
       <div class="arch-arrow" aria-hidden="true">↓</div>
       <div class="arch-node arch-node--accent">
         <strong>Banco próprio e regras de negócio</strong>
-        <span>Três bancos PostgreSQL, 264 tabelas e views: métricas com definição única e histórico preservado — churn, margem, produtividade, metas, frequência</span>
+        <span>Três bancos PostgreSQL, 264 tabelas e views: métricas com definição única e histórico preservado — churn, margem, rendimento, ociosidade, metas, frequência</span>
       </div>
       <div class="arch-arrow" aria-hidden="true">↓ leitura</div>
       <div class="arch-node">
         <strong>Aplicação: 68 telas, login próprio e permissão por área</strong>
-        <span>Nenhuma tela chama sistema externo ao vivo. Cada pessoa vê o que a sua área permite; o que é sensível só entra por liberação explícita</span>
+        <span>Como regra, a tela lê o banco próprio, não a fonte. Cada pessoa vê o que a sua área permite; o que é sensível só entra por liberação explícita</span>
       </div>
       <div class="arch-arrow" aria-hidden="true">↓ distribuição</div>
       <div class="arch-node">
@@ -172,7 +174,7 @@
         <span>Vigia de saúde a cada 10 minutos, tempo de carregamento medido por tela, backup diário do código e dos bancos, manutenção semanal — e uma camada semântica que responde perguntas de negócio somente em leitura, com dado pessoal mascarado</span>
       </div>
     </div>
-    <p class="arch-note">Duas regras organizam o desenho: <strong>nenhuma saída consome a fonte diretamente</strong> — tudo passa pelo banco próprio, que garante que a empresa inteira fala do mesmo número — e <strong>o ciclo é fechado</strong>: a operação alimenta o dado, o dado devolve decisão.</p>
+    <p class="arch-note">Duas regras organizam o desenho: <strong>o dado passa pelo banco próprio antes de chegar às telas</strong> — é o que faz a empresa inteira falar do mesmo número — e <strong>o ciclo é fechado</strong>: a operação alimenta o dado, o dado devolve decisão.</p>
   </section>
 
   <section class="case-section" aria-labelledby="sec-tecnologias">
@@ -201,15 +203,24 @@
 
   <section class="case-section" aria-labelledby="sec-resultados">
     <h2 id="sec-resultados"><span class="sec-num">06</span>Resultados</h2>
-    <p>Em ordem de grandeza, sem dados confidenciais:</p>
+    <p>Em ordem de grandeza, sem dados financeiros. Primeiro, o que mudou para o negócio:</p>
     <ul>
-      <li><strong>68 telas em produção, em 20 seções</strong> — comercial (prospecção, carteira e desempenho), industrial (PCP, qualidade e rendimento), indicadores da ISO 9001, RH e departamento pessoal, financeiro, TI e modo TV;</li>
-      <li><strong>O sistema é usado todos os dias</strong> — mais de 1.400 entradas com senha desde julho, cerca de 30 por dia útil, de 21 máquinas diferentes da empresa;</li>
+      <li><strong>De 15 para 3 dias de trabalho manual por mês</strong> — os relatórios que eu, o PCP e o financeiro montávamos à mão (vendas, faturamento, entregas, estoque, propostas, carteira, bônus de distribuidores, movimentação de clientes) somavam mais de 60 horas por mês; hoje se atualizam a cada dez minutos e chegam sozinhos por e-mail e WhatsApp. A apuração da meritocracia caiu de uma manhã para 30 minutos de conferência, e a fila de contato e o radar de oportunidades devolvem de 2 a 3 horas por semana a cada vendedor. Os dias que sobraram viraram melhoria;</li>
+      <li><strong>Saúde da carteira de clientes de 55 para 74 em três meses</strong> — o painel com o prazo de contato de cada classe de cliente virou fila de trabalho do comercial: os clientes com contato vencido caíram 39% entre maio e setembro de 2026;</li>
+      <li><strong>O tempo da usinagem sem nenhum registro caiu de cerca de 30% para cerca de 4% da jornada</strong> — o que era buraco virou programa novo, alinhamento de máquina, setup e manutenção registrados e medidos, e o refugo apontado pelo operador dispara alerta para a Qualidade quando é preciso abrir uma RNC. O gestor acompanha em tela, com dez minutos de atraso em relação ao ERP, e ajusta a operação no mesmo dia. O rendimento compara o tempo padrão com o realmente gasto, com teto por sessão para que um cadastro errado não infle o dia; a ociosidade sai do cruzamento entre o relógio de ponto e os apontamentos;</li>
+      <li><strong>Uma contratação decidida pelo dado</strong> — com os números da usinagem enfim confiáveis, ficou claro que um auxiliar de produção aumentaria o desempenho dos operadores e pagaria o próprio custo. A empresa contratou, a partir de uma análise que fiz com o analista de processos;</li>
+      <li><strong>Contatos comerciais de cerca de 20 para mais de 100 por mês</strong> — sugeri a mídia paga, acompanhei a agência por dois anos e, em 2025, assumi as campanhas de Google e Meta Ads. O acompanhamento rastreia o cliente do clique à cotação, à compra e ao faturamento, e as contas novas que chegam pelo site ao CRM subiram 75% sobre a média da época da agência;</li>
+      <li><strong>A diretoria acompanha o mês enquanto ele acontece</strong> — o relatório de vendas passou a bater já no primeiro mês de trabalho; hoje faturamento e cobertura de estoque chegam por e-mail toda manhã, em vez de aparecerem só no fechamento;</li>
+      <li><strong>O comercial tem a carteira na tela</strong> — indicadores que não existiam, como clientes ativos, novos e recuperados, faturamento por estado e clientes atendidos por vendedor, mais o radar de oportunidades, a recuperação de clientes e listas de prospecção geradas a partir da base pública de empresas;</li>
+      <li><strong>Risco de churn visível por cliente antes da perda</strong> — a movimentação de clientes, medida mês a mês desde 2023, virou um radar em que a redução gradual de compras dispara sinal enquanto ainda há o que fazer;</li>
+      <li><strong>Remuneração e carreira dentro da plataforma</strong> — a meritocracia é apurada sem o trabalho manual de cada folha, com histórico preservado; e o plano de cargos e salários, projeto que assumi no fim de 2025, trouxe níveis, enquadramentos e trilhas de carreira;</li>
+      <li><strong>Chamados ao fornecedor do ERP caíram mais de 80%</strong> — centralizados nas primeiras semanas do cargo; hoje são um ou dois por mês.</li>
+    </ul>
+    <p>E o que sustenta isso como sistema:</p>
+    <ul>
+      <li><strong>68 telas em produção, em 20 seções</strong> — comercial, industrial, indicadores da ISO 9001, RH e departamento pessoal, financeiro, TI e modo TV, com as equipes treinadas em toda a plataforma;</li>
+      <li><strong>Usado todos os dias</strong> — mais de 1.400 entradas com senha desde julho, cerca de 30 por dia útil, de 21 máquinas diferentes da empresa;</li>
       <li><strong>309 melhorias publicadas para os usuários</strong> em quatro meses, numa central de novidades dentro do próprio sistema — quem usa vê o que mudou e por quê;</li>
-      <li><strong>Produção monitorada de perto</strong> — refugo, não conformidades, calibração, rendimento por operador e cobertura de estoque, com registro feito na própria fábrica;</li>
-      <li><strong>O comercial trabalha dentro do sistema</strong> — radar de oportunidades, recuperação de clientes, acompanhamento de carteira e do CRM, prospecção por licitações e por base pública de empresas;</li>
-      <li><strong>Risco de churn visível por cliente antes da perda</strong> — a redução gradual de compras dispara sinal enquanto ainda há o que fazer;</li>
-      <li><strong>Meritocracia e comissão apuradas dentro da plataforma</strong> — regra explícita, histórico preservado, valor reconstruível;</li>
       <li><strong>Desempenho tratado como requisito</strong> — numa auditoria de consultas, a consulta dominante do CRM caiu de 2.196 ms para 16 ms depois de um índice funcional;</li>
       <li><strong>O sistema se vigia</strong> — verificação de saúde a cada dez minutos, tempo de carregamento medido por tela, backup diário do código e dos três bancos;</li>
       <li><strong>O conhecimento saiu da cabeça</strong> — 61 regras de negócio escritas e classificadas por grau de evidência, mais um manual de operação que permite a outra pessoa assumir o sistema.</li>
@@ -219,18 +230,18 @@
   <section class="case-section" aria-labelledby="sec-aprendizados">
     <h2 id="sec-aprendizados"><span class="sec-num">07</span>Aprendizados</h2>
     <ol class="aprendizados">
-      <li><strong>Os três anos de planilha não foram atraso — foram o levantamento de requisitos.</strong> Quando a plataforma nasceu, cada regra já tinha sido vivida: churn, margem, meta, exceção. Software construído depois de absorver o negócio nasce certo.</li>
-      <li><strong>Reconhecer o teto da ferramenta é decisão de arquitetura.</strong> O Excel foi a ferramenta certa até deixar de ser. A coragem de parar e reconstruir valeu mais do que a inércia de seguir remendando.</li>
-      <li><strong>A parte difícil não é o dashboard, é a definição da métrica.</strong> Ao medir a adoção do sistema, descobri que 73% do que eu contava como "acesso" era recarregamento de página, não gente entrando. Corrigi a definição, não o número — e o indicador encolheu. Métrica que ninguém audita é decoração.</li>
-      <li><strong>Sistema que mexe com remuneração nasce auditável.</strong> A confiança das pessoas no número é o ativo; a trilha de auditoria é o que a sustenta.</li>
+      <li><strong>Os três anos de planilha não foram atraso — foram o levantamento de requisitos.</strong> Enquanto eu absorvia churn, margem, meta e exceção, os processos da ISO eram refinados para facilitar a coleta. Quando o sistema chegou, encontrou o processo pronto e a regra vivida — e software construído depois de absorver o negócio nasce certo.</li>
+      <li><strong>Dado confiável muda decisão, não só relatório.</strong> A contratação do auxiliar de produção saiu dos números da usinagem — mas só depois que as pessoas passaram a confiar neles. Com a medição antiga, que sempre batia a meta, a mesma análise não teria convencido ninguém.</li>
+      <li><strong>O menor passo útil vale mais que o grande projeto.</strong> Um sistema de 68 telas começou com a planilha de vendas de todo dia, aberta no navegador e atualizada sozinha. Cada entrega, usada de verdade, mostrou qual era a próxima — um plano completo feito no primeiro dia teria errado a maior parte.</li>
+      <li><strong>Um sistema funcionando convence mais que uma proposta.</strong> Não pedi verba para testar uma ideia: fiz o protótipo com versões gratuitas de IA, paguei o primeiro mês do Claude do meu bolso, entreguei — e a empresa assumiu a assinatura depois de ver funcionando.</li>
+      <li><strong>A parte difícil não é o dashboard, é a definição da métrica.</strong> A meta de produtividade que sempre batia não media o tempo disponível. O indicador de adoção que eu mesmo criei contava recarregamento de página como acesso — 73% do total. Nos dois casos, a correção foi na definição, não no número. Métrica que ninguém audita é decoração.</li>
       <li><strong>IA acelera a construção e não assume a responsabilidade.</strong> Ela escreve rápido demais para ser conferida no olho: o que segura é teste, documentação e uma pessoa capaz de explicar cada decisão. Por isso a documentação virou projeto com o mesmo peso do código.</li>
-      <li><strong>Auditar o próprio trabalho contra o mercado é mais barato que migrar por moda.</strong> Comparar a plataforma com as ferramentas que o mercado trata como padrão mostrou o que valia a pena copiar, o que já existia com outro nome e o que seria complexidade sem retorno nessa escala.</li>
     </ol>
   </section>
 
   <aside class="prova-box">
     <h2>Prova</h2>
-    <p>Este case é trabalho interno confidencial — o sistema roda na rede da empresa, sem acesso público, e está descrito aqui sem nome, sem valores absolutos e com diagrama genérico. A contraprova pública do mesmo raciocínio existe em código aberto:</p>
+    <p>Este case é trabalho interno confidencial — o sistema roda na rede da empresa, sem acesso público, e está descrito aqui sem nome, sem valores financeiros e com diagrama genérico. A contraprova pública do mesmo raciocínio existe em código aberto:</p>
     <ul>
       <li><a href="/cases/tazzin/">Sistema TAZZIN</a> — a plataforma que nasceu deste ecossistema, publicada sob a minha marca e auditável no código;</li>
       <li><a href="/cases/jornada-brasil/">Jornada Brasil</a> — a capacidade de entrega ponta a ponta, verificável no ar.</li>
