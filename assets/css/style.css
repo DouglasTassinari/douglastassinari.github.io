@@ -26,6 +26,9 @@
 
 html { scroll-behavior: smooth; }
 
+/* Âncoras não ficam escondidas atrás do cabeçalho fixo */
+section[id], h2[id] { scroll-margin-top: 5rem; }
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -72,6 +75,19 @@ code {
   font-weight: 600;
 }
 .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* Texto só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* --- Navegação ------------------------------------------------------------ */
 .site-header {
@@ -306,6 +322,14 @@ h2 em { font-style: italic; color: var(--accent); }
   margin-bottom: 0.2rem;
 }
 .hero-provas a:hover strong { color: var(--accent-bright); }
+
+/* Variante com números de impacto: o que o avaliador vê nos primeiros segundos */
+.hero-provas--numeros strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
 
 /* --- Cards de case (home) ---------------------------------------------------- */
 .cases-grid {
@@ -784,6 +808,217 @@ h2 em { font-style: italic; color: var(--accent); }
 }
 
 /* ==========================================================================
+   Padrão de case (set/2026): impacto primeiro, profundidade recolhida
+   ========================================================================== */
+
+/* Home — o que eu levo para uma operação */
+.cap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.cap {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.cap h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.cap p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.2rem; }
+.cap-prova {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+.cap-prova strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.cap-prova span { font-size: 0.78rem; color: var(--muted); }
+
+/* Home — case principal em destaque, projetos em cards menores */
+.work-featured {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  padding: 2rem;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.work-featured:hover { border-color: var(--accent); background: var(--bg-3); }
+.work-featured h3 { font-size: 1.35rem; line-height: 1.3; margin-bottom: 0.9rem; }
+.work-featured h3 a { color: var(--text); }
+.work-featured h3 a:hover { color: var(--accent-bright); }
+.work-featured p { color: var(--muted); font-size: 0.92rem; margin-bottom: 1rem; }
+
+.mini-stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  align-self: start;
+}
+.mini-stats li { background: var(--bg); padding: 0.9rem 1rem; }
+.mini-stats strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.25;
+}
+.mini-stats span { font-size: 0.74rem; color: var(--muted); }
+.mini-stats--3 { grid-template-columns: repeat(3, 1fr); }
+
+/* Case — resumo em 30 segundos */
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 2rem;
+}
+.resumo > div { background: var(--card); padding: 1rem 1.2rem; }
+.resumo dt {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.resumo dd { font-size: 0.9rem; color: var(--muted); }
+
+/* Case — antes → depois */
+.antes-depois {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.antes-depois li { border: 1px solid var(--border); border-radius: 4px; padding: 1.1rem 1.2rem; }
+.ad-rotulo { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.35rem; }
+.ad-valores {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+}
+.ad-antes {
+  font-size: 1.05rem;
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(132, 148, 168, 0.55);
+}
+.ad-seta { color: var(--accent); }
+.ad-depois { font-size: 1.6rem; font-weight: 800; color: var(--accent); line-height: 1.2; }
+.ad-nota { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 0.35rem; }
+
+/* Case — evolução em etapas */
+.evolucao {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.evolucao li { position: relative; border-top: 2px solid var(--accent-dim); padding-top: 1rem; }
+.evolucao li::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.evolucao--3 { grid-template-columns: repeat(3, 1fr); }
+.ev-ano { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; color: var(--accent); }
+.evolucao h3 { font-size: 0.95rem; margin: 0.25rem 0 0.45rem; }
+.evolucao p { font-size: 0.84rem; color: var(--muted); margin: 0; }
+
+/* Case — passos numerados (como funciona) */
+.passos { list-style: none; counter-reset: passo; }
+.passos li {
+  counter-increment: passo;
+  position: relative;
+  padding: 0 0 0.9rem 2.4rem;
+  color: var(--muted);
+}
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--accent-dim);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.passos li strong { color: var(--text); }
+
+/* Case — detalhes técnicos recolhidos */
+.detalhes { border: 1px solid var(--border); border-radius: 4px; margin-bottom: 3rem; }
+.detalhes > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: background 0.2s;
+}
+.detalhes > summary::-webkit-details-marker { display: none; }
+.detalhes > summary::after { content: '+'; color: var(--accent); font-size: 1.4rem; line-height: 1; }
+.detalhes[open] > summary::after { content: '−'; }
+.detalhes > summary:hover { background: var(--bg-3); }
+.detalhes > summary span { font-family: var(--font-body); font-weight: 400; font-size: 0.8rem; color: var(--muted); display: block; }
+.detalhes-corpo { padding: 0.2rem 1.4rem 1.4rem; border-top: 1px solid var(--border); }
+.detalhes-corpo h3 { font-size: 0.92rem; margin: 1.5rem 0 0.8rem; }
+.detalhes-corpo p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.8rem; }
+.detalhes-corpo ul:not([class]) { list-style: none; }
+.detalhes-corpo ul:not([class]) li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.detalhes-corpo ul:not([class]) li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+/* Chips de tecnologia */
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chips li {
+  font-size: 0.78rem;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  background: var(--card);
+}
+
+/* ==========================================================================
    Responsivo
    ========================================================================== */
 @media (max-width: 900px) {
@@ -814,6 +1049,11 @@ h2 em { font-style: italic; color: var(--accent); }
 
   .hero-provas { grid-template-columns: 1fr; }
   .fact-bar { grid-template-columns: repeat(2, 1fr); }
+
+  .cap-grid { grid-template-columns: 1fr; }
+  .work-featured { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.4rem; }
+  .evolucao { grid-template-columns: repeat(2, 1fr); row-gap: 1.8rem; }
+  .mini-stats--3 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 520px) {
@@ -821,4 +1061,8 @@ h2 em { font-style: italic; color: var(--accent); }
   .hero { min-height: 86vh; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
   .fact-bar { grid-template-columns: 1fr; }
+
+  .resumo { grid-template-columns: 1fr; }
+  .antes-depois { grid-template-columns: 1fr; }
+  .evolucao { grid-template-columns: 1fr; }
 }

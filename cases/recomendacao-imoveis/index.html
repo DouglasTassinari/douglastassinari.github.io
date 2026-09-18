@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Recomendação de imóveis para uma imobiliária · Douglas Tassinari</title>
+<meta name="description" content="Sistema entregue a uma imobiliária parceira: o corretor entrevista o cliente e recebe na hora as três opções do site que mais se encaixam no perfil. Regras de negócio, sem IA, rodando no servidor da imobiliária.">
+<link rel="canonical" href="https://douglastassinari.github.io/cases/recomendacao-imoveis/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://douglastassinari.github.io/cases/recomendacao-imoveis/">
+<meta property="og:title" content="Três imóveis certos em segundos, em vez de garimpar mais de 100 anúncios">
+<meta property="og:description" content="Um sistema de recomendação por regras de negócio, entregue a uma imobiliária parceira e em uso desde junho de 2026.">
+<meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://douglastassinari.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://douglastassinari.github.io/#cases" },
+    { "@type": "ListItem", "position": 3, "name": "Recomendação de imóveis" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <nav aria-label="Navegação principal">
+    <a href="/" class="nav-logo">DT<span> · </span>Sistemas de Gestão &amp; Dados</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/#como-trabalho">Como trabalho</a></li>
+      <li><a href="/#trajetoria">Trajetória</a></li>
+      <li><a href="/#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo" class="case-page">
+
+  <nav class="breadcrumb" aria-label="Trilha de navegação">
+    <a href="/">Início</a><span aria-hidden="true">→</span><a href="/#cases">Cases</a><span aria-hidden="true">→</span>Recomendação de imóveis
+  </nav>
+
+  <header class="case-header">
+    <div class="section-label">Projeto · Cliente externo · 2026</div>
+    <h1>Três imóveis certos em segundos, em vez de garimpar mais de 100 anúncios</h1>
+    <p class="case-lead">Sistema entregue a uma imobiliária parceira, em uso desde junho de 2026. O corretor entrevista o cliente e recebe na hora as três opções do site que mais se encaixam no perfil dele. A pedido do cliente, descrito sem nome e sem telas.</p>
+    <dl class="resumo">
+      <div><dt>Desafio</dt><dd>Para cada cliente, o corretor garimpava à mão um site com mais de 100 anúncios — e, se nada servisse, dependia de lembrar de procurar de novo.</dd></div>
+      <div><dt>O que fiz</dt><dd>Um sistema que transforma a entrevista do corretor num perfil e aplica regras de negócio sobre o banco de anúncios do site para escolher as três melhores opções.</dd></div>
+      <div><dt>Resultado</dt><dd>O cliente relata atendimento mais rápido e bem menos tempo do corretor procurando ofertas. Quando não há opção, o sistema continua procurando sozinho.</dd></div>
+      <div><dt>Meu papel</dt><dd>Levantamento das regras com o cliente, desenvolvimento e implantação no servidor da imobiliária.</dd></div>
+    </dl>
+  </header>
+
+  <section class="case-section" aria-labelledby="sec-funciona">
+    <h2 id="sec-funciona">Como funciona</h2>
+    <ol class="passos">
+      <li><strong>A entrevista.</strong> O corretor registra as respostas objetivas do cliente no computador ou no tablet, conectado ao servidor da imobiliária por VPN.</li>
+      <li><strong>As regras.</strong> O sistema cruza o perfil com os anúncios disponíveis no banco do site e ordena por aderência.</li>
+      <li><strong>A resposta.</strong> Assim que a entrevista é enviada, aparecem as três opções que mais se encaixam.</li>
+      <li><strong>A espera ativa.</strong> Se nada servir, uma busca diária fica agendada até encontrar um imóvel — ou até o corretor mandar parar.</li>
+    </ol>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-decisoes">
+    <h2 id="sec-decisoes">Duas decisões que pesaram</h2>
+
+    <div class="decisao">
+      <h3>Regras de negócio, sem IA</h3>
+      <p>O sistema escolhe os imóveis por regras explícitas sobre o banco de anúncios, definidas com a própria imobiliária.</p>
+      <p class="decisao-alt"><strong>Por quê</strong> — Cada recomendação tem um motivo que o corretor consegue explicar ao cliente, o mesmo perfil sempre recebe a mesma resposta e não existe custo por consulta.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>O dado não sai da imobiliária</h3>
+      <p>Tudo roda no servidor interno do cliente, com login próprio e acesso de fora apenas pela VPN.</p>
+      <p class="decisao-alt"><strong>Por quê</strong> — O cadastro dos clientes e o banco de anúncios ficam onde já estavam; nada passa por serviço de terceiros.</p>
+    </div>
+  </section>
+
+  <details class="detalhes">
+    <summary>Detalhes técnicos<span>Stack e operação</span></summary>
+    <div class="detalhes-corpo">
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li>Python</li><li>Streamlit (com login)</li><li>SQL sobre o banco do site</li><li>Busca diária agendada</li><li>Servidor interno</li><li>VPN</li>
+      </ul>
+    </div>
+  </details>
+
+  <section class="case-section" aria-labelledby="sec-aprendizados">
+    <h2 id="sec-aprendizados">Aprendizado</h2>
+    <ol class="aprendizados">
+      <li><strong>Automatizar a espera vale tanto quanto automatizar a busca.</strong> O cliente para quem ainda não há imóvel deixa de depender de alguém lembrar dele amanhã.</li>
+    </ol>
+  </section>
+
+  <aside class="prova-box">
+    <h2>Confidencialidade</h2>
+    <p>Projeto entregue a um cliente real, descrito sem nome e sem telas, a pedido dele. É a prova de que a mesma forma de trabalhar — entender o processo, transformar em regra, automatizar — funciona fora da indústria.</p>
+  </aside>
+
+  <a class="case-next" href="/cases/tazzin/">
+    <span class="case-next-label">Próximo · Código aberto</span>
+    <span class="case-next-title">Sistema TAZZIN: o que construí na indústria, auditável por qualquer pessoa</span>
+  </a>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Douglas Tassinari · Sistemas de Gestão &amp; Dados · Criciúma-SC</span>
+    <div class="footer-links">
+      <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">Jornada Brasil</a>
+      <a href="https://github.com/DouglasTassinari/Tazzin" target="_blank" rel="noopener">Sistema TAZZIN</a>
+      <a href="https://github.com/DouglasTassinari/douglastassinari.github.io" target="_blank" rel="noopener">Código deste site</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
