@@ -5,14 +5,18 @@ Site profissional de Douglas Tassinari — **Sistemas de Gestão & Dados**.
 Não é um portfólio de inventário: é um argumento com prova. A home apresenta a
 tese ("transformo operações em sistemas de gestão") com três números de impacto,
 o que essa experiência leva para outra operação e o trabalho selecionado — um
-case a fundo e três projetos que mostram o mesmo raciocínio em outros contextos:
+case a fundo e quatro projetos que mostram o mesmo raciocínio em outros contextos,
+mais um projeto colaborativo:
 
 | Página | Natureza | Prova |
 |---|---|---|
 | [Plataforma Industrial](https://douglastassinari.github.io/cases/plataforma-industrial/) | Case principal | Números de antes e depois conferidos no sistema, descritos sem dados sensíveis |
 | [Jornada Brasil](https://douglastassinari.github.io/cases/jornada-brasil/) | Produto público | [jornadabrasil.com.br](https://jornadabrasil.com.br) — no ar |
 | [Recomendação de imóveis](https://douglastassinari.github.io/cases/recomendacao-imoveis/) | Cliente externo | Em uso desde jun/2026 — confidencial, sem nome e sem telas |
+| [Sistema de pedidos](https://douglastassinari.github.io/cases/delivery-lanchonete/) | Cliente externo | Lanchonete de bairro — confidencial, sem o nome da loja |
 | [Sistema TAZZIN](https://douglastassinari.github.io/cases/tazzin/) | Código aberto | [Demo no ar](https://tazzin.streamlit.app) · [código no GitHub](https://github.com/DouglasTassinari/Tazzin) |
+
+Projeto colaborativo, na home: [Amparo RS](https://amparors.github.io) — projeto escolar de Maria Eduarda (3º ano do ensino médio), com desenvolvimento meu.
 
 ## Estrutura
 
@@ -23,6 +27,7 @@ case a fundo e três projetos que mostram o mesmo raciocínio em outros contexto
 │   ├── plataforma-industrial/      # Case principal · indústria
 │   ├── jornada-brasil/             # Projeto · produto público
 │   ├── recomendacao-imoveis/       # Projeto · cliente externo
+│   ├── delivery-lanchonete/        # Projeto · cliente externo
 │   ├── tazzin/                     # Projeto · código aberto
 │   └── opsvision/                  # redirect do nome antigo → /cases/tazzin/
 ├── assets/

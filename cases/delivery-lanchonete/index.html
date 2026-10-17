@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Do cardápio ao caixa: o sistema de pedidos de uma lanchonete de bairro · Douglas Tassinari</title>
+<meta name="description" content="Site de pedidos e painel de gestão para uma lanchonete em Criciúma: lanche montado pelo celular, entrega com taxa por distância, Pix e cartão pelo Mercado Pago, pedidos em tempo real, caixa e relatórios.">
+<link rel="canonical" href="https://douglastassinari.github.io/cases/delivery-lanchonete/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://douglastassinari.github.io/cases/delivery-lanchonete/">
+<meta property="og:title" content="Do cardápio ao caixa: o sistema de pedidos de uma lanchonete de bairro">
+<meta property="og:description" content="O cliente monta o lanche e paga pelo celular; o dono recebe, acompanha e fecha o caixa num só lugar.">
+<meta property="og:image" content="https://douglastassinari.github.io/assets/img/og-cover.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://douglastassinari.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://douglastassinari.github.io/#cases" },
+    { "@type": "ListItem", "position": 3, "name": "Sistema de pedidos" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <nav aria-label="Navegação principal">
+    <a href="/" class="nav-logo">DT<span> · </span>Sistemas de Gestão &amp; Dados</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/#como-trabalho">Como trabalho</a></li>
+      <li><a href="/#trajetoria">Trajetória</a></li>
+      <li><a href="/#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo" class="case-page">
+
+  <nav class="breadcrumb" aria-label="Trilha de navegação">
+    <a href="/">Início</a><span aria-hidden="true">→</span><a href="/#cases">Cases</a><span aria-hidden="true">→</span>Sistema de pedidos
+  </nav>
+
+  <header class="case-header">
+    <div class="section-label">Projeto · Cliente externo · 2026</div>
+    <h1>Do cardápio ao caixa: o sistema de pedidos de uma lanchonete de bairro</h1>
+    <p class="case-lead">Site de pedidos e painel de gestão feitos para uma lanchonete em Criciúma. O cliente monta o lanche e paga pelo celular; o dono recebe o pedido, acompanha a entrega e fecha o caixa num só lugar. Como nos outros projetos para clientes, descrito sem o nome da loja.</p>
+    <dl class="resumo">
+      <div><dt>Desafio</dt><dd>Um site de pedidos que qualquer cliente consiga usar, inclusive quem tem pouca prática com celular, e um painel em que o dono controle pedidos, cardápio, entrega e caixa.</dd></div>
+      <div><dt>O que fiz</dt><dd>O sistema inteiro: site do cliente, painel do dono, pagamentos, segurança e publicação, a partir do cardápio real e das regras da loja.</dd></div>
+      <div><dt>Entregue</dt><dd>5 páginas para o cliente e 15 telas no painel do dono, com Pix e cartão pelo Mercado Pago e alerta de pedido novo falado em voz alta.</dd></div>
+      <div><dt>Meu papel</dt><dd>Tudo — produto, código, segurança, SEO local e operação.</dd></div>
+    </dl>
+  </header>
+
+  <section class="case-section" aria-labelledby="sec-funciona">
+    <h2 id="sec-funciona">Como funciona</h2>
+    <ol class="passos">
+      <li><strong>O cardápio.</strong> Busca, destaques e o lanche montado do jeito do cliente: adicionais pagos, ingredientes retirados, sabor do refrigerante e molhos.</li>
+      <li><strong>A entrega.</strong> O cliente marca o local no mapa e a taxa é calculada pela distância; quem prefere retira no balcão, sem taxa.</li>
+      <li><strong>O pagamento.</strong> Pix ou cartão pelo site, pelo Mercado Pago, ou dinheiro com troco, Pix, débito e crédito na entrega ou na retirada.</li>
+      <li><strong>O painel.</strong> O pedido aparece na hora, com alerta sonoro e voz; o dono confirma, imprime e muda o status, que o cliente acompanha em “Meus pedidos”.</li>
+      <li><strong>O fechamento.</strong> Caixa, relatórios e horário automático: a loja abre e fecha sozinha conforme o horário cadastrado.</li>
+    </ol>
+  </section>
+
+  <section class="case-section" aria-labelledby="sec-decisoes">
+    <h2 id="sec-decisoes">Duas decisões que pesaram</h2>
+
+    <div class="decisao">
+      <h3>O preço é calculado só no servidor</h3>
+      <p>O navegador envia apenas quais itens foram escolhidos. Preço, adicionais, taxa de entrega e total são recalculados no servidor, e um pagamento só é aceito depois de conferido na API do Mercado Pago — o pedido e o valor.</p>
+      <p class="decisao-alt"><strong>Por quê</strong> — Num sistema que mexe com dinheiro, qualquer número que venha do navegador pode ser alterado. A regra precisa morar onde o cliente não alcança.</p>
+    </div>
+
+    <div class="decisao">
+      <h3>Feito para quem tem pouca prática com celular</h3>
+      <p>Letras e botões grandes, botões escritos em vez de só ícones, poucos passos até o pedido e uma tela que funciona do celular pequeno ao computador.</p>
+      <p class="decisao-alt"><strong>Por quê</strong> — Quem pede lanche no bairro não é só quem vive no celular. Cada passo confuso é um pedido que vai para o telefone — ou que não acontece.</p>
+    </div>
+  </section>
+
+  <details class="detalhes">
+    <summary>Detalhes técnicos<span>Stack, segurança e SEO local</span></summary>
+    <div class="detalhes-corpo">
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li>Python</li><li>Flask</li><li>SQLite</li><li>Waitress</li><li>JavaScript</li><li>Leaflet + OpenStreetMap</li><li>Mercado Pago (Pix e cartão)</li><li>Render</li>
+      </ul>
+      <h3>Segurança</h3>
+      <ul>
+        <li><strong>Painel do dono</strong> — senha forte, verificação em duas etapas, bloqueio após tentativas erradas, sessão que expira e “sair de todos os aparelhos”.</li>
+        <li><strong>Pagamentos</strong> — o cartão é digitado na página do Mercado Pago, nunca no site; o token da conta fica criptografado no banco, e o aviso de pagamento tem a assinatura validada.</li>
+        <li><strong>Site</strong> — proteção contra formulários forjados, cabeçalhos de segurança, limite de pedidos por aparelho e validação das fotos enviadas; código verificado com <code>bandit</code> e <code>pip-audit</code>.</li>
+      </ul>
+      <h3>SEO local</h3>
+      <ul>
+        <li><strong>Dados estruturados</strong> — restaurante, endereço, horário, área de entrega e cardápio com preços no formato que o Google lê.</li>
+        <li><strong>Conteúdo que vem do painel</strong> — horário, taxa e perguntas frequentes são montados a partir das configurações da loja e mudam sozinhos quando o dono altera algo.</li>
+      </ul>
+    </div>
+  </details>
+
+  <section class="case-section" aria-labelledby="sec-aprendizados">
+    <h2 id="sec-aprendizados">Aprendizados</h2>
+    <ol class="aprendizados">
+      <li><strong>Simples para o cliente dá trabalho no código.</strong> Montar um xis com adicionais, molhos e ingredientes retirados em poucos toques exigiu regras de preço bem mais detalhadas do que o cardápio deixa ver.</li>
+      <li><strong>Pequeno negócio também precisa de gestão.</strong> O pedido é só o começo: caixa, relatórios e o status para o cliente são o que tira o dono da anotação e da lembrança.</li>
+    </ol>
+  </section>
+
+  <aside class="prova-box">
+    <h2>Confidencialidade</h2>
+    <p>Projeto para um cliente real, descrito sem o nome da loja e com o código privado. Mostra o mesmo raciocínio do case industrial — entender o processo, transformar em regra e automatizar — num negócio de bairro.</p>
+  </aside>
+
+  <a class="case-next" href="/cases/tazzin/">
+    <span class="case-next-label">Próximo · Código aberto</span>
+    <span class="case-next-title">Sistema TAZZIN: o que construí na indústria, auditável por qualquer pessoa</span>
+  </a>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>© 2026 Douglas Tassinari · Sistemas de Gestão &amp; Dados · Criciúma-SC</span>
+    <div class="footer-links">
+      <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">Jornada Brasil</a>
+      <a href="https://github.com/DouglasTassinari/Tazzin" target="_blank" rel="noopener">Sistema TAZZIN</a>
+      <a href="https://github.com/DouglasTassinari/douglastassinari.github.io" target="_blank" rel="noopener">Código deste site</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

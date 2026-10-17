@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Jornada Brasil: ferramentas que nasceram de problemas de gente próxima · Douglas Tassinari</title>
-<meta name="description" content="16 ferramentas e 37 artigos para quem transita entre CLT e trabalho autônomo — cada ferramenta nasceu do problema de alguém próximo. A calculadora de imposto de renda passou de 100 acessos por mês vindos do Google em dois meses.">
+<meta name="description" content="16 ferramentas e 36 artigos para quem transita entre CLT e trabalho autônomo — cada ferramenta nasceu do problema de alguém próximo. A calculadora de imposto de renda passou de 100 acessos por mês vindos do Google em dois meses.">
 <link rel="canonical" href="https://douglastassinari.github.io/cases/jornada-brasil/">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://douglastassinari.github.io/cases/jornada-brasil/">
@@ -58,7 +58,7 @@
   <header class="case-header">
     <div class="section-label">Projeto · Produto público · 2026</div>
     <h1>Ferramentas que nasceram de problemas de gente próxima — e viraram um site público</h1>
-    <p class="case-lead">O <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">jornadabrasil.com.br ↗</a> reúne 16 ferramentas e 37 artigos para quem transita entre CLT e trabalho autônomo. Cada ferramenta começou resolvendo o problema de alguém que eu conhecia; o site existe para que qualquer pessoa tenha a mesma resposta.</p>
+    <p class="case-lead">O <a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">jornadabrasil.com.br ↗</a> reúne 16 ferramentas e 36 artigos para quem transita entre CLT e trabalho autônomo. Cada ferramenta começou resolvendo o problema de alguém que eu conhecia; o site existe para que qualquer pessoa tenha a mesma resposta.</p>
     <dl class="resumo">
       <div><dt>Desafio</dt><dd>Dúvidas que a internet respondia pela metade ou com regra desatualizada: quanto vou receber, quanto cobrar por um serviço, quanto sobra do que eu faturo.</dd></div>
       <div><dt>O que fiz</dt><dd>Levei soluções feitas para pessoas próximas a um site público, com artigos explicativos e tudo num único domínio.</dd></div>
@@ -99,7 +99,7 @@
 
     <div class="decisao">
       <h3>O dado do usuário fica no navegador</h3>
-      <p>As ferramentas funcionam sem cadastro: salário e faturamento digitados ficam no próprio navegador, e a conta de usuário é opcional.</p>
+      <p>As ferramentas funcionam sem cadastro: salário, faturamento, favoritos, histórico de cálculos e orçamentos ficam no próprio navegador. O site chegou a ter uma conta opcional com login Google; em outubro de 2026, quando o serviço de login saiu do ar, a decisão foi retirá-la e simplificar.</p>
       <p class="decisao-alt"><strong>Alternativa rejeitada</strong> — Exigir conta desde o início. Criaria atrito antes de entregar valor e transformaria cada salário digitado em responsabilidade de LGPD.</p>
     </div>
   </section>
@@ -109,13 +109,13 @@
     <div class="detalhes-corpo">
       <h3>Stack</h3>
       <ul class="chips">
-        <li>HTML, CSS e JavaScript</li><li>React via CDN</li><li>PWA</li><li>Supabase (conta opcional)</li><li>GitHub Pages</li><li>GitHub Actions</li><li>GA4 + Consent Mode</li><li>AdSense</li>
+        <li>HTML, CSS e JavaScript</li><li>React via CDN</li><li>PWA</li><li>localStorage</li><li>GitHub Pages</li><li>GitHub Actions</li><li>GA4 + Consent Mode</li><li>AdSense</li>
       </ul>
       <h3>Outras decisões</h3>
       <ul>
-        <li><strong>Consolidação com histórico</strong> — os repositórios viraram um só por <code>git subtree</code>, e os endereços antigos redirecionam com <code>canonical</code> para não perder indexação.</li>
+        <li><strong>Consolidação com histórico</strong> — os repositórios viraram um só por <code>git subtree</code>, preservando o histórico de cada ferramenta, e os endereços que mudaram dentro do site redirecionam para o novo, para não perder indexação.</li>
         <li><strong>Uma camada compartilhada</strong> — identidade visual, navegação, consentimento e armazenamento escritos uma vez e usados por todas as ferramentas.</li>
-        <li><strong>Monitoração sem serviço pago</strong> — uma rotina no GitHub Actions verifica a disponibilidade do site a cada 15 minutos.</li>
+        <li><strong>Monitoração sem serviço pago</strong> — uma rotina agendada no GitHub Actions verifica a disponibilidade do site várias vezes por dia.</li>
       </ul>
     </div>
   </details>
@@ -132,7 +132,7 @@
     <h2>Prova</h2>
     <ul>
       <li><a href="https://jornadabrasil.com.br" target="_blank" rel="noopener">jornadabrasil.com.br ↗</a> — o site, no ar</li>
-      <li><a href="https://github.com/DouglasTassinari/calculadoras-clt" target="_blank" rel="noopener">github.com/DouglasTassinari/calculadoras-clt ↗</a> — o código</li>
+      <li><a href="https://github.com/DouglasTassinari/jornadabrasil" target="_blank" rel="noopener">github.com/DouglasTassinari/jornadabrasil ↗</a> — o código</li>
     </ul>
   </aside>
 

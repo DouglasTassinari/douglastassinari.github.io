@@ -337,6 +337,11 @@ h2 em { font-style: italic; color: var(--accent); }
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
 }
+.cases-grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+/* Projeto em parceria, abaixo dos cases */
+.parceria { margin-top: 2.2rem; }
+.parceria > .case-kicker { color: var(--muted); }
 
 .case-card {
   display: flex;
@@ -1039,7 +1044,7 @@ h2 em { font-style: italic; color: var(--accent); }
   .nav-links li { border-top: 1px solid var(--border); }
   .nav-links a { display: block; padding: 1rem 1.5rem; }
 
-  .cases-grid { grid-template-columns: 1fr; }
+  .cases-grid, .cases-grid--2 { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
   .stack-grid { grid-template-columns: 1fr; }
   .contato-grid { grid-template-columns: 1fr; gap: 2rem; }
