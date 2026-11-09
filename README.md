@@ -14,7 +14,7 @@ mais um projeto colaborativo:
 | [Jornada Brasil](https://douglastassinari.github.io/cases/jornada-brasil/) | Produto público | [jornadabrasil.com.br](https://jornadabrasil.com.br) — no ar |
 | [Recomendação de imóveis](https://douglastassinari.github.io/cases/recomendacao-imoveis/) | Cliente externo | Em uso desde jun/2026 — confidencial, sem nome e sem telas |
 | [Sistema de pedidos](https://douglastassinari.github.io/cases/delivery-lanchonete/) | Cliente externo | Lanchonete de bairro — confidencial, sem o nome da loja |
-| [Sistema TAZZIN](https://douglastassinari.github.io/cases/tazzin/) | Código aberto | [Demo no ar](https://tazzin.streamlit.app) · [código no GitHub](https://github.com/DouglasTassinari/Tazzin) |
+| [Sistema TAZZIN](https://douglastassinari.github.io/cases/tazzin/) | Código aberto | [Demo no ar](https://tazzin.streamlit.app) · [código no GitHub](https://github.com/DouglasTassinari/tazzin-modulos) |
 
 Projeto colaborativo, na home: [Amparo RS](https://amparors.github.io) — projeto escolar de Maria Eduarda (3º ano do ensino médio), com desenvolvimento meu.
 
@@ -59,3 +59,10 @@ Projeto colaborativo, na home: [Amparo RS](https://amparors.github.io) — proje
 
 Cada página de case documenta as decisões do projeto que descreve — incluindo
 as alternativas rejeitadas. Este repositório segue o mesmo princípio.
+
+
+---
+
+<p align="center">
+  <a href="https://douglastassinari.github.io/tazzin-site/"><img src="https://douglastassinari.github.io/tazzin-site/assets/img/selo-tazzin.svg" alt="Desenvolvido por TAZZIN" height="46"></a>
+</p>
